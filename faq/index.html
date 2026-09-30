@@ -17,11 +17,23 @@ schema_faq: true
 
 <section class="bg-cream">
   <div class="container faq">
-    {%- for item in site.data.faq %}
-    <details{% if forloop.first %} open{% endif %}>
-      <summary>{{ item.q }}</summary>
-      <div><p>{{ item.a }}</p></div>
-    </details>
+    <nav class="faq-nav" aria-label="FAQ sections">
+      {%- for group in site.data.faq %}
+      <a href="#{{ group.id }}"><span aria-hidden="true">{{ group.icon }}</span> {{ group.group }}</a>
+      {%- endfor %}
+    </nav>
+
+    {%- for group in site.data.faq %}
+    {%- assign first_group = forloop.first %}
+    <div class="faq-group" id="{{ group.id }}">
+      <h2><span class="faq-icon" aria-hidden="true">{{ group.icon }}</span>{{ group.group }}</h2>
+      {%- for item in group.items %}
+      <details{% if first_group and forloop.first %} open{% endif %}>
+        <summary>{{ item.q }}</summary>
+        <div class="faq-answer">{{ item.a | markdownify }}</div>
+      </details>
+      {%- endfor %}
+    </div>
     {%- endfor %}
   </div>
 </section>
