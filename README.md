@@ -50,7 +50,6 @@ The domain renews yearly in Cloudflare; keep auto-renew on so the site doesn't g
 | Event photos | `images/gallery/` |
 | Sticker / tattoo / print designs | `images/designs/` |
 | Colors, fonts, layout | `css/style.css` (colors are at the top) |
-| Heading font files (More Sugar) | `fonts/` |
 | Instagram link, Google Form link, location | `_config.yml` |
 
 You can edit any of these straight on github.com (open the file → pencil icon → *Commit changes*).
@@ -64,14 +63,6 @@ Put event photos in `images/gallery/` and designs in `images/designs/`, then add
 ```
 
 Keep photos under ~500 KB each (resize to ~1200px wide) so the site stays fast.
-
-## Fonts
-
-- **Headings & subheadings:** More Sugar (Regular and Thin), self hosted from `fonts/`.
-  Make sure its license allows commercial website use.
-- **Body text:** Mali from Google Fonts, the closest free match to Dreaming Outloud Sans
-  (which isn't available for websites). To try another, change `family=Mali` in
-  `_layouts/default.html` and `"Mali"` in `--font-body` at the top of `css/style.css`.
 
 ## Previewing locally (optional)
 
