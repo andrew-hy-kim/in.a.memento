@@ -3,10 +3,8 @@ title: in a memento
 description: >-
   Sticker & temporary tattoo vending machine rentals for weddings, parties
   and events in Seattle, WA. Personalized favors your guests get to pull themselves.
-url: ""        # e.g. https://inamemento.com once a custom domain is connected
-baseurl: "/in.a.memento"  # the repo name, because the site lives at
-                          # andrew-hy-kim.github.io/in.a.memento.
-                          # Change to "" once a custom domain is connected.
+url: "https://inamemento.com"
+baseurl: ""   # blank because the site is served from the domain root (inamemento.com)
 
 instagram: https://www.instagram.com/in.a.memento/
 inquiry_form: https://docs.google.com/forms/d/e/1FAIpQLSe85VIphF1qTB14P-bY9GlTR199mvtphi0w0MrX4nMlo8ekOQ/viewform

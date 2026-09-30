@@ -11,26 +11,29 @@ so there is no server to run and nothing to install.
    *Settings → General → Danger Zone → Change visibility.*
 2. Go to **Settings → Pages**.
 3. Under **Build and deployment**, choose **Source: Deploy from a branch**, pick the `main` branch and the `/ (root)` folder, and click **Save**.
-4. After a minute or two the site is live at `https://andrew-hy-kim.github.io/in.a.memento/`.
+4. After a minute or two the site is live at **https://inamemento.com** (once the DNS records below are in place).
 
 Any change pushed to `main` goes live automatically a minute or so later.
 
-### Getting your own domain (optional, about $10–12/year)
+### Custom domain: inamemento.com (registered with Cloudflare)
 
-A domain is the web address, like `inamemento.com`. You rent it yearly from a "registrar".
-GitHub hosting stays free, so the domain is the only cost.
+The `CNAME` file in this repo tells GitHub Pages to serve the site at `inamemento.com`.
+DNS records in Cloudflare (**Websites → inamemento.com → DNS → Records**), all set to
+**Proxy status: DNS only** (grey cloud):
 
-1. **Buy it** from **Cloudflare Registrar** or **Porkbun**. Both sell `.com` domains at close to cost
-   (about $10–12/year) with no upsells, and renewals stay about the same price.
-   Skip the add-ons (hosting, email, "privacy" upgrades; privacy is already free at both).
-   Avoid "$1 first year" deals elsewhere, since renewals often jump to $20+.
-2. In this repo, go to **Settings → Pages → Custom domain**, type your domain (e.g. `www.inamemento.com`) and save.
-3. At the registrar, open the domain's **DNS** settings and add the records from
-   [GitHub's guide](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site):
-   - a `CNAME` record: name `www` → `andrew-hy-kim.github.io`
-   - four `A` records: name `@` → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-4. In `_config.yml`, change `baseurl: "/in.a.memento"` to `baseurl: ""`.
-5. Wait up to a day, then tick **Enforce HTTPS** in Settings → Pages.
+| Type | Name | Content |
+| --- | --- | --- |
+| A | `@` | `185.199.108.153` |
+| A | `@` | `185.199.109.153` |
+| A | `@` | `185.199.110.153` |
+| A | `@` | `185.199.111.153` |
+| CNAME | `www` | `andrew-hy-kim.github.io` |
+
+Then in **Settings → Pages**, the custom domain should read `inamemento.com`; tick **Enforce HTTPS**
+once GitHub finishes issuing the certificate (can take up to a day).
+See [GitHub's guide](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
+
+The domain renews yearly in Cloudflare; keep auto-renew on so the site doesn't go down.
 
 ## Where things live
 
@@ -67,4 +70,4 @@ gem install jekyll
 jekyll serve
 ```
 
-Then open http://localhost:4000/in.a.memento/.
+Then open http://localhost:4000/.
