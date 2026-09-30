@@ -421,6 +421,30 @@ section { padding: 88px 0; }
 }
 .sparkle { color: var(--butter-deep); font-size: 1.6rem; }
 
+/* Two reviews side by side (stacked on small screens) */
+.quotes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px 36px;
+  align-items: start;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+.quotes .quote-bubble { max-width: none; font-size: 1.2rem; padding: 34px 32px; }
+.quote-bubble.quote-alt { background: #fdecee; border-color: var(--sky-deep); margin-top: 36px; }
+.quote-bubble.quote-alt::after { left: auto; right: 70px; border-width: 30px 0 0 24px; border-color: var(--sky-deep) transparent transparent transparent; }
+.cite-event {
+  display: inline-block;
+  margin-left: 6px;
+  font-size: 0.8em;
+  color: var(--ink-soft);
+}
+.cite-event::before { content: "· "; }
+@media (max-width: 800px) {
+  .quotes { grid-template-columns: 1fr; }
+  .quote-bubble.quote-alt { margin-top: 0; }
+}
+
 /* ---------- Gallery ---------- */
 
 .gallery-grid {
