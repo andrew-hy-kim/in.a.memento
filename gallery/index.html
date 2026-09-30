@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Gallery
-description: Custom sticker and temporary tattoo designs from in a memento events.
+description: Photos of the in a memento vending machine at events, plus sticker, tattoo and mini print designs from our library.
 ---
 
 <section class="page-banner bg-gingham">
@@ -14,19 +14,45 @@ description: Custom sticker and temporary tattoo designs from in a memento event
   </div>
 </section>
 
-<!--
-  TODO: add photos to the images/gallery/ folder, then swap each placeholder tile for:
-  <div class="tile"><img src="{{ '/images/gallery/your-photo.jpg' | relative_url }}" alt="Describe the photo" loading="lazy"></div>
--->
 <section class="bg-cream">
   <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">at events</span>
+      <h2>The machine</h2>
+    </div>
+    <div class="grid grid-2">
+      <figure class="polaroid tilt-left">
+        <img src="{{ '/images/gallery/machine-on-stand.webp' | relative_url }}" width="660" height="1112" loading="lazy"
+             alt="The vending machine on its stand at an outdoor wedding, with a sign reading 'Show Your Un-dye-ing Love For Us and Get Inked!'">
+        <figcaption>a tattoo-themed wedding 💍</figcaption>
+      </figure>
+      <figure class="polaroid">
+        <img src="{{ '/images/gallery/andrews-30th.webp' | relative_url }}" width="624" height="651" loading="lazy"
+             alt="The vending machine at a 30th birthday party, showing six doodle designs and the sign '1 token = 1 surprise mini print'">
+        <figcaption>Andrew's 30th 🎂</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!--
+  To add a photo: put it in images/gallery/ and copy one of the <figure> blocks above or below,
+  changing the file name and the alt text (a short description of the photo).
+-->
+<section class="bg-blush">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">from our design library</span>
+      <h2>Designs</h2>
+      <p>Every library design can be customized for free, or we can draw something new just for you.</p>
+    </div>
     <div class="gallery-grid">
-      <div class="tile bg-sky-stripes"><span class="tile-label"><span class="tile-emoji">🎂</span>Andrew's 30th</span></div>
-      <div class="tile bg-sage"><span class="tile-label"><span class="tile-emoji">💐</span>Rachel &amp; Brian</span></div>
-      <div class="tile bg-blush"><span class="tile-label"><span class="tile-emoji">🐛</span>bookworm</span></div>
-      <div class="tile bg-butter-stripes"><span class="tile-label"><span class="tile-emoji">🐈</span>kitty doodles</span></div>
-      <div class="tile bg-gingham"><span class="tile-label"><span class="tile-emoji">🦆</span>chef duck</span></div>
-      <div class="tile bg-peach"><span class="tile-label"><span class="tile-emoji">🏃</span>RUN</span></div>
+      <figure class="tile photo contain"><img src="{{ '/images/gallery/design-bookworm.webp' | relative_url }}" alt="A green bookworm with glasses reading a book"><figcaption>bookworm</figcaption></figure>
+      <figure class="tile photo contain"><img src="{{ '/images/gallery/design-sleepy-cat.webp' | relative_url }}" alt="A sleepy orange cat stretching, with zzz"><figcaption>sleepy cat</figcaption></figure>
+      <figure class="tile photo contain"><img src="{{ '/images/gallery/design-chef-duck.webp' | relative_url }}" alt="A white duck in a chef hat holding a spatula"><figcaption>chef duck</figcaption></figure>
+      <figure class="tile photo contain"><img src="{{ '/images/gallery/design-run.webp' | relative_url }}" alt="The word RUN with little running legs"><figcaption>RUN</figcaption></figure>
+      <figure class="tile photo contain"><img src="{{ '/images/gallery/design-cozy-bear.webp' | relative_url }}" alt="A bear tucked into a striped blanket"><figcaption>cozy bear</figcaption></figure>
+      <figure class="tile photo contain"><img src="{{ '/images/gallery/design-way-of-cats.webp' | relative_url }}" alt="A grey cat reading a book called Way of Cats"><figcaption>way of cats</figcaption></figure>
     </div>
     <p class="center mt-lg">
       <a class="btn btn-primary" href="{{ site.instagram }}" target="_blank" rel="noopener">See more on Instagram</a>

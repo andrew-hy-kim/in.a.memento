@@ -8,8 +8,8 @@ title: Sticker & Tattoo Vending Machine Rentals
     <div class="hero-copy">
       <span class="eyebrow">✨ vending machine rentals · seattle, wa</span>
       <h1>Little keepsakes, <span class="accent">one coin at a time.</span></h1>
-      <p class="hero-lead">We bring a sweet, coin-operated vending machine filled with stickers and temporary
-        tattoos designed just for your day. Guests insert a token, twist, and pull a surprise to take home.</p>
+      <p class="hero-lead">We bring a sweet, coin-operated vending machine filled with stickers, temporary
+        tattoos and mini prints designed just for your day. Guests insert a token, twist, and pull out a surprise to take home.</p>
       <ul class="pill-row">
         <li class="pill">weddings</li>
         <li class="pill">birthdays</li>
@@ -22,7 +22,11 @@ title: Sticker & Tattoo Vending Machine Rentals
       </div>
     </div>
     <div class="hero-art">
-      {% include machine.svg %}
+      <figure class="polaroid">
+        <img src="{{ '/images/gallery/andrews-30th.webp' | relative_url }}" width="624" height="651"
+             alt="The in a memento vending machine at a 30th birthday party, showing six doodle designs and the sign '1 token = 1 surprise mini print'">
+        <figcaption>Andrew's 30th · 09.18.2026</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -44,12 +48,12 @@ title: Sticker & Tattoo Vending Machine Rentals
       <div class="card tape">
         <div class="icon-bubble" aria-hidden="true">🎨</div>
         <h3>Personalized designs</h3>
-        <p>Your names, your date, your inside jokes, your pets — we design custom stickers and tattoos to match your event.</p>
+        <p>Pick from our design library, bring your own art, or have us draw something just for you.</p>
       </div>
       <div class="card tape">
         <div class="icon-bubble" aria-hidden="true">🚚</div>
         <h3>Zero set-up stress</h3>
-        <p>We deliver, set up, stock the machine and pick it up after. You just enjoy your day.</p>
+        <p>We deliver, set up and keep an eye on the machine, then take it away after. You just enjoy your day.</p>
       </div>
     </div>
   </div>
@@ -63,19 +67,37 @@ title: Sticker & Tattoo Vending Machine Rentals
       <p>A wedding is full of little details, and ours is the one guests talk about on the drive home.
         Tuck the machine by the guestbook, near the bar or at the dessert table and watch the crowd gather.</p>
       <ul class="checklist">
-        <li>Custom sign &amp; machine display with your names and date</li>
-        <li>Stickers and temporary tattoos designed around your theme</li>
-        <li>Tokens for every guest — no one needs to carry coins</li>
-        <li>Delivery, set-up and pick-up in the Seattle area</li>
+        <li>A machine display personalized with your names, date or a punny message</li>
+        <li>Stickers, temporary tattoos and mini prints to match your theme</li>
+        <li>Tokens for your guests, so no one needs to carry coins</li>
+        <li>Delivery, setup and pickup, with no travel fee within 25 miles of Capitol Hill</li>
       </ul>
       <a class="btn btn-primary" href="{{ '/pricing/' | relative_url }}">See packages</a>
     </div>
-    <div class="grid grid-2 tiles-2up">
-      <div class="tile bg-sky-stripes"><span class="tile-label"><span class="tile-emoji">💌</span>your names</span></div>
-      <div class="tile bg-gingham"><span class="tile-label"><span class="tile-emoji">🐱</span>your pets</span></div>
-      <div class="tile bg-sage"><span class="tile-label"><span class="tile-emoji">🌷</span>your theme</span></div>
-      <div class="tile bg-blush"><span class="tile-label"><span class="tile-emoji">🦆</span>your jokes</span></div>
+    <figure class="polaroid tilt-left photo-tall">
+      <img src="{{ '/images/gallery/machine-on-stand.webp' | relative_url }}" width="660" height="1112" loading="lazy"
+           alt="The vending machine on its stand at an outdoor wedding, with a sign reading 'Show Your Un-dye-ing Love For Us and Get Inked!' and a bowl of tokens nearby">
+      <figcaption>“show your un-dye-ing love” 💍</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="bg-blush">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">a peek at our design library</span>
+      <h2>Tiny doodles, big smiles</h2>
+      <p>Choose from our library (free to customize), send us your own art, or request a custom design.</p>
     </div>
+    <div class="sticker-row">
+      <figure><img src="{{ '/images/gallery/design-bookworm.webp' | relative_url }}" width="212" height="320" alt="A green bookworm with glasses reading a book"></figure>
+      <figure><img src="{{ '/images/gallery/design-sleepy-cat.webp' | relative_url }}" width="212" height="320" alt="A sleepy orange cat stretching, with zzz"></figure>
+      <figure><img src="{{ '/images/gallery/design-chef-duck.webp' | relative_url }}" width="212" height="320" alt="A white duck in a chef hat holding a spatula"></figure>
+      <figure><img src="{{ '/images/gallery/design-run.webp' | relative_url }}" width="212" height="320" alt="The word RUN with little running legs"></figure>
+      <figure><img src="{{ '/images/gallery/design-cozy-bear.webp' | relative_url }}" width="212" height="320" alt="A bear tucked into a striped blanket"></figure>
+      <figure><img src="{{ '/images/gallery/design-way-of-cats.webp' | relative_url }}" width="212" height="320" alt="A grey cat reading a book called Way of Cats"></figure>
+    </div>
+    <p class="center mt-lg"><a class="btn btn-soft" href="{{ '/gallery/' | relative_url }}">See the gallery</a></p>
   </div>
 </section>
 
@@ -89,17 +111,17 @@ title: Sticker & Tattoo Vending Machine Rentals
       <div class="card">
         <div class="step-num">1</div>
         <h3>Tell us about your event</h3>
-        <p>Fill out our quick inquiry form with your date, venue and guest count.</p>
+        <p>Fill out our quick interest form. We'll email you about availability within 1–5 business days.</p>
       </div>
       <div class="card">
         <div class="step-num">2</div>
-        <h3>Design together</h3>
-        <p>We'll sketch custom stickers and tattoos with you until they feel just right.</p>
+        <h3>Plan the details</h3>
+        <p>We'll chat by video call or email about your designs, then a 25% deposit secures your date.</p>
       </div>
       <div class="card">
         <div class="step-num">3</div>
         <h3>Insert, twist, collect!</h3>
-        <p>We set everything up on the day. Your guests do the fun part.</p>
+        <p>We set up and look after the machine on the day. Your guests go home with a memento.</p>
       </div>
     </div>
     <p class="center mt-lg"><a class="btn btn-soft" href="{{ '/how-it-works/' | relative_url }}">More details</a></p>
@@ -124,7 +146,7 @@ title: Sticker & Tattoo Vending Machine Rentals
 <section class="cta-band bg-cream">
   <div class="container">
     <div class="stamp">
-      <span class="eyebrow">dates fill up fast</span>
+      <span class="eyebrow">rentals from $200</span>
       <h2>Let's make something memorable</h2>
       <p class="muted">Tell us a little about your event and we'll get back to you with availability and a quote.</p>
       <div class="btn-row">

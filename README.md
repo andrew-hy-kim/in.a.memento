@@ -15,13 +15,22 @@ so there is no server to run and nothing to install.
 
 Any change pushed to `main` goes live automatically a minute or so later.
 
-### Using your own domain (optional, e.g. `inamemento.com`)
+### Getting your own domain (optional, about $10–12/year)
 
-1. Buy a domain from any registrar (Namecheap, Cloudflare, Porkbun, Google/Squarespace Domains …) — usually $10–20/year. **This is the only cost.**
-2. In **Settings → Pages → Custom domain**, enter the domain and save (this adds a `CNAME` file).
-3. At the registrar, add the DNS records GitHub shows you ([GitHub's guide](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)).
+A domain is the web address, like `inamemento.com`. You rent it yearly from a "registrar".
+GitHub hosting stays free, so the domain is the only cost.
+
+1. **Buy it** from **Cloudflare Registrar** or **Porkbun**. Both sell `.com` domains at close to cost
+   (about $10–12/year) with no upsells, and renewals stay about the same price.
+   Skip the add-ons (hosting, email, "privacy" upgrades; privacy is already free at both).
+   Avoid "$1 first year" deals elsewhere, since renewals often jump to $20+.
+2. In this repo, go to **Settings → Pages → Custom domain**, type your domain (e.g. `www.inamemento.com`) and save.
+3. At the registrar, open the domain's **DNS** settings and add the records from
+   [GitHub's guide](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site):
+   - a `CNAME` record: name `www` → `andrew-hy-kim.github.io`
+   - four `A` records: name `@` → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
 4. In `_config.yml`, change `baseurl: "/in.a.memento"` to `baseurl: ""`.
-5. Tick **Enforce HTTPS** once it becomes available.
+5. Wait up to a day, then tick **Enforce HTTPS** in Settings → Pages.
 
 ## Where things live
 
@@ -35,9 +44,9 @@ Any change pushed to `main` goes live automatically a minute or so later.
 | Book Us / contact form | `contact/index.html` |
 | Menu (top of every page) | `_includes/header.html` |
 | Footer (bottom of every page) | `_includes/footer.html` |
+| Photos & design images | `images/gallery/` |
 | Colors, fonts, layout | `css/style.css` (colors are at the top) |
 | Instagram link, Google Form link, location | `_config.yml` |
-| Vending machine illustration | `_includes/machine.svg` |
 
 You can edit any of these straight on github.com (open the file → pencil icon → *Commit changes*).
 

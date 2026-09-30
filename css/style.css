@@ -47,7 +47,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 
 a { color: var(--terracotta-deep); }
 a:hover { color: var(--terracotta); }
@@ -460,6 +460,13 @@ section { padding: 88px 0; }
 }
 .price-note { font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 20px; }
 .price-card.featured { border: 3px solid var(--butter-deep); transform: translateY(-8px); }
+.price-card .badge {
+  position: absolute;
+  top: -14px; left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  margin: 0;
+}
 .badge {
   display: inline-block;
   background: var(--butter);
@@ -591,8 +598,6 @@ section { padding: 88px 0; }
 @media (max-width: 880px) { .contact-split { grid-template-columns: 1fr; } }
 
 @media (max-width: 640px) {
-  .grid.tiles-2up { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-  .tiles-2up .tile-label { font-size: 1.1rem; padding: 8px 10px; }
   .logo-word { font-size: 1.3rem; }
   .logo-badge { width: 44px; height: 44px; font-size: 11px; }
 }
@@ -621,7 +626,8 @@ section { padding: 88px 0; }
 .polaroid.tilt-left { transform: rotate(-2deg); }
 figure { margin: 0; }
 
-.photo-tall { max-width: 360px; }
+.photo-tall { max-width: 320px; }
+.photo-tall img { max-height: 620px; object-fit: cover; }
 
 /* Row of design "stickers" */
 .sticker-row {
