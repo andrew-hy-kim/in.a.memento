@@ -22,9 +22,11 @@
   --ink-soft: #7d6453;
   --line: #ecdcc8;
 
-  --font-display: "Chewy", "Sniglet", system-ui, sans-serif;
-  --font-hand: "Patrick Hand", "Comic Sans MS", cursive;
-  --font-body: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Brand fonts: More Sugar for headings and subheadings, Dreaming Outloud Sans
+     for body text. Chewy and Nunito are stand-ins until the font files are in fonts/. */
+  --font-display: "More Sugar", "Chewy", system-ui, sans-serif;
+  --font-body: "Dreaming Outloud Sans", "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-hand: var(--font-body);
 
   --radius: 22px;
   --shadow: 0 6px 0 rgba(91, 63, 44, 0.08), 0 14px 30px rgba(91, 63, 44, 0.08);
@@ -239,7 +241,7 @@ section { padding: 88px 0; }
 
 .eyebrow {
   display: inline-block;
-  font-family: var(--font-hand);
+  font-family: var(--font-display);
   font-size: 1.25rem;
   color: var(--sky-deep);
   margin-bottom: 6px;
@@ -645,7 +647,7 @@ figure { margin: 0; }
 .sticker-row figure:nth-child(odd) { transform: rotate(-3deg); }
 .sticker-row figure:nth-child(even) { transform: rotate(2.5deg); }
 .sticker-row figure:hover { transform: rotate(0) scale(1.05); }
-.sticker-row img { width: 100%; aspect-ratio: 2 / 3; object-fit: contain; }
+.sticker-row img { width: 100%; aspect-ratio: 4 / 5; object-fit: contain; }
 @media (max-width: 800px) { .sticker-row { grid-template-columns: repeat(3, 1fr); } }
 
 .tile.photo { padding: 0; background: #fff; }

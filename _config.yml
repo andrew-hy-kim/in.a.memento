@@ -1,7 +1,7 @@
-# Site settings — GitHub Pages builds this automatically with Jekyll.
+# Site settings: GitHub Pages builds this automatically with Jekyll.
 title: in a memento
 description: >-
-  Sticker & temporary tattoo vending machine rentals for weddings, parties
+  Sticker, temporary tattoo and/or mini print vending machine rentals for weddings, parties
   and events in Seattle, WA. Personalized favors your guests get to pull themselves.
 url: "https://inamemento.com"
 baseurl: ""   # blank because the site is served from the domain root (inamemento.com)

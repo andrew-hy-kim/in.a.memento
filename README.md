@@ -47,7 +47,8 @@ The domain renews yearly in Cloudflare; keep auto-renew on so the site doesn't g
 | Book Us / contact form | `contact/index.html` |
 | Menu (top of every page) | `_includes/header.html` |
 | Footer (bottom of every page) | `_includes/footer.html` |
-| Photos & design images | `images/gallery/` |
+| Event photos | `images/gallery/` |
+| Sticker / tattoo / print designs | `images/designs/` |
 | Colors, fonts, layout | `css/style.css` (colors are at the top) |
 | Instagram link, Google Form link, location | `_config.yml` |
 
@@ -55,7 +56,7 @@ You can edit any of these straight on github.com (open the file → pencil icon 
 
 ### Adding photos
 
-Put images in `images/gallery/` and replace a placeholder tile in `gallery/index.html` with:
+Put event photos in `images/gallery/` and designs in `images/designs/`, then add a tile to `gallery/index.html` like:
 
 ```html
 <div class="tile"><img src="{{ '/images/gallery/my-photo.jpg' | relative_url }}" alt="What's in the photo" loading="lazy"></div>
