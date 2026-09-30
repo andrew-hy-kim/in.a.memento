@@ -4,6 +4,20 @@
    sky-blue stripes, butter-yellow stripes, gingham, sage & peach.
    ========================================================== */
 
+/* More Sugar (self hosted from fonts/) for headings; Thin for the small subheadings */
+@font-face {
+  font-family: "More Sugar";
+  src: url("../fonts/MoreSugar-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: "More Sugar";
+  src: url("../fonts/MoreSugar-Thin.ttf") format("truetype");
+  font-weight: 200;
+  font-display: swap;
+}
+
 :root {
   --cream: #fffaf1;
   --paper: #fffdf8;
@@ -22,10 +36,10 @@
   --ink-soft: #7d6453;
   --line: #ecdcc8;
 
-  /* Brand fonts: More Sugar for headings and subheadings, Dreaming Outloud Sans
-     for body text. Chewy and Nunito are stand-ins until the font files are in fonts/. */
-  --font-display: "More Sugar", "Chewy", system-ui, sans-serif;
-  --font-body: "Dreaming Outloud Sans", "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* More Sugar for headings and subheadings. Body text uses Mali (Google Fonts),
+     the closest free match to Dreaming Outloud Sans, which isn't licensed for the web. */
+  --font-display: "More Sugar", system-ui, sans-serif;
+  --font-body: "Mali", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-hand: var(--font-body);
 
   --radius: 22px;
@@ -57,11 +71,11 @@ a:hover { color: var(--terracotta); }
 h1, h2, h3 {
   font-family: var(--font-display);
   font-weight: 400;
-  line-height: 1.15;
+  line-height: 1.1;
   margin: 0 0 0.5em;
   letter-spacing: 0.01em;
 }
-h1 { font-size: clamp(2.4rem, 6vw, 4rem); }
+h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); }
 h2 { font-size: clamp(2rem, 4.5vw, 2.8rem); color: var(--terracotta); }
 h3 { font-size: 1.5rem; }
 
@@ -137,8 +151,8 @@ p { margin: 0 0 1em; }
   border: 2px solid var(--sky-mid);
   background: repeating-linear-gradient(90deg, var(--paper) 0 5px, var(--sky) 5px 10px);
   font-family: var(--font-display);
-  font-size: 13px;
-  line-height: 0.95;
+  font-size: 10.5px;
+  line-height: 1;
   text-align: center;
   color: var(--butter-deep);
   -webkit-text-stroke: 0.6px var(--terracotta-deep);
@@ -242,6 +256,7 @@ section { padding: 88px 0; }
 .eyebrow {
   display: inline-block;
   font-family: var(--font-display);
+  font-weight: 200;
   font-size: 1.25rem;
   color: var(--sky-deep);
   margin-bottom: 6px;
@@ -601,7 +616,7 @@ section { padding: 88px 0; }
 
 @media (max-width: 640px) {
   .logo-word { font-size: 1.3rem; }
-  .logo-badge { width: 44px; height: 44px; font-size: 11px; }
+  .logo-badge { width: 44px; height: 44px; font-size: 9px; }
 }
 
 .price-unit { font-family: var(--font-body); font-size: 1rem; color: var(--ink-soft); }
