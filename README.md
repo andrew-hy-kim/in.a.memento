@@ -43,7 +43,8 @@ The domain renews yearly in Cloudflare; keep auto-renew on so the site doesn't g
 | How It Works | `how-it-works/index.html` |
 | Pricing | `pricing/index.html` |
 | Gallery | `gallery/index.html` |
-| FAQ | `faq/index.html` |
+| Weddings | `weddings/index.html` |
+| FAQ questions & answers | `_data/faq.yml` (the page and Google's FAQ markup both read from it) |
 | Book Us / contact form | `contact/index.html` |
 | Menu (top of every page) | `_includes/header.html` |
 | Footer (bottom of every page) | `_includes/footer.html` |
@@ -63,6 +64,15 @@ Put event photos in `images/gallery/` and designs in `images/designs/`, then add
 ```
 
 Keep photos under ~500 KB each (resize to ~1200px wide) so the site stays fast.
+
+## Search engines (SEO)
+
+- Page titles and descriptions for Google live at the top of each page file (`title:` / `description:`).
+- `jekyll-seo-tag` adds link previews (image: `images/share.jpg`) and canonical URLs;
+  `jekyll-sitemap` builds `/sitemap.xml` and `/robots.txt` automatically.
+- Business details for Google are in `_includes/schema-business.html`.
+- Off-site to do: Google Business Profile, Google Search Console (submit `https://inamemento.com/sitemap.xml`),
+  link inamemento.com in the Instagram bio, and list on wedding directories.
 
 ## Previewing locally (optional)
 
