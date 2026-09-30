@@ -1,0 +1,21 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "in a memento",
+  "description": {{ site.description | strip_newlines | strip | jsonify }},
+  "url": "{{ site.url }}/",
+  "logo": "{{ site.url }}/images/logo.png",
+  "image": ["{{ site.url }}/images/share.jpg", "{{ site.url }}/images/gallery/machine-on-stand.webp", "{{ site.url }}/images/gallery/andrews-30th.webp"],
+  "priceRange": "$$",
+  "address": { "@type": "PostalAddress", "addressLocality": "Seattle", "addressRegion": "WA", "addressCountry": "US" },
+  "areaServed": [
+    { "@type": "City", "name": "Seattle" },
+    { "@type": "AdministrativeArea", "name": "Greater Seattle area" }
+  ],
+  "sameAs": ["{{ site.instagram }}"],
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sticker, temporary tattoo and/or mini print vending machine rental" }, "priceSpecification": { "@type": "PriceSpecification", "minPrice": 200, "priceCurrency": "USD" } }
+  ]
+}
+</script>

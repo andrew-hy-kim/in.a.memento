@@ -1,7 +1,8 @@
 ---
 layout: default
-title: FAQ
-description: Answers to common questions about renting an in a memento sticker, tattoo and/or mini print vending machine.
+title: "Frequently Asked Questions"
+description: "Answers about renting a sticker, tattoo and/or mini print vending machine in Seattle: custom artwork, pricing, travel, booking and more."
+schema_faq: true
 ---
 
 <section class="page-banner bg-sky-stripes">
@@ -16,74 +17,12 @@ description: Answers to common questions about renting an in a memento sticker, 
 
 <section class="bg-cream">
   <div class="container faq">
-    <details open>
-      <summary>What kinds of events do you do?</summary>
-      <div><p>Weddings, birthday parties, bridal showers, baby showers, corporate events and social gatherings. If there are people who'd enjoy a surprise, we'd love to be there!</p></div>
+    {%- for item in site.data.faq %}
+    <details{% if forloop.first %} open{% endif %}>
+      <summary>{{ item.q }}</summary>
+      <div><p>{{ item.a }}</p></div>
     </details>
-    <details>
-      <summary>What goes in the machine?</summary>
-      <div><p>Stickers, temporary tattoos and/or mini prints! The machine has three slots, so each one can hold something different.</p></div>
-    </details>
-    <details>
-      <summary>Prints, stickers, or tattoos?</summary>
-      <div><p>Mini prints are a beautiful, permanent keepsake. Stickers are a universal crowd pleaser. Temporary tattoos add an interactive vibe to the reception! You can also mix and match.</p></div>
-    </details>
-    <details>
-      <summary>Can we customize the designs?</summary>
-      <div><p>Yes! Choose from our design library (customizing those is free), provide your own art for free, or request a custom design for $50 each.</p></div>
-    </details>
-    <details>
-      <summary>Can I use my own artwork or wedding logo?</summary>
-      <div><p>Yes! We love using your custom wedding crests, monograms, venue line drawings, or photos of your pets. Simply upload your high resolution files during the booking process, and we’ll handle the sizing, printing, and packaging.</p></div>
-    </details>
-    <details>
-      <summary>Can we request custom themes or colors?</summary>
-      <div><p>Yes, of course! We’d love to hear your vision and create artwork based on your wedding or event aesthetic. A color palette is a great way to keep your pieces cohesive.</p></div>
-    </details>
-    <details>
-      <summary>Are the artworks AI generated?</summary>
-      <div><p>No! All designs are made either by us or a local Seattle artist, created specifically for your event.</p></div>
-    </details>
-    <details>
-      <summary>How much does it cost?</summary>
-      <div><p>Machine rental is $200 for 2 hours up to $425 for 5 hours, including delivery, setup and pickup. Mementos are $0.50–$2 per item depending on the type, quantity and size. Please see our <a href="{{ '/pricing/' | relative_url }}">pricing page</a> for details.</p></div>
-    </details>
-    <details>
-      <summary>Do guests need to bring coins?</summary>
-      <div><p>Nope! We provide tokens for your guests.</p></div>
-    </details>
-    <details>
-      <summary>Are the temporary tattoos safe for skin?</summary>
-      <div><p>Yes, our temporary tattoos are safe for skin and come off with soap and water or a little baby oil.</p></div>
-    </details>
-    <details>
-      <summary>Where are you located? Do you travel?</summary>
-      <div><p>We're based in Capitol Hill, Seattle. There's no travel fee within 25 miles. It's $75 for 26 to 40 miles, $100 for 41 to 60 miles and $125 for 61 to 80 miles. Beyond 80 miles we'll quote you directly, and overnight accommodation may need to be covered.</p></div>
-    </details>
-    <details>
-      <summary>Do you stay during the event?</summary>
-      <div><p>Yes. We set up the machine, keep an eye on it during your event, and take it away afterward.</p></div>
-    </details>
-    <details>
-      <summary>How far in advance should we book?</summary>
-      <div><p>As soon as possible! To ensure ample time for custom designs and printing, we request a minimum of 2 months’ notice. If your event is sooner, please <a href="{{ '/contact/' | relative_url }}">reach out</a> and we’ll see what we can do! For expedited production within 3 weeks, a $75 fee will be added to cover priority printing and expedited shipping.</p></div>
-    </details>
-    <details>
-      <summary>How do we book?</summary>
-      <div><p>Please fill out our <a href="{{ '/contact/' | relative_url }}">interest form</a> and we'll email you about availability within 1 to 5 business days. A 25% deposit secures your date.</p></div>
-    </details>
-    <details>
-      <summary>What is the process like after I book?</summary>
-      <div><p>We will meet virtually over phone or video call to go over all the details, including your vision for your prints, the signage, timeline, and any questions you may have. We’ll then work together to make your designs perfect and ready for your event!</p></div>
-    </details>
-    <details>
-      <summary>What is your payment policy?</summary>
-      <div><p>A minimum 25% deposit is due at booking to secure your date, and deposits are non-refundable. The remaining balance is due in full at least 14 days before your event.</p></div>
-    </details>
-    <details>
-      <summary>Do you offer corporate pricing?</summary>
-      <div><p>Yes! Please reach out through our <a href="{{ '/contact/' | relative_url }}">booking inquiry</a> for corporate pricing.</p></div>
-    </details>
+    {%- endfor %}
   </div>
 </section>
 

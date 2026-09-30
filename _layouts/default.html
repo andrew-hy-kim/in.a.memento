@@ -3,13 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
-  <meta name="description" content="{{ page.description | default: site.description | strip_newlines | strip }}">
-  <meta property="og:title" content="{{ page.title | default: site.title }}">
-  <meta property="og:description" content="{{ page.description | default: site.description | strip_newlines | strip }}">
-  <meta property="og:type" content="website">
+  {%- comment -%} Title, description, canonical URL, link preview and Google tags {%- endcomment %}
+  {% seo %}
+  {%- if page.url == "/" %}
+  {% include schema-business.html %}
+  {%- endif %}
+  {%- if page.schema_faq %}
+  {% include schema-faq.html %}
+  {%- endif %}
   <meta name="theme-color" content="#fffaf1">
   <link rel="icon" href="{{ '/images/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="{{ '/images/logo.png' | relative_url }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   {%- comment -%} ?v= changes on every deploy so browsers never pair a new page with an old stylesheet {%- endcomment -%}

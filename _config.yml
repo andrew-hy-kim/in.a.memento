@@ -10,5 +10,24 @@ instagram: https://www.instagram.com/in.a.memento/
 inquiry_form: https://docs.google.com/forms/d/e/1FAIpQLSe85VIphF1qTB14P-bY9GlTR199mvtphi0w0MrX4nMlo8ekOQ/viewform
 location: Seattle, WA
 
+# Search engine settings (used by jekyll-seo-tag and jekyll-sitemap, both built into GitHub Pages)
+lang: en_US
+logo: /images/logo.png
+twitter:
+  card: summary_large_image
+social:
+  name: in a memento
+  links:
+    - https://www.instagram.com/in.a.memento/
+
+defaults:
+  - scope: { path: "" }
+    values:
+      image: /images/share.jpg   # default link preview picture for texts and social posts
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
 exclude:
   - README.md
