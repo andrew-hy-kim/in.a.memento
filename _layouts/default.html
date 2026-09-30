@@ -12,8 +12,9 @@
   <link rel="icon" href="{{ '/images/favicon.svg' | relative_url }}" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}">
+  {%- comment -%} ?v= changes on every deploy so browsers never pair a new page with an old stylesheet {%- endcomment -%}
+  {%- assign v = site.time | date: '%s' %}
+  <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}?v={{ v }}">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -22,6 +23,6 @@
     {{ content }}
   </main>
   {% include footer.html %}
-  <script src="{{ '/js/main.js' | relative_url }}"></script>
+  <script src="{{ '/js/main.js' | relative_url }}?v={{ v }}"></script>
 </body>
 </html>

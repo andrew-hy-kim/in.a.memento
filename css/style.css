@@ -1,3 +1,6 @@
+/* Fonts load from here (not the HTML) so a page and its fonts always come from the same deploy. */
+@import url("https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:wght@400;600;700;800&display=swap");
+
 /* ==========================================================
    in a memento — site styles
    Pastel palette pulled from our Instagram posts:
