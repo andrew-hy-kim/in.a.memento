@@ -191,7 +191,7 @@ p { margin: 0 0 1em; }
 }
 .nav-links a.nav-cta:hover { background: var(--terracotta-deep); color: #fff; }
 
-@media (max-width: 1100px) {
+@media (max-width: 940px) {
   .nav-toggle { display: inline-block; }
   .nav-links {
     display: none;
