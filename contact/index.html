@@ -16,13 +16,112 @@ description: "Check availability for an in a memento vending machine at your Sea
 
 <section class="bg-cream">
   <div class="container split contact-split">
-    <div class="form-shell">
-      <iframe src="{{ site.inquiry_form }}?embedded=true" title="in a memento inquiry form" loading="lazy">Loading…</iframe>
+    <div class="card inquiry-card">
+      {%- comment -%}
+        Answers are sent straight to our Google Form, so responses still show up in Google Forms.
+        Each name="entry.…" matches a question in that form. If a question or answer choice is
+        added, removed or renamed in Google Forms, update it here too (option text must match exactly).
+      {%- endcomment %}
+      <form class="inquiry-form" id="inquiry-form" action="{{ site.inquiry_form | replace: 'viewform', 'formResponse' }}" method="POST" novalidate>
+        <div class="field">
+          <label for="f-name">Your name(s) <span class="req">required</span></label>
+          <p class="hint">For weddings, please include you and your partner's names.</p>
+          <input id="f-name" name="entry.1954382244" type="text" autocomplete="name" required>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="f-email">Email <span class="req">required</span></label>
+            <input id="f-email" name="entry.1840836820" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="f-phone">Phone number</label>
+            <input id="f-phone" name="entry.335508237" type="tel" autocomplete="tel">
+          </div>
+        </div>
+
+        <fieldset class="field">
+          <legend>Event type <span class="req">required</span></legend>
+          <div class="chips">
+            {%- assign types = "Wedding,Birthday Party,Bridal Shower,Baby Shower,Corporate,Social" | split: "," %}
+            {%- for t in types %}
+            <label class="chip"><input type="radio" name="entry.2104050013" value="{{ t }}" required><span>{{ t }}</span></label>
+            {%- endfor %}
+            <label class="chip"><input type="radio" name="entry.2104050013" value="__other_option__" data-other="f-type-other"><span>Other</span></label>
+          </div>
+          <input class="other-input" id="f-type-other" name="entry.2104050013.other_option_response" type="text" placeholder="What kind of event?" aria-label="Other event type" hidden>
+        </fieldset>
+
+        <fieldset class="field">
+          <legend>Which of our services are you interested in?</legend>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="entry.1461379346" value="Stickers"><span>Stickers</span></label>
+            <label class="chip"><input type="checkbox" name="entry.1461379346" value="Temporary Tattoos"><span>Temporary tattoos</span></label>
+            <label class="chip"><input type="checkbox" name="entry.1461379346" value="Mini prints"><span>Mini prints</span></label>
+          </div>
+        </fieldset>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="f-date">Date of event <span class="req">required</span></label>
+            <input id="f-date" name="entry.969458904" type="date" required>
+          </div>
+          <div class="field">
+            <label for="f-guests">Estimated guest count</label>
+            <input id="f-guests" name="entry.513584830" type="text" inputmode="numeric">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="f-venue">Location / venue address <span class="req">required</span></label>
+          <input id="f-venue" name="entry.414336527" type="text" autocomplete="street-address" required>
+        </div>
+
+        <div class="field">
+          <label for="f-times">Start and end times for your ceremony, cocktail hour and reception</label>
+          <p class="hint">If you know them yet.</p>
+          <input id="f-times" name="entry.1293030965" type="text">
+        </div>
+
+        <div class="field">
+          <label for="f-notes">Anything else you'd like us to know?</label>
+          <textarea id="f-notes" name="entry.4335019" rows="4" placeholder="Your theme, colors, design ideas…"></textarea>
+        </div>
+
+        <fieldset class="field">
+          <legend>How did you hear about us? <span class="req">required</span></legend>
+          <div class="chips">
+            {%- assign sources = "Instagram,Family/Friend Recommendation,Google Search,Facebook" | split: "," %}
+            {%- for t in sources %}
+            <label class="chip"><input type="radio" name="entry.808391416" value="{{ t }}" required><span>{{ t }}</span></label>
+            {%- endfor %}
+            <label class="chip"><input type="radio" name="entry.808391416" value="__other_option__" data-other="f-heard-other"><span>Other</span></label>
+          </div>
+          <input class="other-input" id="f-heard-other" name="entry.808391416.other_option_response" type="text" placeholder="Where did you hear about us?" aria-label="Other way you heard about us" hidden>
+        </fieldset>
+
+        {%- comment -%} Spam trap: hidden from people, bots tend to fill it in {%- endcomment %}
+        <div class="hp" aria-hidden="true">
+          <label for="f-website">Leave this empty</label>
+          <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <p class="form-error" id="form-error" role="alert" hidden></p>
+        <button class="btn btn-primary" type="submit">Send inquiry</button>
+      </form>
+
+      <div class="form-success" id="form-success" tabindex="-1" hidden>
+        <div class="icon-bubble" aria-hidden="true">💌</div>
+        <h2>Thank you!</h2>
+        <p>We got your inquiry and will email you about availability within 1 to 5 business days.
+          We hope to connect with you soon!</p>
+        <a class="btn btn-soft" href="{{ '/gallery/' | relative_url }}">Browse our designs</a>
+      </div>
     </div>
     <aside class="contact-aside">
       <div class="card tape">
         <h3>Trouble with the form?</h3>
-        <p>You can also <a href="{{ site.inquiry_form }}" target="_blank" rel="noopener">open it in a new tab</a>.</p>
+        <p>You can also fill it out <a href="{{ site.inquiry_form }}" target="_blank" rel="noopener">on Google Forms</a>.</p>
       </div>
       <div class="card">
         <h3>Message us on Instagram</h3>

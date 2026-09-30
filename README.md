@@ -45,7 +45,7 @@ The domain renews yearly in Cloudflare; keep auto-renew on so the site doesn't g
 | Gallery | `gallery/index.html` |
 | Weddings | `weddings/index.html` |
 | FAQ questions & answers | `_data/faq.yml` (the page and Google's FAQ markup both read from it) |
-| Book Us / contact form | `contact/index.html` |
+| Book Us / inquiry form | `contact/index.html` (sends answers to our Google Form; if you add, remove or rename a question or answer choice in Google Forms, update it here too) |
 | Menu (top of every page) | `_includes/header.html` |
 | Footer (bottom of every page) | `_includes/footer.html` |
 | Event photos | `images/gallery/` |

@@ -53,6 +53,7 @@ body {
 }
 
 img { max-width: 100%; height: auto; display: block; }
+[hidden] { display: none !important; }
 
 a { color: var(--terracotta-deep); }
 a:hover { color: var(--terracotta); }
@@ -532,19 +533,6 @@ section { padding: 88px 0; }
 
 /* ---------- Contact ---------- */
 
-.form-shell {
-  background: var(--paper);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 12px;
-}
-.form-shell iframe {
-  width: 100%;
-  height: 1500px;
-  border: 0;
-  border-radius: 16px;
-  display: block;
-}
 .contact-aside .card { margin-bottom: 24px; }
 .contact-aside h3 { color: var(--terracotta); }
 
@@ -665,3 +653,95 @@ figure { margin: 0; }
   font-size: 1.05rem;
 }
 
+
+/* ---------- Book Us inquiry form ---------- */
+
+.inquiry-card { padding: 36px 32px; }
+.inquiry-form { display: grid; gap: 22px; }
+.inquiry-form fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+.inquiry-form label,
+.inquiry-form legend {
+  display: block;
+  font-weight: 800;
+  margin-bottom: 8px;
+  padding: 0;
+}
+.inquiry-form .req {
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: var(--terracotta-deep);
+  background: var(--peach);
+  border-radius: 999px;
+  padding: 1px 8px;
+  margin-left: 4px;
+  vertical-align: 2px;
+}
+.inquiry-form .hint { margin: -4px 0 8px; font-size: 0.9rem; color: var(--ink-soft); }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+@media (max-width: 640px) {
+  .field-row { grid-template-columns: 1fr; }
+  .inquiry-card { padding: 28px 20px; }
+}
+
+.inquiry-form input[type="text"],
+.inquiry-form input[type="email"],
+.inquiry-form input[type="tel"],
+.inquiry-form input[type="date"],
+.inquiry-form textarea {
+  width: 100%;
+  font: inherit;
+  color: var(--ink);
+  background: var(--cream);
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  padding: 12px 16px;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.inquiry-form textarea { resize: vertical; min-height: 110px; }
+.inquiry-form input:focus,
+.inquiry-form textarea:focus {
+  outline: none;
+  border-color: var(--sky-deep);
+  box-shadow: 0 0 0 4px var(--sky);
+}
+.inquiry-form ::placeholder { color: #b49c8a; }
+.other-input { margin-top: 10px; }
+
+/* Radio and checkbox options as rounded chips */
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.inquiry-form .chip { margin: 0; font-weight: 700; cursor: pointer; }
+.chip input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.chip span {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 2px solid var(--line);
+  background: var(--cream);
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.chip:hover span { border-color: var(--sky-mid); }
+.chip input:checked + span { background: var(--butter); border-color: var(--butter-deep); }
+.chip input[type="checkbox"]:checked + span::before { content: "✓ "; }
+.chip input:focus-visible + span { box-shadow: 0 0 0 4px var(--sky); }
+
+.field.invalid input:not([type="radio"]):not([type="checkbox"]),
+.field.invalid textarea,
+.field.invalid .chip span { border-color: var(--terracotta); }
+.field.invalid > label,
+.field.invalid > legend { color: var(--terracotta-deep); }
+.form-error {
+  margin: 0;
+  background: var(--blush);
+  color: var(--terracotta-deep);
+  border-radius: 14px;
+  padding: 12px 16px;
+  font-weight: 700;
+}
+.inquiry-form .btn { justify-self: start; }
+.inquiry-form .btn:disabled { opacity: 0.7; cursor: wait; transform: none; }
+
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+.form-success { text-align: center; padding: 24px 8px; }
+.form-success .icon-bubble { margin: 0 auto 16px; background: var(--butter); }
+.form-success:focus { outline: none; }
