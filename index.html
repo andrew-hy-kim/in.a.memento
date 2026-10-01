@@ -82,8 +82,12 @@ description: "Sticker, temporary tattoo and/or mini print vending machine rental
         </div>
         <div class="mm-label">1 token = 1 surprise memento</div>
         <div class="mm-controls">
-          <button class="mm-knob" type="button" aria-label="Twist the knob to pull a surprise memento"><span></span></button>
-          <div class="mm-door" aria-hidden="true"></div>
+          {%- for n in (1..3) %}
+          <div class="mm-slot">
+            <button class="mm-knob" type="button" aria-label="Twist knob {{ n }} to pull a surprise memento"><span></span></button>
+            <div class="mm-door" aria-hidden="true"></div>
+          </div>
+          {%- endfor %}
         </div>
       </div>
       <div class="mm-prize" aria-live="polite">

@@ -1499,3 +1499,33 @@ html { scroll-padding-top: 96px; }
   .sticker-b { right: -4px; bottom: -14px; }
 }
 @media (prefers-reduced-motion: reduce) { .polaroid.scrap { transition: none; } }
+
+/* Pull-a-memento machine shaped like the real one: tall cabinet, 4:5 design window,
+   three coin knobs with their own doors */
+.pull-game .mini-machine { width: 200px; padding: 12px 12px 14px; }
+.pull-game .mm-window { gap: 6px; padding: 8px; }
+.pull-game .mm-window img { aspect-ratio: 4 / 5; object-fit: contain; }
+.pull-game .mm-label { margin: 8px 0 10px; font-size: 0.66rem; }
+.pull-game .mm-controls { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+.pull-game .mm-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 0 7px;
+  background: linear-gradient(#f1ece3, #ddd6ca);
+  border: 2px solid #cfc7b9;
+  border-radius: 6px;
+}
+.pull-game .mm-knob { width: 38px; height: 38px; border-width: 2px; box-shadow: 0 2px 0 #9b958c; }
+.pull-game .mm-knob span { top: 5px; bottom: 5px; width: 9px; margin-left: -4.5px; }
+.pull-game .mm-knob:hover, .pull-game .mm-knob:focus-visible { box-shadow: 0 2px 0 #9b958c, 0 0 0 4px var(--butter); }
+.pull-game .mm-door { width: 40px; height: 16px; border-radius: 5px; }
+.pull-game .dispensing .mm-door { animation: door-rattle 0.35s ease 0.3s; }
+.dispensing.pull-game .mm-door { animation: none; }
+@media (max-width: 640px) {
+  .pull-game .mini-machine { width: 100%; max-width: 168px; padding: 9px 9px 11px; }
+  .pull-game .mm-knob { width: 32px; height: 32px; }
+  .pull-game .mm-door { width: 32px; height: 13px; }
+  .pull-game .mm-label { font-size: 0.6rem; }
+}

@@ -281,13 +281,14 @@ var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-moti
   var game = document.querySelector(".pull-game");
   if (!game) return;
   var designs = JSON.parse(game.getAttribute("data-designs") || "[]");
-  var knob = game.querySelector(".mm-knob");
+  var knobs = Array.prototype.slice.call(game.querySelectorAll(".mm-knob"));
   var prize = game.querySelector(".mm-prize");
   var last = -1;
   var busy = false;
-  if (!designs.length || !knob) return;
+  if (!designs.length || !knobs.length) return;
 
-  knob.addEventListener("click", function () {
+  knobs.forEach(function (knob) { knob.addEventListener("click", function () {
+    var slot = knob.closest(".mm-slot") || game;
     if (busy) return;
     busy = true;
     var i;
@@ -300,7 +301,7 @@ var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-moti
     knob.classList.remove("spin");
     void knob.offsetWidth; // restart the animation
     knob.classList.add("spin");
-    game.classList.add("dispensing");
+    slot.classList.add("dispensing");
 
     setTimeout(function () {
       var fig = document.createElement("figure");
@@ -318,10 +319,10 @@ var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-moti
       prize.innerHTML = "";
       prize.appendChild(fig);
       prize.appendChild(again);
-      game.classList.remove("dispensing");
+      slot.classList.remove("dispensing");
       busy = false;
     }, reduceMotion ? 0 : 650);
-  });
+  }); });
 })();
 
 // Soft fade-in as sections scroll into view
