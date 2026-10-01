@@ -326,15 +326,25 @@ window.stickerBurst = function (target) {
   }
 };
 
-// Footer heart beats once when it scrolls into view (phones have no hover)
+// Footer heart: beats when the footer scrolls into view, and again every time the line is hovered or tapped
 (function () {
   var heart = document.querySelector(".site-footer .heart");
-  if (!heart || reduceMotion || !("IntersectionObserver" in window)) return;
+  if (!heart || reduceMotion) return;
   var line = heart.closest(".footer-bottom") || heart;
-  var io = new IntersectionObserver(function (entries) {
-    if (!entries[0].isIntersecting) return;
+  function beat() {
+    heart.classList.remove("beat");
+    void heart.offsetWidth; // restart the animation
     heart.classList.add("beat");
-    io.disconnect();
-  }, { threshold: 0.5 });
-  io.observe(line);
+  }
+  heart.addEventListener("animationend", function () { heart.classList.remove("beat"); });
+  line.addEventListener("mouseenter", beat);
+  line.addEventListener("touchstart", beat, { passive: true });
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      if (!entries[0].isIntersecting) return;
+      beat();
+      io.disconnect();
+    }, { threshold: 0.5 });
+    io.observe(line);
+  }
 })();
