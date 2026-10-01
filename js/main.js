@@ -138,6 +138,11 @@
       }
       data.append(key, value);
     });
+    // "How did you hear about us?" is optional here but required in Google Forms, so send a placeholder when it's skipped
+    if (!data.has("entry.808391416")) {
+      data.append("entry.808391416", "__other_option__");
+      data.append("entry.808391416.other_option_response", "Not answered");
+    }
     // The form also collects the email address separately (Settings > Collect email addresses)
     data.append("emailAddress", form.elements["entry.1840836820"].value);
 

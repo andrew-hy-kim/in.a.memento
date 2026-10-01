@@ -1,14 +1,14 @@
 ---
 layout: default
 title: "Book Your Date"
-description: "Send us your date and venue and we'll email you about availability within 1 to 5 business days."
+description: "Send us your date and venue and we'll email you about availability within 2 business days."
 ---
 
 <section class="page-banner bg-butter-stripes">
   <div class="container">
     <div class="banner-card">
       <h1>Book your date</h1>
-      <p>Please fill out the form below and we'll email you about availability within 1 to 5 business days.</p>
+      <p>Please fill out the form below and we'll email you about availability within 2 business days.</p>
     </div>
   </div>
 </section>
@@ -63,20 +63,21 @@ description: "Send us your date and venue and we'll email you about availability
         <div class="field-row">
           <div class="field" data-error="Please choose your event date.">
             <label for="f-date">Date of event <span class="req">required</span></label>
-            <input id="f-date" name="entry.969458904" type="date" required>
+            <p class="hint" id="f-date-hint">Not set yet? Please put your best guess.</p>
+            <input id="f-date" name="entry.969458904" type="date" aria-describedby="f-date-hint" required>
           </div>
           <div class="field" data-error="Please enter your venue or its address.">
-            <label for="f-venue">Location / venue address <span class="req">required</span></label>
+            <label for="f-venue">Venue or address <span class="req">required</span></label>
             <input id="f-venue" name="entry.414336527" type="text" autocomplete="street-address" required>
           </div>
         </div>
 
-        <fieldset class="field" data-error="Please tell us how you heard about us.">
-          <legend>How did you hear about us? <span class="req">required</span></legend>
+        <fieldset class="field">
+          <legend>How did you hear about us?</legend>
           <div class="chips">
             {%- assign sources = "Instagram,Family/Friend Recommendation,Google Search,Facebook" | split: "," %}
             {%- for t in sources %}
-            <label class="chip"><input type="radio" name="entry.808391416" value="{{ t }}" required><span>{{ t }}</span></label>
+            <label class="chip"><input type="radio" name="entry.808391416" value="{{ t }}"><span>{{ t }}</span></label>
             {%- endfor %}
             <label class="chip"><input type="radio" name="entry.808391416" value="__other_option__" data-other="f-heard-other"><span>Other</span></label>
           </div>
@@ -114,7 +115,7 @@ description: "Send us your date and venue and we'll email you about availability
 
       <div class="form-success" id="form-success" tabindex="-1" hidden data-stickers="{{ site.data.designs | map: 'image' | join: ',' }}" data-sticker-path="{{ '/images/designs/' | relative_url }}">
         <h2>Thank you!</h2>
-        <p>We got your inquiry and will email you about availability within 1 to 5 business days.</p>
+        <p>We got your inquiry and will email you about availability within 2 business days.</p>
         <a class="btn btn-soft" href="{{ '/gallery/' | relative_url }}">Browse our designs</a>
       </div>
     </div>

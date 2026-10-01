@@ -707,7 +707,7 @@ figure { margin: 0; }
   vertical-align: 2px;
 }
 .inquiry-form .hint { margin: -4px 0 8px; font-size: 0.9rem; color: var(--ink-soft); }
-.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: end; }
 @media (max-width: 640px) {
   .field-row { grid-template-columns: 1fr; }
   .inquiry-card { padding: 28px 20px; }
