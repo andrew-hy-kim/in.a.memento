@@ -46,23 +46,9 @@ description: "See our sticker, tattoo and/or mini print vending machine at Seatt
       <p>Every library design can be customized for free, or we can draw something new just for you.</p>
     </div>
     <div class="gallery-grid">
-      <figure class="tile photo contain"><img src="{{ '/images/designs/bookworm.webp' | relative_url }}" loading="lazy" alt="A green bookworm with glasses reading a book"><figcaption>bookworm</figcaption></figure>
-      <figure class="tile photo contain"><img src="{{ '/images/designs/cat-reading.webp' | relative_url }}" loading="lazy" alt="A grey and white cat reading a book called Way of Cats"><figcaption>way of cats</figcaption></figure>
-      <figure class="tile photo contain"><img src="{{ '/images/designs/chef-duck.webp' | relative_url }}" loading="lazy" alt="A white duck in a chef hat holding a spatula"><figcaption>chef duck</figcaption></figure>
-      <figure class="tile photo contain"><img src="{{ '/images/designs/sleeping-cat.webp' | relative_url }}" loading="lazy" alt="A sleepy orange cat stretching, with zzz"><figcaption>sleepy cat</figcaption></figure>
-      <figure class="tile photo contain"><img src="{{ '/images/designs/fish-hat-cat.webp' | relative_url }}" loading="lazy" alt="A white cat wearing an orange fish shaped hat"><figcaption>fish hat cat</figcaption></figure>
-      <figure class="tile photo contain"><img src="{{ '/images/designs/pumpkins.webp' | relative_url }}" loading="lazy" alt="Four pumpkins and gourds in orange, green and cream"><figcaption>pumpkins</figcaption></figure>
-      <figure class="tile photo contain"><img src="{{ '/images/designs/flower-vase.webp' | relative_url }}" loading="lazy" alt="Red flowers in a clear glass vase"><figcaption>flower vase</figcaption></figure>
-      <figure class="tile photo contain"><img src="{{ '/images/designs/flower-cup.webp' | relative_url }}" loading="lazy" alt="Pink flowers in a striped yellow cup"><figcaption>flower cup</figcaption></figure>
-      <figure class="tile photo contain"><img src="{{ '/images/designs/corn.webp' | relative_url }}" loading="lazy" alt="An ear of yellow corn in its green husk"><figcaption>corn</figcaption></figure>
-      <figure class="tile photo contain"><img src="{{ '/images/designs/tomatoes.webp' | relative_url }}" loading="lazy" alt="A vine of red cherry tomatoes on a soft yellow background"><figcaption>tomatoes</figcaption></figure>
-      <figure class="tile photo contain"><img src="{{ '/images/designs/tomato-vine.webp' | relative_url }}" loading="lazy" alt="A branch of red cherry tomatoes"><figcaption>tomato vine</figcaption></figure>
-      <figure class="tile photo contain"><img src="{{ '/images/designs/lemon.webp' | relative_url }}" loading="lazy" alt="A yellow lemon with a little green sprout"><figcaption>lemon</figcaption></figure>
-      <figure class="tile photo contain"><img src="{{ '/images/designs/salmon.webp' | relative_url }}" loading="lazy" alt="A rainbow trout with a pink stripe"><figcaption>salmon</figcaption></figure>
-      <figure class="tile photo contain"><img src="{{ '/images/designs/pine-branch.webp' | relative_url }}" loading="lazy" alt="A pine cone on a green pine branch"><figcaption>pine branch</figcaption></figure>
-      <figure class="tile photo contain"><img src="{{ '/images/designs/mountain-village.webp' | relative_url }}" loading="lazy" alt="Green hills with pine trees and a little house below grey mountains"><figcaption>mountain village</figcaption></figure>
-      <figure class="tile photo contain"><img src="{{ '/images/designs/tiny-free-library.webp' | relative_url }}" loading="lazy" alt="A little free library box full of books"><figcaption>tiny free library</figcaption></figure>
-      <figure class="tile photo contain"><img src="{{ '/images/designs/tote-bag.webp' | relative_url }}" loading="lazy" alt="A canvas tote bag with navy handles"><figcaption>tote bag</figcaption></figure>
+      {%- for d in site.data.designs %}
+      <figure class="tile photo contain"><img src="{{ '/images/designs/' | append: d.image | append: '.webp' | relative_url }}" loading="lazy" alt="{{ d.alt }}"><figcaption>{{ d.name }}</figcaption></figure>
+      {%- endfor %}
     </div>
     <p class="center mt-lg">
       <a class="btn btn-primary" href="{{ site.instagram }}" target="_blank" rel="noopener">See more on Instagram</a>

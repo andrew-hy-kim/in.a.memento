@@ -102,6 +102,7 @@
       .then(function () {
         form.hidden = true;
         success.hidden = false;
+        if (window.stickerBurst) window.stickerBurst(success);
         success.focus();
         success.scrollIntoView({ behavior: "smooth", block: "center" });
       })
@@ -226,3 +227,101 @@
     startX = null;
   });
 })();
+
+var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// "Pull a memento": twist the knob on the home page machine to get a random design
+(function () {
+  var game = document.querySelector(".pull-game");
+  if (!game) return;
+  var designs = JSON.parse(game.getAttribute("data-designs") || "[]");
+  var knob = game.querySelector(".mm-knob");
+  var prize = game.querySelector(".mm-prize");
+  var last = -1;
+  var busy = false;
+  if (!designs.length || !knob) return;
+
+  knob.addEventListener("click", function () {
+    if (busy) return;
+    busy = true;
+    var i;
+    do { i = Math.floor(Math.random() * designs.length); } while (designs.length > 1 && i === last);
+    last = i;
+    var d = designs[i];
+    var img = new Image();
+    img.src = d.src; // start loading while the knob turns
+
+    knob.classList.remove("spin");
+    void knob.offsetWidth; // restart the animation
+    knob.classList.add("spin");
+    game.classList.add("dispensing");
+
+    setTimeout(function () {
+      var fig = document.createElement("figure");
+      fig.className = "mm-card";
+      var pic = document.createElement("img");
+      pic.src = d.src;
+      pic.alt = d.alt;
+      var cap = document.createElement("figcaption");
+      cap.textContent = d.name;
+      fig.appendChild(pic);
+      fig.appendChild(cap);
+      var again = document.createElement("p");
+      again.className = "mm-again";
+      again.textContent = "Twist again for another!";
+      prize.innerHTML = "";
+      prize.appendChild(fig);
+      prize.appendChild(again);
+      game.classList.remove("dispensing");
+      busy = false;
+    }, reduceMotion ? 0 : 650);
+  });
+})();
+
+// Soft fade-in as sections scroll into view
+(function () {
+  if (reduceMotion || !("IntersectionObserver" in window)) return;
+  var els = document.querySelectorAll(
+    "main .section-head, main .card, main .stamp, main .polaroid, main .tile, main .quote-bubble, " +
+    "main .sticker-row figure, main .faq details, main .pull-game");
+  if (!els.length) return;
+  document.documentElement.classList.add("js-reveal");
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      e.target.classList.add("in");
+      io.unobserve(e.target);
+    });
+  }, { rootMargin: "0px 0px -6% 0px" });
+  Array.prototype.forEach.call(els, function (el) {
+    var siblings = el.parentElement ? Array.prototype.indexOf.call(el.parentElement.children, el) : 0;
+    el.style.transitionDelay = Math.min(siblings, 5) * 70 + "ms";
+    el.classList.add("reveal");
+    io.observe(el);
+  });
+})();
+
+// Sticker burst: a handful of doodles pop out around the thank-you message
+window.stickerBurst = function (target) {
+  if (reduceMotion || !target) return;
+  var path = target.getAttribute("data-sticker-path") || "/images/designs/";
+  var srcs = (target.getAttribute("data-stickers") || "").split(",").filter(Boolean)
+    .map(function (name) { return path + name + ".webp"; });
+  if (!srcs.length) return;
+  srcs.sort(function () { return Math.random() - 0.5; });
+  var count = Math.min(9, srcs.length);
+  for (var n = 0; n < count; n++) {
+    var angle = (n / count) * Math.PI * 2 + Math.random() * 0.5;
+    var dist = 110 + Math.random() * 70;
+    var s = document.createElement("img");
+    s.className = "burst-sticker";
+    s.src = srcs[n];
+    s.alt = "";
+    s.style.setProperty("--x", Math.round(Math.cos(angle) * dist * 1.4) + "px");
+    s.style.setProperty("--y", Math.round(Math.sin(angle) * dist) + "px");
+    s.style.setProperty("--r", Math.round(Math.random() * 50 - 25) + "deg");
+    s.style.animationDelay = n * 40 + "ms";
+    target.appendChild(s);
+    s.addEventListener("animationend", function (e) { e.target.remove(); });
+  }
+};

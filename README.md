@@ -49,6 +49,7 @@ The domain renews yearly in Cloudflare; keep auto-renew on so the site doesn't g
 | Footer (bottom of every page) | `_includes/footer.html` |
 | Event photos | `images/gallery/` |
 | Sticker / tattoo / print designs | `images/designs/` |
+| Design names & descriptions (Gallery + home page machine) | `_data/designs.yml` |
 | Colors, fonts, layout | `css/style.css` (colors are at the top) |
 | Instagram link, Google Form link, location | `_config.yml` |
 

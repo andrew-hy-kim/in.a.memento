@@ -1,0 +1,54 @@
+# Design library: used by the Gallery page and the "pull a memento" machine on the home page.
+# image = file name in images/designs/ (without .webp)
+
+- image: bookworm
+  name: "bookworm"
+  alt: "A green bookworm with glasses reading a book"
+- image: cat-reading
+  name: "way of cats"
+  alt: "A grey and white cat reading a book called Way of Cats"
+- image: chef-duck
+  name: "chef duck"
+  alt: "A white duck in a chef hat holding a spatula"
+- image: sleeping-cat
+  name: "sleepy cat"
+  alt: "A sleepy orange cat stretching, with zzz"
+- image: fish-hat-cat
+  name: "fish hat cat"
+  alt: "A white cat wearing an orange fish shaped hat"
+- image: pumpkins
+  name: "pumpkins"
+  alt: "Four pumpkins and gourds in orange, green and cream"
+- image: flower-vase
+  name: "flower vase"
+  alt: "Red flowers in a clear glass vase"
+- image: flower-cup
+  name: "flower cup"
+  alt: "Pink flowers in a striped yellow cup"
+- image: corn
+  name: "corn"
+  alt: "An ear of yellow corn in its green husk"
+- image: tomatoes
+  name: "tomatoes"
+  alt: "A vine of red cherry tomatoes on a soft yellow background"
+- image: tomato-vine
+  name: "tomato vine"
+  alt: "A branch of red cherry tomatoes"
+- image: lemon
+  name: "lemon"
+  alt: "A yellow lemon with a little green sprout"
+- image: salmon
+  name: "salmon"
+  alt: "A rainbow trout with a pink stripe"
+- image: pine-branch
+  name: "pine branch"
+  alt: "A pine cone on a green pine branch"
+- image: mountain-village
+  name: "mountain village"
+  alt: "Green hills with pine trees and a little house below grey mountains"
+- image: tiny-free-library
+  name: "tiny free library"
+  alt: "A little free library box full of books"
+- image: tote-bag
+  name: "tote bag"
+  alt: "A canvas tote bag with navy handles"
