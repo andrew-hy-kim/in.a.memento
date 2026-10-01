@@ -22,14 +22,14 @@ description: "Check availability for an in a memento vending machine at your Sea
         added, removed or renamed in Google Forms, update it here too (option text must match exactly).
       {%- endcomment %}
       <form class="inquiry-form" id="inquiry-form" action="{{ site.inquiry_form | replace: 'viewform', 'formResponse' }}" method="POST" novalidate>
-        <div class="field">
+        <div class="field" data-error="Please enter your name(s).">
           <label for="f-name">Your name(s) <span class="req">required</span></label>
           <p class="hint">For weddings, please include you and your partner's names.</p>
           <input id="f-name" name="entry.1954382244" type="text" autocomplete="name" required>
         </div>
 
         <div class="field-row">
-          <div class="field">
+          <div class="field" data-error="Please enter your email address.">
             <label for="f-email">Email <span class="req">required</span></label>
             <input id="f-email" name="entry.1840836820" type="email" autocomplete="email" required>
           </div>
@@ -39,7 +39,7 @@ description: "Check availability for an in a memento vending machine at your Sea
           </div>
         </div>
 
-        <fieldset class="field">
+        <fieldset class="field" data-error="Please choose an event type.">
           <legend>Event type <span class="req">required</span></legend>
           <div class="chips">
             {%- assign types = "Wedding,Birthday Party,Bridal Shower,Baby Shower,Corporate,Social" | split: "," %}
@@ -61,17 +61,17 @@ description: "Check availability for an in a memento vending machine at your Sea
         </fieldset>
 
         <div class="field-row">
-          <div class="field">
+          <div class="field" data-error="Please choose your event date.">
             <label for="f-date">Date of event <span class="req">required</span></label>
             <input id="f-date" name="entry.969458904" type="date" required>
           </div>
-          <div class="field">
+          <div class="field" data-error="Please enter your venue or its address.">
             <label for="f-venue">Location / venue address <span class="req">required</span></label>
             <input id="f-venue" name="entry.414336527" type="text" autocomplete="street-address" required>
           </div>
         </div>
 
-        <fieldset class="field">
+        <fieldset class="field" data-error="Please tell us how you heard about us.">
           <legend>How did you hear about us? <span class="req">required</span></legend>
           <div class="chips">
             {%- assign sources = "Instagram,Family/Friend Recommendation,Google Search,Facebook" | split: "," %}
@@ -122,16 +122,16 @@ description: "Check availability for an in a memento vending machine at your Sea
     </div>
     <aside class="contact-aside">
       <div class="card tape">
-        <h3>Trouble with the form?</h3>
-        <p>You can also fill it out <a href="{{ site.inquiry_form }}" target="_blank" rel="noopener">on Google Forms</a>.</p>
+        <h2 class="h3">Trouble with the form?</h2>
+        <p>You can also fill it out <a href="{{ site.inquiry_form }}" target="_blank" rel="noopener">on Google Forms<span class="sr-only"> (opens in new tab)</span></a>.</p>
       </div>
       <div class="card">
-        <h3>Message us on Instagram</h3>
+        <h2 class="h3">Message us on Instagram</h2>
         <p>Say hi or peek at our latest designs at
-          <a href="{{ site.instagram }}" target="_blank" rel="noopener">@in.a.memento</a>.</p>
+          <a href="{{ site.instagram }}" target="_blank" rel="noopener">@in.a.memento<span class="sr-only"> (opens in new tab)</span></a>.</p>
       </div>
       <div class="card">
-        <h3>What happens next?</h3>
+        <h2 class="h3">What happens next?</h2>
         <ul class="checklist">
           <li>We'll email you about availability within 1 to 5 business days</li>
           <li>We'll chat about your event and designs over Google Meet or email</li>

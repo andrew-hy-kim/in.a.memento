@@ -7,6 +7,13 @@
     var open = links.classList.toggle("open");
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
   });
+  // Esc closes the menu and returns focus to the Menu button
+  document.addEventListener("keydown", function (e) {
+    if (e.key !== "Escape" || !links.classList.contains("open")) return;
+    links.classList.remove("open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.focus();
+  });
 })();
 
 // Footer year
@@ -35,11 +42,49 @@
     });
   });
 
-  // Clear the red outline as soon as a field is fixed
-  form.addEventListener("input", function (e) {
+  // Show or clear a field's error: outline + a written message, announced to screen readers
+  function setFieldError(field, bad) {
+    field.classList.toggle("invalid", bad);
+    var old = field.querySelector(":scope > .field-error");
+    if (old) old.remove();
+    var inputs = field.querySelectorAll("input, textarea");
+    Array.prototype.forEach.call(inputs, function (el) {
+      if (bad) el.setAttribute("aria-invalid", "true"); else el.removeAttribute("aria-invalid");
+      var ids = (el.getAttribute("aria-describedby") || "").split(" ").filter(function (x) { return x && x.indexOf("err-") !== 0; });
+      if (bad) ids.push("err-" + fieldKey(field));
+      if (ids.length) el.setAttribute("aria-describedby", ids.join(" ")); else el.removeAttribute("aria-describedby");
+    });
+    if (!bad) return;
+    var msg = document.createElement("p");
+    msg.className = "field-error";
+    msg.id = "err-" + fieldKey(field);
+    msg.textContent = errorText(field);
+    field.appendChild(msg);
+  }
+  function fieldKey(field) {
+    var el = field.querySelector("input, textarea");
+    return (el && (el.id || el.name) || "field").replace(/[^a-z0-9-]/gi, "-");
+  }
+  function errorText(field) {
+    var email = field.querySelector('input[type="email"]');
+    if (email && email.value) return "Please enter a valid email address, like name@example.com.";
+    var other = field.querySelector(".other-input:not([hidden])");
+    var picked = field.querySelector("input[type=radio]:checked");
+    if (other && picked && picked.value === "__other_option__" && !other.value) return "Please fill in your \"Other\" answer.";
+    return field.getAttribute("data-error") || "Please fill in this field.";
+  }
+
+  // Clear the error as soon as a field is fixed
+  function clearIfFixed(e) {
     var field = e.target.closest(".field");
-    if (field) field.classList.remove("invalid");
-  });
+    if (!field || !field.classList.contains("invalid")) return;
+    var stillBad = Array.prototype.some.call(field.querySelectorAll("input, textarea"), function (el) {
+      return !el.hidden && !el.checkValidity();
+    });
+    if (!stillBad) setFieldError(field, false);
+  }
+  form.addEventListener("input", clearIfFixed);
+  form.addEventListener("change", clearIfFixed);
 
   function showError(message) {
     errorBox.innerHTML = message;
@@ -56,11 +101,12 @@
       var bad = Array.prototype.some.call(field.querySelectorAll("input, textarea"), function (el) {
         return !el.hidden && !el.checkValidity();
       });
-      field.classList.toggle("invalid", bad);
+      setFieldError(field, bad);
       if (bad && !firstBad) firstBad = field;
     });
     if (firstBad) {
-      showError("Please fill in the highlighted fields.");
+      var count = form.querySelectorAll(".field.invalid").length;
+      showError(count === 1 ? "Please fix the 1 question marked below." : "Please fix the " + count + " questions marked below.");
       firstBad.scrollIntoView({ behavior: "smooth", block: "center" });
       var focusable = firstBad.querySelector("input:not([hidden]), textarea");
       if (focusable) focusable.focus({ preventScroll: true });
@@ -108,7 +154,7 @@
       })
       .catch(function () {
         showError('Sorry, something went wrong sending your inquiry. Please try again, or fill out our ' +
-          '<a href="' + form.action.replace("formResponse", "viewform") + '" target="_blank" rel="noopener">Google Form</a> instead.');
+          '<a href="' + form.action.replace("formResponse", "viewform") + '" target="_blank" rel="noopener">Google Form<span class="sr-only"> (opens in new tab)</span></a> instead.');
         button.disabled = false;
         button.textContent = "Send inquiry";
       });
@@ -347,4 +393,26 @@ window.stickerBurst = function (target) {
     }, { threshold: 0.5 });
     io.observe(line);
   }
+})();
+
+// Keep keyboard focus visible: if a focused item lands behind the sticky header
+// (or the phone "Book us" bar), nudge the page so it's in view
+(function () {
+  var header = document.querySelector(".site-header");
+  if (!header) return;
+  document.addEventListener("focusin", function (e) {
+    var el = e.target;
+    if (!el || !el.getBoundingClientRect || header.contains(el) || el.closest(".lightbox, .mobile-book")) return;
+    var r = el.getBoundingClientRect();
+    var top = header.getBoundingClientRect().bottom + 12;
+    var bar = document.querySelector(".mobile-book");
+    var barVisible = bar && getComputedStyle(bar).display !== "none" && !bar.classList.contains("is-hidden");
+    var bottom = window.innerHeight - (barVisible ? bar.getBoundingClientRect().height + 24 : 12);
+    // run after the browser's own scroll-into-view, and jump instantly (no smooth glide)
+    requestAnimationFrame(function () {
+      r = el.getBoundingClientRect();
+      if (r.top < top) window.scrollBy({ top: r.top - top, behavior: "instant" });
+      else if (r.bottom > bottom) window.scrollBy({ top: r.bottom - bottom, behavior: "instant" });
+    });
+  });
 })();

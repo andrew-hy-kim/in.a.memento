@@ -40,10 +40,12 @@
     <button class="lb-btn lb-next" type="button" aria-label="Next">›</button>
   </dialog>
   {%- unless page.url == "/contact/" or page.url == "/404.html" %}
-  <a class="mobile-book" href="{{ '/contact/' | relative_url }}">
-    <span>Rentals from $200</span>
-    <span class="btn btn-primary">Book us</span>
-  </a>
+  <nav aria-label="Quick booking">
+    <a class="mobile-book" href="{{ '/contact/' | relative_url }}">
+      <span>Rentals from $200</span>
+      <span class="btn btn-primary">Book us</span>
+    </a>
+  </nav>
   {%- endunless %}
   <script src="{{ '/js/main.js' | relative_url }}?v={{ v }}"></script>
 </body>

@@ -12,17 +12,18 @@
   --paper: #fffdf8;
   --sky: #d7ebf1;
   --sky-mid: #b9dbe6;
-  --sky-deep: #4d89a4;
+  --sky-deep: #3a7590;
   --butter: #fcebb8;
   --butter-deep: #f2cf73;
   --peach: #fbd9c4;
-  --terracotta: #d4744a;
-  --terracotta-deep: #b85d36;
+  --terracotta: #c0633a;       /* headings, big numbers */
+  --terracotta-deep: #b85d36;  /* button backgrounds */
+  --terracotta-text: #9c4c2a;  /* small orange text: links, prices, names */
   --sage: #d5e3bf;
   --sage-deep: #8aa56a;
   --blush: #f8dde0;
   --ink: #5b3f2c;
-  --ink-soft: #7d6453;
+  --ink-soft: #735b4b;
   --line: #ecdcc8;
 
   /* Brand fonts: More Sugar for headings and subheadings, Dreaming Outloud Sans
@@ -40,7 +41,7 @@
 *::before,
 *::after { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+/* No site-wide smooth scrolling: it fights keyboard focus scrolling. Specific features scroll smoothly on their own. */
 
 body {
   margin: 0;
@@ -55,8 +56,8 @@ body {
 img { max-width: 100%; height: auto; display: block; }
 [hidden] { display: none !important; }
 
-a { color: var(--terracotta-deep); }
-a:hover { color: var(--terracotta); }
+a { color: var(--terracotta-text); }
+a:hover { color: var(--terracotta-deep); }
 
 h1, h2, h3 {
   font-family: var(--font-display);
@@ -115,8 +116,7 @@ p { margin: 0 0 1em; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255, 250, 241, 0.94);
-  backdrop-filter: blur(8px);
+  background: rgba(255, 250, 241, 0.98);
   border-bottom: 2px dashed var(--sky-mid);
 }
 .site-header .container {
@@ -236,7 +236,7 @@ section { padding: 88px 0; }
 .eyebrow {
   display: inline-block;
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 3.2vw, 1.65rem);
+  font-size: clamp(1.5rem, 3.2vw, 1.65rem); /* 24px+ so it counts as large text */
   color: var(--sky-deep);
   margin-bottom: 6px;
 }
@@ -407,7 +407,7 @@ section { padding: 88px 0; }
   display: block;
   margin-top: 14px;
   font-style: normal;
-  color: var(--terracotta-deep);
+  color: var(--terracotta-text);
 }
 .sparkle { color: var(--butter-deep); font-size: 1.6rem; }
 
@@ -509,7 +509,7 @@ section { padding: 88px 0; }
   border-bottom: 2px dotted var(--line);
 }
 .addon-list li:last-child { border-bottom: 0; }
-.addon-list strong { color: var(--terracotta-deep); white-space: nowrap; }
+.addon-list strong { color: var(--terracotta-text); white-space: nowrap; }
 
 /* ---------- FAQ ---------- */
 
@@ -548,7 +548,7 @@ section { padding: 88px 0; }
 /* ---------- Contact ---------- */
 
 .contact-aside .card { margin-bottom: 24px; }
-.contact-aside h3 { color: var(--terracotta); }
+.contact-aside h3, .contact-aside .h3 { color: var(--terracotta-text); }
 
 /* ---------- CTA band ---------- */
 
@@ -571,7 +571,7 @@ section { padding: 88px 0; }
   gap: 32px;
   margin-bottom: 32px;
 }
-.footer-grid h4 {
+.footer-grid h4, .footer-grid .footer-heading {
   font-family: var(--font-display);
   font-weight: 400;
   font-size: 1.3rem;
@@ -695,7 +695,7 @@ figure { margin: 0; }
 .inquiry-form .req {
   font-weight: 600;
   font-size: 0.8rem;
-  color: var(--terracotta-deep);
+  color: var(--terracotta-text);
   background: var(--peach);
   border-radius: 999px;
   padding: 1px 8px;
@@ -754,11 +754,11 @@ figure { margin: 0; }
 .field.invalid textarea,
 .field.invalid .chip span { border-color: var(--terracotta); }
 .field.invalid > label,
-.field.invalid > legend { color: var(--terracotta-deep); }
+.field.invalid > legend { color: var(--terracotta-text); }
 .form-error {
   margin: 0;
   background: var(--blush);
-  color: var(--terracotta-deep);
+  color: var(--terracotta-text);
   border-radius: 14px;
   padding: 12px 16px;
   font-weight: 700;
@@ -859,7 +859,7 @@ details.more summary {
   align-items: center;
   gap: 8px;
   font-weight: 800;
-  color: var(--terracotta-deep);
+  color: var(--terracotta-text);
   padding: 10px 0;
   min-height: 44px;
 }
@@ -991,7 +991,7 @@ details.more > *:not(summary) { margin-top: 10px; }
   cursor: pointer;
   list-style: none;
   font-weight: 800;
-  color: var(--terracotta-deep);
+  color: var(--terracotta-text);
   padding: 10px 0;
   min-height: 44px;
   display: flex;
@@ -1177,7 +1177,7 @@ button, .btn, .chip, summary, .nav-links a, .faq-nav a { touch-action: manipulat
   text-align: center;
 }
 .mm-hint { margin: 0; max-width: 260px; color: var(--ink-soft); }
-.mm-hint .hand { display: block; font-size: 1.4rem; color: var(--terracotta-deep); }
+.mm-hint .hand { display: block; font-size: 1.4rem; color: var(--terracotta-text); }
 .mm-card {
   width: 150px;
   margin: 0;
@@ -1290,7 +1290,6 @@ html.js-reveal .reveal.in { opacity: 1; translate: 0 0; }
     transform: scaleX(0);
     transform-origin: left center;
     pointer-events: none;
-    will-change: transform;
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='6' viewBox='0 0 20 6'%3E%3Cpath d='M0 3 Q5 0 10 3 T20 3' fill='none' stroke='%23b85d36' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x left center / 20px 6px;
     transition: transform 0.35s ease;
   }
@@ -1301,16 +1300,16 @@ html.js-reveal .reveal.in { opacity: 1; translate: 0 0; }
 }
 
 /* 12. Twinkling sparkles */
-.twinkle, .sparkle { display: inline-block; animation: twinkle 2.6s ease-in-out infinite; }
-.quote-alt .sparkle { animation-delay: 1.3s; }
+.twinkle, .sparkle { display: inline-block; animation: twinkle 2.4s ease-in-out 2; } /* stops within 5s */
+.quote-alt .sparkle { animation-delay: 0.2s; }
 @keyframes twinkle {
   0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
   50%      { transform: scale(0.75) rotate(15deg); opacity: 0.65; }
 }
 
 /* 13. Reviews bob gently like they're being spoken */
-.quote-bubble { animation: bob 4.5s ease-in-out infinite; }
-.quote-alt { animation-delay: -2.2s; }
+.quote-bubble { animation: bob 2.3s ease-in-out 2; } /* stops within 5s */
+.quote-alt { animation-delay: 0.3s; }
 @keyframes bob {
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(-5px); }
@@ -1333,9 +1332,9 @@ html.js-reveal .reveal.in { opacity: 1; translate: 0 0; }
   position: relative;
   width: 150px;
   margin: 0 auto 22px;
-  animation: jam-shake 3.2s ease-in-out infinite;
+  animation: jam-shake 2.4s ease-in-out 2; /* stops within 5s */
 }
-.jammed .mm-knob { display: inline-block; width: 48px; height: 48px; cursor: default; animation: jam-knob 3.2s ease-in-out infinite; }
+.jammed .mm-knob { display: inline-block; width: 48px; height: 48px; cursor: default; animation: jam-knob 2.4s ease-in-out 2; }
 .jammed .mm-door { position: relative; width: 40px; height: 26px; overflow: visible; }
 .stuck-card {
   position: absolute;
@@ -1352,11 +1351,11 @@ html.js-reveal .reveal.in { opacity: 1; translate: 0 0; }
   transform: translate(-50%, -50%) rotate(-8deg);
   padding: 3px 10px;
   background: var(--butter);
-  border: 2px solid var(--terracotta-deep);
+  border: 2px solid var(--terracotta-text);
   border-radius: 6px;
   font-family: var(--font-display);
   font-size: 0.95rem;
-  color: var(--terracotta-deep);
+  color: var(--terracotta-text);
   white-space: nowrap;
   box-shadow: 0 3px 8px rgba(91, 63, 44, 0.2);
 }
@@ -1380,3 +1379,39 @@ html.js-reveal .reveal.in { opacity: 1; translate: 0 0; }
   .twinkle, .sparkle, .quote-bubble, .heart, .mini-machine.jammed, .jammed .mm-knob { animation: none !important; }
   .nav-links a:not(.nav-cta)::after { transition: none; }
 }
+
+/* ---------- Accessibility helpers ---------- */
+
+/* Text for screen readers only */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* 4. Keep focused items clear of the sticky header (and the phone booking bar) */
+html { scroll-padding-top: 96px; }
+@media (max-width: 940px) { html { scroll-padding-bottom: 96px; } }
+
+/* 3. Per-field error messages on the inquiry form */
+.field-error {
+  margin: 8px 0 0;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--terracotta-text);
+}
+.field-error::before { content: "⚠ "; }
+
+/* 5. Footer / sidebar headings keep their look after changing heading levels */
+.footer-grid .footer-heading {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.3rem;
+  margin: 0 0 10px;
+  color: var(--butter);
+}
+.contact-aside .h3 { font-size: 1.5rem; }

@@ -8,7 +8,7 @@
           📍 Based in {{ site.location }}</p>
       </div>
       <div>
-        <h4>Explore</h4>
+        <h2 class="footer-heading">Explore</h2>
         <ul>
           <li><a href="{{ '/how-it-works/' | relative_url }}">How it works</a></li>
           <li><a href="{{ '/pricing/' | relative_url }}">Pricing</a></li>
@@ -17,13 +17,13 @@
         </ul>
       </div>
       <div>
-        <h4>Say hi</h4>
+        <h2 class="footer-heading">Say hi</h2>
         <ul>
           <li><a href="{{ '/contact/' | relative_url }}">Book us</a></li>
-          <li><a href="{{ site.instagram }}" target="_blank" rel="noopener">Instagram @in.a.memento</a></li>
+          <li><a href="{{ site.instagram }}" target="_blank" rel="noopener">Instagram @in.a.memento<span class="sr-only"> (opens in new tab)</span></a></li>
         </ul>
       </div>
     </div>
-    <div class="footer-bottom">© <span id="year">2026</span> in a memento · made with <span class="heart" aria-label="love">🩵</span> in Seattle</div>
+    <div class="footer-bottom">© <span id="year">2026</span> in a memento · made with <span class="heart" aria-hidden="true">🩵</span><span class="sr-only">love</span> in Seattle</div>
   </div>
 </footer>
