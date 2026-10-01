@@ -957,39 +957,3 @@ details.more > *:not(summary) { margin-top: 10px; }
   .footer-grid > div:nth-child(2) { display: none; }
   .footer-brand { font-size: 1.6rem; }
 }
-
-/* ---------- Home: How it works ---------- */
-
-.how-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 28px;
-  align-items: start;
-}
-.how-grid h3 { color: var(--terracotta); margin-bottom: 14px; }
-.step-list { list-style: none; counter-reset: step; margin: 0; padding: 0; }
-.step-list li {
-  counter-increment: step;
-  position: relative;
-  padding: 0 0 14px 46px;
-  min-height: 32px;
-}
-.step-list li:last-child { padding-bottom: 0; }
-.step-list li::before {
-  content: counter(step);
-  position: absolute;
-  left: 0; top: 0;
-  width: 32px; height: 32px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  font-family: var(--font-display);
-  font-size: 1.1rem;
-  color: var(--terracotta-deep);
-  background: var(--butter);
-}
-.step-list-guest li::before { background: var(--sky); color: var(--ink); }
-.step-list strong { display: block; color: var(--ink); }
-.step-list span { color: var(--ink-soft); }
-#how-it-works { scroll-margin-top: 70px; }
-@media (max-width: 880px) { .how-grid { grid-template-columns: 1fr; gap: 16px; } }

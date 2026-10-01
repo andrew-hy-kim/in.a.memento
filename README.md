@@ -40,7 +40,7 @@ The domain renews yearly in Cloudflare; keep auto-renew on so the site doesn't g
 | What | File |
 | --- | --- |
 | Home page | `index.html` |
-| How it works (booking steps) | the "How it works" section of `index.html` |
+| How It Works | `how-it-works/index.html` |
 | Pricing | `pricing/index.html` |
 | Gallery | `gallery/index.html` |
 | FAQ questions & answers | `_data/faq.yml` (the page and Google's FAQ markup both read from it) |
