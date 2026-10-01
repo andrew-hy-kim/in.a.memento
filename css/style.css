@@ -1087,3 +1087,8 @@ html.lb-open { overflow: hidden; }
   .lb-next { right: calc(50% - 60px); }
 }
 html.lb-open .mobile-book { display: none; }
+
+/* Quick repeated taps (e.g. the viewer arrows) shouldn't trigger the phone's double-tap zoom.
+   Pinch to zoom still works. */
+.lightbox, .lightbox *,
+button, .btn, .chip, summary, .nav-links a, .faq-nav a { touch-action: manipulation; }
