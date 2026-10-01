@@ -977,7 +977,10 @@ details.more > *:not(summary) { margin-top: 10px; }
 .pill { padding: 4px 11px; font-size: 0.86rem; }
 .pill-row { gap: 6px; }
 
-/* 9. Gallery event photos side by side (and smaller) on phones */
+/* 9. Gallery event photos: each polaroid hugs its own photo instead of stretching to the tallest one */
+.event-photos { align-items: center; }
+
+/* Side by side (and smaller) on phones */
 @media (max-width: 640px) {
   .event-photos { grid-template-columns: 1fr 1fr; gap: 12px; align-items: start; }
   .event-photos .polaroid { padding: 6px 6px 8px; transform: rotate(-1.5deg); }
