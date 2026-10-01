@@ -136,16 +136,6 @@ p { margin: 0 0 1em; }
 .logo-badge {
   width: 52px; height: 52px;
   border-radius: 50%;
-  display: grid;
-  place-items: center;
-  border: 2px solid var(--sky-mid);
-  background: repeating-linear-gradient(90deg, var(--paper) 0 5px, var(--sky) 5px 10px);
-  font-family: var(--font-display);
-  font-size: 13px;
-  line-height: 0.95;
-  text-align: center;
-  color: var(--butter-deep);
-  -webkit-text-stroke: 0.6px var(--terracotta-deep);
   flex-shrink: 0;
 }
 .logo-word {
@@ -615,7 +605,7 @@ section { padding: 88px 0; }
 
 @media (max-width: 640px) {
   .logo-word { font-size: 1.3rem; }
-  .logo-badge { width: 44px; height: 44px; font-size: 11px; }
+  .logo-badge { width: 44px; height: 44px; }
 }
 
 .price-unit { font-family: var(--font-body); font-size: 1rem; color: var(--ink-soft); }
