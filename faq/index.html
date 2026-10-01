@@ -18,14 +18,14 @@ schema_faq: true
   <div class="container faq">
     <nav class="faq-nav" aria-label="FAQ sections">
       {%- for group in site.data.faq %}
-      <a href="#{{ group.id }}"><span aria-hidden="true">{{ group.icon }}</span> {{ group.group }}</a>
+      <a href="#{{ group.id }}">{{ group.group }}</a>
       {%- endfor %}
     </nav>
 
     {%- for group in site.data.faq %}
     {%- assign first_group = forloop.first %}
     <div class="faq-group" id="{{ group.id }}">
-      <h2><span class="faq-icon" aria-hidden="true">{{ group.icon }}</span>{{ group.group }}</h2>
+      <h2><img class="doodle-icon" src="{{ '/images/designs/' | append: group.icon | append: '.webp' | relative_url }}" alt="" aria-hidden="true" width="44" height="55">{{ group.group }}</h2>
       {%- for item in group.items %}
       <details{% if first_group and forloop.first %} open{% endif %}>
         <summary>{{ item.q }}</summary>

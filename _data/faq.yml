@@ -3,7 +3,7 @@
 
 - group: "The basics"
   id: basics
-  icon: "🪙"
+  icon: "chef-duck"   # a design from images/designs/
   items:
     - q: "What kinds of events do you do?"
       a: "Weddings, birthday parties, bridal showers, baby showers, corporate events, social gatherings, pop ups and cafes. Hosting a pop up or running a cafe? Please reach out, we'd love to bring the machine to you!"
@@ -21,7 +21,7 @@
 
 - group: "Designs & customization"
   id: designs
-  icon: "🎨"
+  icon: "flower-cup"   # a design from images/designs/
   items:
     - q: "Can we customize the designs or use our own artwork?"
       a: |
@@ -36,7 +36,7 @@
 
 - group: "Pricing & travel"
   id: pricing
-  icon: "🏷️"
+  icon: "lemon"   # a design from images/designs/
   items:
     - q: "How much does it cost?"
       a: |
@@ -49,7 +49,7 @@
 
 - group: "Booking & event day"
   id: booking
-  icon: "📅"
+  icon: "tiny-free-library"   # a design from images/designs/
   items:
     - q: "How far in advance should we book?"
       a: "As soon as possible! We need about 2 months to design and print everything. If your event is sooner, please [reach out](/contact/) and we’ll see what we can do! For expedited production within 3 weeks, a $75 fee will be added to cover priority printing and expedited shipping."

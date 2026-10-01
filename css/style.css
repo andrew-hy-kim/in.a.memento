@@ -1639,3 +1639,18 @@ html { scroll-padding-top: 96px; }
   }
   .step-clip.is-playing .clip-frame::after { content: "❚❚"; padding-left: 0; font-size: 0.65rem; }
 }
+
+/* Small doodles from the design library used as icons (instead of emoji) */
+.doodle-icon {
+  width: 44px; height: 55px;
+  object-fit: contain;
+  background: #fff;
+  border-radius: 10px;
+  padding: 3px;
+  box-shadow: 0 2px 6px rgba(91, 63, 44, 0.12);
+  flex-shrink: 0;
+}
+.feature-list li { grid-template-columns: 44px 1fr; }
+.feature-list .doodle-icon:nth-child(1) { transform: rotate(-4deg); }
+.feature-list li:nth-child(even) .doodle-icon { transform: rotate(4deg); }
+.faq-group h2 .doodle-icon { transform: rotate(-4deg); }
