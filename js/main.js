@@ -445,3 +445,26 @@ window.stickerBurst = function (target) {
   }, { threshold: 0.6 });
   els.forEach(function (el) { io.observe(el); });
 })();
+
+// Gallery scrapbook strip: arrow buttons scroll sideways; hide an arrow at either end
+(function () {
+  var wrap = document.querySelector(".scrapbook-wrap");
+  if (!wrap) return;
+  var strip = wrap.querySelector(".scrapbook");
+  var prev = wrap.querySelector(".scrap-prev");
+  var next = wrap.querySelector(".scrap-next");
+  function update() {
+    var max = strip.scrollWidth - strip.clientWidth - 2;
+    prev.disabled = strip.scrollLeft <= 2;
+    next.disabled = strip.scrollLeft >= max;
+  }
+  function go(dir) {
+    strip.scrollBy({ left: dir * strip.clientWidth * 0.8, behavior: reduceMotion ? "auto" : "smooth" });
+  }
+  prev.addEventListener("click", function () { go(-1); });
+  next.addEventListener("click", function () { go(1); });
+  strip.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+  window.addEventListener("load", update);
+  update();
+})();

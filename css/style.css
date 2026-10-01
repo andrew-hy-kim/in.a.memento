@@ -1515,3 +1515,69 @@ html { scroll-padding-top: 96px; }
   .pull-game .mm-door { width: 42px; height: 28px; }
   .pull-game .mm-label { font-size: 0.6rem; }
 }
+
+/* Scrapbook as a side-scrolling strip: same-height polaroids in one row (swipe / arrows),
+   so the section stays about one screen tall however many photos are added */
+.scrapbook-wrap { position: relative; max-width: 1180px; margin: 0 auto; }
+.scrapbook-wrap .scrapbook {
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 36px;
+  max-width: none;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 48px;
+  padding: 34px 48px 34px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+.scrapbook-wrap .scrapbook:focus-visible { outline: 3px solid var(--sky-deep); outline-offset: -3px; border-radius: 16px; }
+.scrapbook-wrap .polaroid.scrap {
+  flex: 0 0 auto;
+  max-width: none;
+  scroll-snap-align: start;
+}
+.scrapbook-wrap .polaroid.scrap img { height: 400px; width: auto; max-width: none; }
+/* gentle stagger only, so the row stays tidy */
+.scrapbook-wrap .scrap:nth-of-type(4n+2) { margin-top: 18px; }
+.scrapbook-wrap .scrap:nth-of-type(4n+3) { margin-top: 6px; }
+.scrapbook-wrap .scrap:nth-of-type(4n+4) { margin-top: 24px; }
+/* arrows */
+.scrap-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 4;
+  width: 48px; height: 48px;
+  margin-top: -24px;
+  border: 2px solid var(--line);
+  border-radius: 50%;
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  display: grid;
+  place-items: center;
+  transition: opacity 0.2s ease, background 0.15s ease;
+}
+.scrap-nav:hover { background: var(--butter); }
+.scrap-nav:focus-visible { outline: 3px solid var(--sky-deep); outline-offset: 2px; }
+.scrap-nav[disabled] { opacity: 0; pointer-events: none; }
+.scrap-prev { left: -6px; }
+.scrap-next { right: -6px; }
+.scrap-hint { display: none; text-align: center; margin: 4px 0 0; font-family: var(--font-hand); color: var(--ink-soft); }
+.scrapbook-wrap .sticker-a { left: -14px; top: -8px; }
+.scrapbook-wrap .sticker-b { right: -14px; top: -6px; bottom: auto; transform: rotate(12deg); }
+@media (max-width: 640px) {
+  .scrapbook-wrap .scrapbook { gap: 20px; padding: 26px 20px 26px; scroll-padding: 0 20px; }
+  .scrapbook-wrap .polaroid.scrap img { height: 280px; }
+  .scrapbook-wrap .polaroid.scrap { flex-basis: auto; }
+  .scrap-nav { display: none; }
+  .scrap-hint { display: block; }
+  .scrapbook-wrap .sticker-a { left: -6px; top: -10px; }
+  .scrapbook-wrap .sticker-b { right: -6px; top: -10px; bottom: auto; }
+  .scrap-hint { margin-top: 10px; }
+}
