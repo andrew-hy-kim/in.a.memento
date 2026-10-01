@@ -416,3 +416,31 @@ window.stickerBurst = function (target) {
     });
   });
 })();
+
+// Reviews float and sparkles twinkle when they scroll into view, and again on hover
+// (each run is short, so motion never goes on for more than 5 seconds)
+(function () {
+  if (reduceMotion) return;
+  var els = Array.prototype.slice.call(document.querySelectorAll(".quote-bubble, .twinkle"));
+  if (!els.length) return;
+  function play(el) {
+    if (el.classList.contains("play")) return; // let a running float finish
+    el.classList.add("play");
+  }
+  els.forEach(function (el) {
+    el.addEventListener("animationend", function (e) {
+      if (e.target === el || e.animationName === "bob") el.classList.remove("play");
+    });
+    var hoverTarget = el.classList.contains("twinkle") ? el.closest(".eyebrow") || el : el;
+    hoverTarget.addEventListener("mouseenter", function () { play(el); });
+  });
+  if (!("IntersectionObserver" in window)) { els.forEach(play); return; }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      play(e.target);
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.6 });
+  els.forEach(function (el) { io.observe(el); });
+})();

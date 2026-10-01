@@ -1301,16 +1301,18 @@ html.js-reveal .reveal.in { opacity: 1; translate: 0 0; }
 }
 
 /* 12. Twinkling sparkles */
-.twinkle, .sparkle { display: inline-block; animation: twinkle 2.4s ease-in-out 2; } /* stops within 5s */
-.quote-alt .sparkle { animation-delay: 0.2s; }
+.twinkle, .sparkle { display: inline-block; }
+/* plays (twice, under 5s) when scrolled into view or hovered; see js/main.js */
+.twinkle.play, .play .sparkle { animation: twinkle 2.4s ease-in-out 2; }
+.play.quote-alt .sparkle { animation-delay: 0.2s; }
 @keyframes twinkle {
   0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
   50%      { transform: scale(0.75) rotate(15deg); opacity: 0.65; }
 }
 
 /* 13. Reviews bob gently like they're being spoken */
-.quote-bubble { animation: bob 2.3s ease-in-out 2; } /* stops within 5s */
-.quote-alt { animation-delay: 0.3s; }
+.quote-bubble.play { animation: bob 2.3s ease-in-out 2; } /* stops within 5s */
+.quote-alt.play { animation-delay: 0.3s; }
 @keyframes bob {
   0%, 100% { transform: translateY(0); }
   50%      { transform: translateY(-5px); }
