@@ -19,17 +19,23 @@ description: "See our sticker, tattoo and/or mini print vending machine at Seatt
       <span class="eyebrow">at events</span>
       <h2>The machine</h2>
     </div>
-    <div class="grid grid-2 event-photos">
-      <figure class="polaroid tilt-left">
+    {%- comment -%}
+      Scrapbook: photos keep their natural shape. To add a photo, copy a <figure class="polaroid scrap"> block.
+      Tilts, tape colors and the up/down stagger rotate automatically.
+    {%- endcomment %}
+    <div class="scrapbook">
+      <img class="scrap-sticker sticker-a" src="{{ '/images/designs/chef-duck.webp' | relative_url }}" alt="" aria-hidden="true" loading="lazy">
+      <figure class="polaroid scrap">
         <img src="{{ '/images/gallery/machine-on-stand.webp' | relative_url }}" width="660" height="1112" loading="lazy"
              alt="The vending machine on its stand at Rachel & Brian's outdoor wedding, with a sign reading 'Show Your Un-dye-ing Love For Us and Get Inked!'">
         <figcaption>Rachel &amp; Brian's Wedding</figcaption>
       </figure>
-      <figure class="polaroid">
+      <figure class="polaroid scrap">
         <img src="{{ '/images/gallery/andrews-30th.webp' | relative_url }}" width="624" height="651" loading="lazy"
              alt="The vending machine at a 30th birthday party, showing six doodle designs and the sign '1 token = 1 surprise mini print'">
         <figcaption>Andrew's 30th Birthday</figcaption>
       </figure>
+      <img class="scrap-sticker sticker-b" src="{{ '/images/designs/sleeping-cat.webp' | relative_url }}" alt="" aria-hidden="true" loading="lazy">
     </div>
   </div>
 </section>
