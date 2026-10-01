@@ -7,6 +7,12 @@
     var open = links.classList.toggle("open");
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
   });
+  // Close the menu after tapping a link (e.g. "How It Works" jumps within the home page)
+  links.addEventListener("click", function (e) {
+    if (!e.target.closest("a")) return;
+    links.classList.remove("open");
+    toggle.setAttribute("aria-expanded", "false");
+  });
 })();
 
 // Footer year
