@@ -317,6 +317,7 @@ section { padding: 88px 0; }
 .pill:nth-child(2) { background: var(--butter); }
 .pill:nth-child(3) { background: var(--sage); }
 .pill:nth-child(4) { background: var(--blush); }
+.pill:nth-child(5) { background: var(--peach); }
 
 @media (max-width: 880px) {
   .hero .container { grid-template-columns: 1fr; }
