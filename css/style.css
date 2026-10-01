@@ -665,15 +665,27 @@ figure { margin: 0; }
 @media (max-width: 800px) { .sticker-row { grid-template-columns: repeat(3, 1fr); } }
 
 .tile.photo { padding: 0; background: #fff; }
-.tile.photo.contain img { object-fit: contain; padding: 12px; }
+/* Design tiles: artwork on top, name in its own strip below (never covering the art) */
+.tile.photo.contain {
+  display: flex;
+  flex-direction: column;
+  place-items: initial;
+}
+.tile.photo.contain img {
+  position: static;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  object-fit: contain;
+  padding: 12px 12px 4px;
+}
 .tile figcaption {
-  position: absolute;
-  left: 10px; bottom: 10px;
-  background: rgba(255, 253, 248, 0.92);
-  border-radius: 999px;
-  padding: 2px 12px;
   font-family: var(--font-hand);
   font-size: 1.05rem;
+  color: var(--ink-soft);
+  padding: 6px 10px 10px;
+  text-align: center;
+  line-height: 1.2;
 }
 
 
@@ -947,8 +959,8 @@ details.more > *:not(summary) { margin-top: 10px; }
   .quotes .quote-bubble { font-size: 1.05rem; padding: 24px 20px; }
 
   /* Gallery and home design strip */
-  .tile figcaption { font-size: 0.8rem; left: 6px; bottom: 6px; padding: 1px 8px; }
-  .tile.photo.contain img { padding: 6px; }
+  .tile figcaption { font-size: 0.8rem; padding: 2px 4px 6px; }
+  .tile.photo.contain img { padding: 6px 6px 2px; }
   .polaroid { padding: 10px 10px 12px; }
 
   /* Compact footer: the menu already has these links */
