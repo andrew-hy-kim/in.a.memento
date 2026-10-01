@@ -69,7 +69,7 @@ Keep photos under ~500 KB each (resize to ~1200px wide) so the site stays fast.
 
 Tapping any photo or design opens it bigger in a viewer, and videos work the same way.
 
-- **Short clips (under ~15 seconds):** export as MP4, compress to under ~10 MB (e.g. with HandBrake or
+- **Short clips (under ~15 seconds):** send them to Claude, or export as MP4 (plus a WebM copy if you can), compress to under ~1 MB (e.g. with HandBrake or
   an online MP4 compressor), put it in `videos/`, and add a tile like this to `gallery/index.html`:
 
   ```html

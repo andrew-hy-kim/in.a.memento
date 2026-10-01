@@ -191,7 +191,7 @@
   var index = 0;
 
   var triggers = Array.prototype.slice.call(document.querySelectorAll(
-    "main .polaroid img, main .tile img, main .sticker-row img, main [data-video]"));
+    "main .polaroid:not([data-video]) img, main .tile img, main .sticker-row img, main [data-video]"));
   if (!triggers.length) return;
 
   function describe(el) {
@@ -214,7 +214,10 @@
     media.innerHTML = "";
     if (it.video) {
       var v = document.createElement("video");
-      v.src = it.video; v.controls = true; v.autoplay = true; v.playsInline = true;
+      // prefer the smaller WebM where supported, fall back to MP4
+      var webm = it.video.replace(/\.mp4$/, ".webm");
+      if (webm !== it.video) { var s1 = document.createElement("source"); s1.src = webm; s1.type = "video/webm"; v.appendChild(s1); }
+      var s2 = document.createElement("source"); s2.src = it.video; s2.type = "video/mp4"; v.appendChild(s2); v.controls = true; v.autoplay = true; v.playsInline = true; v.muted = true; v.loop = true;
       if (it.poster) v.poster = it.poster;
       media.appendChild(v);
     } else {
@@ -467,4 +470,24 @@ window.stickerBurst = function (target) {
   window.addEventListener("resize", update);
   window.addEventListener("load", update);
   update();
+})();
+
+// Step clips: play silently while on screen, pause when off screen.
+// With "reduce motion", they stay paused on their poster; tapping plays/pauses.
+(function () {
+  var vids = Array.prototype.slice.call(document.querySelectorAll(".step-clip video"));
+  if (!vids.length) return;
+  vids.forEach(function (v) {
+    v.muted = true;
+    v.addEventListener("click", function () { if (v.paused) v.play(); else v.pause(); });
+  });
+  if (reduceMotion || !("IntersectionObserver" in window)) return;
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      var v = e.target;
+      if (e.isIntersecting) { v.preload = "auto"; var p = v.play(); if (p && p.catch) p.catch(function () {}); }
+      else v.pause();
+    });
+  }, { threshold: 0.4 });
+  vids.forEach(function (v) { io.observe(v); });
 })();
