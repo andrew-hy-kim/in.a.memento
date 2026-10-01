@@ -7,9 +7,21 @@ sitemap: false
 
 <section class="page-banner bg-sky-stripes" style="min-height: 60vh;">
   <div class="container">
-    <div class="banner-card">
-      <span class="eyebrow">oops!</span>
-      <h1>This page slipped out of the machine</h1>
+    <div class="banner-card jammed-card">
+      <div class="mini-machine jammed" aria-hidden="true">
+        <div class="mm-window">
+          {%- for d in site.data.designs limit: 6 %}
+          <img src="{{ '/images/designs/' | append: d.image | append: '.webp' | relative_url }}" alt="">
+          {%- endfor %}
+        </div>
+        <div class="mm-label">1 token = 1 surprise memento</div>
+        <div class="mm-controls">
+          <span class="mm-knob"><span></span></span>
+          <div class="mm-door"><span class="stuck-card"></span></div>
+        </div>
+        <span class="jam-sign">out of order</span>
+      </div>
+      <h1>Oops, this one got stuck!</h1>
       <p>We couldn't find that page. Please try one of these instead.</p>
       <div class="btn-row" style="justify-content:center; margin-top:20px;">
         <a class="btn btn-primary" href="{{ '/' | relative_url }}">Home</a>

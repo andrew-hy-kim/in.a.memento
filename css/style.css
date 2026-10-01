@@ -1274,3 +1274,104 @@ html.js-reveal .reveal.in { opacity: 1; translate: 0 0; }
   .burst-sticker { animation: none !important; }
   .sticker-row figure, .btn, .mobile-book { transition: none; }
 }
+
+/* =========================================================
+   Gentle everyday polish
+   ========================================================= */
+
+/* 11. Hand-drawn squiggle underline that draws in under menu links (desktop hover) */
+@media (hover: hover) and (min-width: 941px) {
+  .nav-links a:not(.nav-cta) { position: relative; }
+  .nav-links a:not(.nav-cta)::after {
+    content: "";
+    position: absolute;
+    left: 14px; bottom: 1px;
+    width: 0; height: 6px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='6' viewBox='0 0 20 6'%3E%3Cpath d='M0 3 Q5 0 10 3 T20 3' fill='none' stroke='%23b85d36' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x left center / 20px 6px;
+    transition: width 0.35s ease;
+  }
+  .nav-links a:not(.nav-cta):hover { background-color: transparent; }
+  .nav-links a:not(.nav-cta)[aria-current="page"]:hover { background-color: var(--butter); }
+  .nav-links a:not(.nav-cta):hover::after { width: calc(100% - 28px); }
+}
+
+/* 12. Twinkling sparkles */
+.twinkle, .sparkle { display: inline-block; animation: twinkle 2.6s ease-in-out infinite; }
+.quote-alt .sparkle { animation-delay: 1.3s; }
+@keyframes twinkle {
+  0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  50%      { transform: scale(0.75) rotate(15deg); opacity: 0.65; }
+}
+
+/* 13. Reviews bob gently like they're being spoken */
+.quote-bubble { animation: bob 4.5s ease-in-out infinite; }
+.quote-alt { animation-delay: -2.2s; }
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
+}
+
+/* 14. Footer heart beats on hover (and once when the footer comes into view) */
+.heart { display: inline-block; }
+.footer-bottom:hover .heart, .heart.beat { animation: heartbeat 1.1s ease-in-out; }
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.3); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.22); }
+  60% { transform: scale(1); }
+}
+
+/* 15. "Jammed machine" 404 page */
+.jammed-card { text-align: center; }
+.mini-machine.jammed {
+  position: relative;
+  width: 150px;
+  margin: 0 auto 22px;
+  animation: jam-shake 3.2s ease-in-out infinite;
+}
+.jammed .mm-knob { display: inline-block; width: 48px; height: 48px; cursor: default; animation: jam-knob 3.2s ease-in-out infinite; }
+.jammed .mm-door { position: relative; width: 40px; height: 26px; overflow: visible; }
+.stuck-card {
+  position: absolute;
+  left: 8px; top: -6px;
+  width: 22px; height: 26px;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(91, 63, 44, 0.25);
+  transform: rotate(-14deg);
+}
+.jam-sign {
+  position: absolute;
+  top: 32%; left: 50%;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  padding: 3px 10px;
+  background: var(--butter);
+  border: 2px solid var(--terracotta-deep);
+  border-radius: 6px;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--terracotta-deep);
+  white-space: nowrap;
+  box-shadow: 0 3px 8px rgba(91, 63, 44, 0.2);
+}
+@keyframes jam-shake {
+  0%, 70%, 100% { transform: rotate(0); }
+  74% { transform: rotate(-3deg); }
+  78% { transform: rotate(3deg); }
+  82% { transform: rotate(-2deg); }
+  86% { transform: rotate(2deg); }
+  90% { transform: rotate(0); }
+}
+@keyframes jam-knob {
+  0%, 60%, 100% { transform: rotate(0); }
+  66% { transform: rotate(40deg); }
+  72% { transform: rotate(-10deg); }
+  78% { transform: rotate(30deg); }
+  86% { transform: rotate(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .twinkle, .sparkle, .quote-bubble, .heart, .mini-machine.jammed, .jammed .mm-knob { animation: none !important; }
+  .nav-links a:not(.nav-cta)::after { transition: none; }
+}

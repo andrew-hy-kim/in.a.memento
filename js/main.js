@@ -325,3 +325,16 @@ window.stickerBurst = function (target) {
     s.addEventListener("animationend", function (e) { e.target.remove(); });
   }
 };
+
+// Footer heart beats once when it scrolls into view (phones have no hover)
+(function () {
+  var heart = document.querySelector(".site-footer .heart");
+  if (!heart || reduceMotion || !("IntersectionObserver" in window)) return;
+  var line = heart.closest(".footer-bottom") || heart;
+  var io = new IntersectionObserver(function (entries) {
+    if (!entries[0].isIntersecting) return;
+    heart.classList.add("beat");
+    io.disconnect();
+  }, { threshold: 0.5 });
+  io.observe(line);
+})();
