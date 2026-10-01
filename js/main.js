@@ -129,3 +129,100 @@
   }, { threshold: 0.2 });
   targets.forEach(function (t) { io.observe(t); });
 })();
+
+// Photo viewer: tap a photo or design to see it bigger, swipe or use arrows to move between photos
+// in the same section. Videos work too: give a figure data-video="/videos/clip.mp4" (and optionally
+// data-poster="/images/...jpg") and it plays in the viewer.
+(function () {
+  var box = document.getElementById("lightbox");
+  if (!box || typeof box.showModal !== "function") return;
+  var media = box.querySelector(".lb-media");
+  var caption = box.querySelector(".lb-caption");
+  var prev = box.querySelector(".lb-prev");
+  var next = box.querySelector(".lb-next");
+  var items = [];
+  var index = 0;
+
+  var triggers = Array.prototype.slice.call(document.querySelectorAll(
+    "main .polaroid img, main .tile img, main .sticker-row img, main [data-video]"));
+  if (!triggers.length) return;
+
+  function describe(el) {
+    var fig = el.closest("figure");
+    var cap = fig && fig.querySelector("figcaption");
+    var video = el.getAttribute("data-video") || (fig && fig.getAttribute("data-video"));
+    var img = el.tagName === "IMG" ? el : el.querySelector("img");
+    return {
+      video: video,
+      poster: el.getAttribute("data-poster") || (img && img.src) || "",
+      src: img ? (img.getAttribute("data-full") || img.currentSrc || img.src) : "",
+      alt: img ? img.alt : (cap ? cap.textContent.trim() : "Video"),
+      caption: cap ? cap.textContent.trim() : ""
+    };
+  }
+
+  function show(i) {
+    index = (i + items.length) % items.length;
+    var it = describe(items[index]);
+    media.innerHTML = "";
+    if (it.video) {
+      var v = document.createElement("video");
+      v.src = it.video; v.controls = true; v.autoplay = true; v.playsInline = true;
+      if (it.poster) v.poster = it.poster;
+      media.appendChild(v);
+    } else {
+      var im = document.createElement("img");
+      im.src = it.src; im.alt = it.alt;
+      media.appendChild(im);
+    }
+    caption.textContent = it.caption;
+    caption.hidden = !it.caption;
+    var many = items.length > 1;
+    prev.hidden = !many; next.hidden = !many;
+  }
+
+  function open(el) {
+    var section = el.closest("section") || document;
+    items = triggers.filter(function (t) { return section.contains(t); });
+    show(items.indexOf(el));
+    box.showModal();
+    document.documentElement.classList.add("lb-open");
+  }
+
+  triggers.forEach(function (el) {
+    el.setAttribute("tabindex", "0");
+    el.setAttribute("role", "button");
+    var label = el.getAttribute("alt") || el.getAttribute("aria-label") || "photo";
+    el.setAttribute("aria-label", "View larger: " + label);
+    el.classList.add("lb-trigger");
+    el.addEventListener("click", function () { open(el); });
+    el.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(el); }
+    });
+  });
+
+  box.querySelector(".lb-close").addEventListener("click", function () { box.close(); });
+  prev.addEventListener("click", function () { show(index - 1); });
+  next.addEventListener("click", function () { show(index + 1); });
+  box.addEventListener("click", function (e) {
+    if (e.target === box || e.target.classList.contains("lb-figure") || e.target === media) box.close();
+  });
+  box.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowLeft") show(index - 1);
+    if (e.key === "ArrowRight") show(index + 1);
+  });
+  box.addEventListener("close", function () {
+    media.innerHTML = ""; // stops any playing video
+    document.documentElement.classList.remove("lb-open");
+  });
+
+  // Swipe left/right on phones
+  var startX = null;
+  box.addEventListener("touchstart", function (e) { startX = e.touches[0].clientX; }, { passive: true });
+  box.addEventListener("touchend", function (e) {
+    if (startX === null || items.length < 2) return;
+    var dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 50) show(index + (dx < 0 ? 1 : -1));
+    startX = null;
+  });
+})();

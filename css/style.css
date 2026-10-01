@@ -1012,3 +1012,74 @@ details.more > *:not(summary) { margin-top: 10px; }
 
 /* 2. Keep the hero label on one line on phones */
 @media (max-width: 640px) { .hero .eyebrow { font-size: 1.15rem; } }
+
+/* ---------- Photo / video viewer ---------- */
+
+.lb-trigger { cursor: zoom-in; }
+.lb-trigger:focus-visible { outline: 3px solid var(--sky-deep); outline-offset: 3px; }
+html.lb-open { overflow: hidden; }
+
+.lightbox {
+  width: 100vw; height: 100vh;
+  max-width: none; max-height: none;
+  margin: 0; padding: 0;
+  border: 0;
+  background: transparent;
+  color: #fff;
+}
+.lightbox::backdrop { background: rgba(43, 28, 18, 0.88); }
+.lightbox[open] { display: flex; align-items: center; justify-content: center; }
+.lb-figure {
+  margin: 0;
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 56px 72px 40px;
+}
+.lb-media { display: contents; }
+.lb-media img,
+.lb-media video {
+  max-width: 100%;
+  max-height: calc(100vh - 150px);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  object-fit: contain;
+}
+.lb-caption {
+  font-family: var(--font-hand);
+  font-size: 1.15rem;
+  color: #fff6ea;
+  text-align: center;
+}
+.lb-btn {
+  position: fixed;
+  z-index: 2;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(255, 250, 241, 0.92);
+  color: var(--ink);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+.lb-btn:hover { background: var(--butter); }
+.lb-btn:focus-visible { outline: 3px solid var(--butter-deep); outline-offset: 2px; }
+.lb-close { top: 14px; right: 14px; font-size: 1.2rem; }
+.lb-prev { left: 14px; top: 50%; transform: translateY(-50%); }
+.lb-next { right: 14px; top: 50%; transform: translateY(-50%); }
+@media (max-width: 640px) {
+  .lb-figure { padding: 60px 12px 84px; }
+  .lb-media img, .lb-media video { max-height: calc(100vh - 190px); }
+  .lb-prev, .lb-next { top: auto; bottom: 18px; transform: none; }
+  .lb-prev { left: calc(50% - 60px); }
+  .lb-next { right: calc(50% - 60px); }
+}
+html.lb-open .mobile-book { display: none; }

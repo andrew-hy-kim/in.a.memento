@@ -64,6 +64,24 @@ Put event photos in `images/gallery/` and designs in `images/designs/`, then add
 
 Keep photos under ~500 KB each (resize to ~1200px wide) so the site stays fast.
 
+### Adding videos
+
+Tapping any photo or design opens it bigger in a viewer, and videos work the same way.
+
+- **Short clips (under ~15 seconds):** export as MP4, compress to under ~10 MB (e.g. with HandBrake or
+  an online MP4 compressor), put it in `videos/`, and add a tile like this to `gallery/index.html`:
+
+  ```html
+  <figure class="tile photo" data-video="{{ '/videos/my-clip.mp4' | relative_url }}">
+    <img src="{{ '/images/gallery/my-clip-cover.webp' | relative_url }}" alt="Guests pulling prints at a wedding" loading="lazy">
+    <figcaption>▶ Rachel &amp; Brian's Wedding</figcaption>
+  </figure>
+  ```
+
+  The image is the cover shown in the grid; tapping it plays the video in the viewer.
+- **Longer videos:** upload to YouTube (unlisted is fine) and embed them, rather than storing big files here.
+  GitHub Pages works best when the whole site stays under about 1 GB.
+
 ## Search engines (SEO)
 
 - Page titles and descriptions for Google live at the top of each page file (`title:` / `description:`).
