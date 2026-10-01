@@ -480,6 +480,9 @@ window.stickerBurst = function (target) {
   if (!cards.length) return;
   var vids = cards.map(function (c) { return c.querySelector("video"); });
   var replay = document.querySelector(".clip-replay");
+  // Phones/tablets (no hover): never auto-play; people tap a step or "Watch all steps"
+  var canHover = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+  if (!canHover && replay) replay.textContent = "▶ Watch all steps";
   var seq = -1; // index playing in the sequence, -1 when not sequencing
 
   function stopAll(except) {
@@ -508,10 +511,10 @@ window.stickerBurst = function (target) {
       else { seq = -1; if (replay) replay.hidden = false; }
     });
     cards[i].addEventListener("click", function () { seq = -1; if (v.paused) play(i); else { v.pause(); cards[i].classList.remove("is-playing"); } if (replay) replay.hidden = false; });
-    if (!reduceMotion) cards[i].addEventListener("mouseenter", function () { if (seq === -1) play(i); });
+    if (!reduceMotion && canHover) cards[i].addEventListener("mouseenter", function () { if (seq === -1) play(i); });
   });
   if (replay) replay.addEventListener("click", runSequence);
-  if (reduceMotion || !("IntersectionObserver" in window)) { if (replay) replay.hidden = false; return; }
+  if (reduceMotion || !canHover || !("IntersectionObserver" in window)) { if (replay) replay.hidden = false; return; }
   var started = false;
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
