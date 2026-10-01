@@ -288,7 +288,7 @@ var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-moti
   if (!designs.length || !knobs.length) return;
 
   knobs.forEach(function (knob) { knob.addEventListener("click", function () {
-    var slot = knob.closest(".mm-slot") || game;
+    var slot = game;
     if (busy) return;
     busy = true;
     var i;
