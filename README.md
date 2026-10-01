@@ -73,6 +73,12 @@ Keep photos under ~500 KB each (resize to ~1200px wide) so the site stays fast.
 - Off-site to do: Google Business Profile, Google Search Console (submit `https://inamemento.com/sitemap.xml`),
   link inamemento.com in the Instagram bio, and list on wedding directories.
 
+## Inquiry confirmation email
+
+`extras/inquiry-confirmation-email.gs` is a small Google Apps Script that emails everyone who submits the
+inquiry form ("We got your inquiry! 💌"). It runs inside the Google Form, not the website. Setup steps are at the
+top of the file. Google allows about 100 of these emails per day on a personal account.
+
 ## Previewing locally (optional)
 
 ```sh

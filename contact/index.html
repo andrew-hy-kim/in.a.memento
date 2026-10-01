@@ -1,7 +1,7 @@
 ---
 layout: default
 title: "Book Your Date"
-description: "Check availability for an in a memento vending machine at your Seattle wedding or event. Fill out our inquiry form and we will reply within 1 to 5 business days."
+description: "Check availability for an in a memento vending machine at your Seattle wedding or event. We'll reply within 1 to 5 business days."
 ---
 
 <section class="page-banner bg-butter-stripes">
@@ -66,25 +66,9 @@ description: "Check availability for an in a memento vending machine at your Sea
             <input id="f-date" name="entry.969458904" type="date" required>
           </div>
           <div class="field">
-            <label for="f-guests">Estimated guest count</label>
-            <input id="f-guests" name="entry.513584830" type="text" inputmode="numeric">
+            <label for="f-venue">Location / venue address <span class="req">required</span></label>
+            <input id="f-venue" name="entry.414336527" type="text" autocomplete="street-address" required>
           </div>
-        </div>
-
-        <div class="field">
-          <label for="f-venue">Location / venue address <span class="req">required</span></label>
-          <input id="f-venue" name="entry.414336527" type="text" autocomplete="street-address" required>
-        </div>
-
-        <div class="field">
-          <label for="f-times">Start and end times for your ceremony, cocktail hour and reception</label>
-          <p class="hint">If you know them yet.</p>
-          <input id="f-times" name="entry.1293030965" type="text">
-        </div>
-
-        <div class="field">
-          <label for="f-notes">Anything else you'd like us to know?</label>
-          <textarea id="f-notes" name="entry.4335019" rows="4" placeholder="Your theme, colors, design ideas…"></textarea>
         </div>
 
         <fieldset class="field">
@@ -98,6 +82,25 @@ description: "Check availability for an in a memento vending machine at your Sea
           </div>
           <input class="other-input" id="f-heard-other" name="entry.808391416.other_option_response" type="text" placeholder="Where did you hear about us?" aria-label="Other way you heard about us" hidden>
         </fieldset>
+
+        <details class="more-fields">
+          <summary>Add more details (optional)</summary>
+          <div class="more-fields-body">
+            <div class="field">
+              <label for="f-guests">Estimated guest count</label>
+              <input id="f-guests" name="entry.513584830" type="text" inputmode="numeric">
+            </div>
+            <div class="field">
+              <label for="f-times">Start and end times for your ceremony, cocktail hour and reception</label>
+              <p class="hint">If you know them yet.</p>
+              <input id="f-times" name="entry.1293030965" type="text">
+            </div>
+            <div class="field">
+              <label for="f-notes">Anything else you'd like us to know?</label>
+              <textarea id="f-notes" name="entry.4335019" rows="4" placeholder="Your theme, colors, design ideas…"></textarea>
+            </div>
+          </div>
+        </details>
 
         {%- comment -%} Spam trap: hidden from people, bots tend to fill it in {%- endcomment %}
         <div class="hp" aria-hidden="true">

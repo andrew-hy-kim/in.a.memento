@@ -12,7 +12,7 @@
   --paper: #fffdf8;
   --sky: #d7ebf1;
   --sky-mid: #b9dbe6;
-  --sky-deep: #6fa6bd;
+  --sky-deep: #4d89a4;
   --butter: #fcebb8;
   --butter-deep: #f2cf73;
   --peach: #fbd9c4;
@@ -175,11 +175,11 @@ p { margin: 0 0 1em; }
 .nav-links a:hover { background: var(--sky); color: var(--ink); }
 .nav-links a[aria-current="page"] { background: var(--butter); }
 .nav-links a.nav-cta {
-  background: var(--terracotta);
+  background: var(--terracotta-deep);
   color: #fff;
   margin-left: 6px;
 }
-.nav-links a.nav-cta:hover { background: var(--terracotta-deep); color: #fff; }
+.nav-links a.nav-cta:hover { background: #a9532f; color: #fff; }
 
 @media (max-width: 940px) {
   .nav-toggle { display: inline-block; }
@@ -214,11 +214,11 @@ p { margin: 0 0 1em; }
 }
 .btn:hover { transform: translateY(-2px); }
 .btn-primary {
-  background: var(--terracotta);
+  background: var(--terracotta-deep);
   color: #fff;
-  box-shadow: 0 4px 0 var(--terracotta-deep);
+  box-shadow: 0 4px 0 #8f4526;
 }
-.btn-primary:hover { color: #fff; box-shadow: 0 6px 0 var(--terracotta-deep); }
+.btn-primary:hover { color: #fff; background: #a9532f; box-shadow: 0 6px 0 #8f4526; }
 .btn-soft {
   background: var(--paper);
   color: var(--ink);
@@ -902,7 +902,7 @@ details.more > *:not(summary) { margin-top: 10px; }
     color: var(--ink);
     font-weight: 800;
   }
-  .mobile-book .btn { padding: 10px 22px; box-shadow: 0 3px 0 var(--terracotta-deep); }
+  .mobile-book .btn { padding: 10px 22px; box-shadow: 0 3px 0 #8f4526; }
   body.has-mobile-book { padding-bottom: 84px; }
 }
 
@@ -960,3 +960,55 @@ details.more > *:not(summary) { margin-top: 10px; }
   .footer-grid > div:nth-child(2) { display: none; }
   .footer-brand { font-size: 1.6rem; }
 }
+
+/* ---------- Audit 2 refinements ---------- */
+
+/* 1. Phone "Book us" bar slides away when a booking button or the footer is already on screen */
+.mobile-book { transition: transform 0.25s ease, opacity 0.25s ease; }
+.mobile-book.is-hidden { transform: translateY(140%); opacity: 0; pointer-events: none; }
+
+/* 4. FAQ section buttons: 2 x 2 on phones instead of 4 stacked rows */
+@media (max-width: 640px) {
+  .faq-nav { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 28px; }
+  .faq-nav a { padding: 8px 10px; font-size: 0.88rem; text-align: center; }
+}
+
+/* 5. Event pills fit on one line on desktop */
+.pill { padding: 4px 11px; font-size: 0.86rem; }
+.pill-row { gap: 6px; }
+
+/* 9. Gallery event photos side by side (and smaller) on phones */
+@media (max-width: 640px) {
+  .event-photos { grid-template-columns: 1fr 1fr; gap: 12px; align-items: start; }
+  .event-photos .polaroid { padding: 6px 6px 8px; transform: rotate(-1.5deg); }
+  .event-photos .polaroid + .polaroid { transform: rotate(1.5deg); }
+  .event-photos .polaroid figcaption { font-size: 0.8rem; margin-top: 6px; line-height: 1.25; }
+}
+
+/* 12. Optional form questions tucked behind a tap */
+.more-fields { border-top: 2px dashed var(--line); padding-top: 6px; }
+.more-fields > summary {
+  cursor: pointer;
+  list-style: none;
+  font-weight: 800;
+  color: var(--terracotta-deep);
+  padding: 10px 0;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.more-fields > summary::-webkit-details-marker { display: none; }
+.more-fields > summary::after { content: "▾"; transition: transform 0.15s ease; }
+.more-fields[open] > summary::after { transform: rotate(180deg); }
+.more-fields-body { display: grid; gap: 22px; padding-top: 10px; }
+
+/* 6. Home: merged "what is" section */
+.feature-list { list-style: none; margin: 0 0 24px; padding: 0; display: grid; gap: 16px; }
+.feature-list li { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start; }
+.feature-list .icon-bubble { width: 44px; height: 44px; font-size: 1.25rem; margin: 0; float: none; }
+.feature-list strong { display: block; color: var(--ink); font-size: 1.05rem; }
+.feature-list span { color: var(--ink-soft); }
+
+/* 2. Keep the hero label on one line on phones */
+@media (max-width: 640px) { .hero .eyebrow { font-size: 1.15rem; } }

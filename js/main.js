@@ -113,3 +113,19 @@
       });
   });
 })();
+
+// Phone "Book us" bar: hide it while another booking button (or the footer) is on screen
+(function () {
+  var bar = document.querySelector(".mobile-book");
+  if (!bar || !("IntersectionObserver" in window)) return;
+  var targets = Array.prototype.slice.call(document.querySelectorAll('main a.btn-primary[href$="/contact/"], .site-footer'));
+  if (!targets.length) return;
+  var visible = new Set();
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) visible.add(e.target); else visible.delete(e.target);
+    });
+    bar.classList.toggle("is-hidden", visible.size > 0);
+  }, { threshold: 0.2 });
+  targets.forEach(function (t) { io.observe(t); });
+})();

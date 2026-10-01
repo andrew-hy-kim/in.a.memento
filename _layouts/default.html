@@ -16,6 +16,8 @@
   <link rel="apple-touch-icon" href="{{ '/images/apple-touch-icon.png' | relative_url }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  {%- comment -%} Start fetching the font CSS early; style.css @imports the same URL {%- endcomment %}
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Chewy&amp;family=Nunito:wght@400;600;700;800&amp;display=swap">
   {%- comment -%} ?v= changes on every deploy so browsers never pair a new page with an old stylesheet {%- endcomment -%}
   {%- assign v = site.time | date: '%s' %}
   <link rel="stylesheet" href="{{ '/css/style.css' | relative_url }}?v={{ v }}">

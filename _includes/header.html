@@ -1,4 +1,4 @@
-{%- assign nav = "Home|/,How It Works|/how-it-works/,Pricing|/pricing/,Gallery|/gallery/,FAQ|/faq/" | split: "," -%}
+{%- assign nav = "Home|/,How it works|/how-it-works/,Pricing|/pricing/,Gallery|/gallery/,FAQ|/faq/" | split: "," -%}
 <header class="site-header">
   <div class="container">
     <a class="logo" href="{{ '/' | relative_url }}" aria-label="in a memento home">
@@ -11,7 +11,7 @@
         {%- assign parts = item | split: "|" -%}
         <li><a href="{{ parts[1] | relative_url }}"{% if page.url == parts[1] %} aria-current="page"{% endif %}>{{ parts[0] }}</a></li>
       {%- endfor -%}
-      <li><a class="nav-cta" href="{{ '/contact/' | relative_url }}"{% if page.url == '/contact/' %} aria-current="page"{% endif %}>Book Us</a></li>
+      <li><a class="nav-cta" href="{{ '/contact/' | relative_url }}"{% if page.url == '/contact/' %} aria-current="page"{% endif %}>Book us</a></li>
     </ul>
   </div>
 </header>

@@ -1,6 +1,6 @@
 # Site settings: GitHub Pages builds this automatically with Jekyll.
 title: in a memento
-tagline: Sticker, Tattoo and/or Mini Print Vending Machine in Seattle   # shown after the name in the home page's Google title
+tagline: Vending Machine Rentals in Seattle   # shown after the name in the home page's Google title
 description: >-
   Sticker, temporary tattoo and/or mini print vending machine rentals for weddings, parties
   and events in Seattle, WA. Personalized favors your guests get to pull themselves.
@@ -32,3 +32,4 @@ plugins:
 
 exclude:
   - README.md
+  - extras
