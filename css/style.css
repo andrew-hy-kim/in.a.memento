@@ -246,7 +246,7 @@ section { padding: 88px 0; }
 .eyebrow {
   display: inline-block;
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: clamp(1.4rem, 3.2vw, 1.65rem);
   color: var(--sky-deep);
   margin-bottom: 6px;
 }
