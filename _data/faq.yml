@@ -6,7 +6,7 @@
   icon: "🪙"
   items:
     - q: "What kinds of events do you do?"
-      a: "Weddings, birthday parties, bridal showers, baby showers, corporate events, social gatherings, pop ups and cafes. Hosting a pop up or running a cafe? Please reach out, we'd love to bring the machine to you! If there are people who'd enjoy a surprise, we'd love to be there."
+      a: "Weddings, birthday parties, bridal showers, baby showers, corporate events, social gatherings, pop ups and cafes. Hosting a pop up or running a cafe? Please reach out, we'd love to bring the machine to you!"
 
     - q: "What goes in the machine?"
       a: |
@@ -52,7 +52,7 @@
   icon: "📅"
   items:
     - q: "How far in advance should we book?"
-      a: "As soon as possible! To ensure ample time for custom designs and printing, we request a minimum of 2 months’ notice. If your event is sooner, please [reach out](/contact/) and we’ll see what we can do! For expedited production within 3 weeks, a $75 fee will be added to cover priority printing and expedited shipping."
+      a: "As soon as possible! We need about 2 months to design and print everything. If your event is sooner, please [reach out](/contact/) and we’ll see what we can do! For expedited production within 3 weeks, a $75 fee will be added to cover priority printing and expedited shipping."
 
     - q: "How do we book, and what happens next?"
       a: |

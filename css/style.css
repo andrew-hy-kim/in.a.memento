@@ -1,5 +1,9 @@
-/* Fonts load from here (not the HTML) so a page and its fonts always come from the same deploy. */
-@import url("https://fonts.googleapis.com/css2?family=Chewy&family=Nunito:wght@400;600;700;800&display=swap");
+/* Fonts are hosted on this site (fonts/, SIL Open Font License) so no visitor data goes to Google. */
+@font-face { font-family: "Chewy"; src: url("../fonts/chewy-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Nunito"; src: url("../fonts/nunito-400.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "Nunito"; src: url("../fonts/nunito-600.woff2") format("woff2"); font-weight: 600; font-display: swap; }
+@font-face { font-family: "Nunito"; src: url("../fonts/nunito-700.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Nunito"; src: url("../fonts/nunito-800.woff2") format("woff2"); font-weight: 800; font-display: swap; }
 
 /* ==========================================================
    in a memento — site styles

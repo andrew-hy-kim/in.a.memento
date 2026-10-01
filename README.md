@@ -51,6 +51,7 @@ The domain renews yearly in Cloudflare; keep auto-renew on so the site doesn't g
 | Sticker / tattoo / print designs | `images/designs/` |
 | Design names & descriptions (Gallery + home page machine) | `_data/designs.yml` |
 | Colors, fonts, layout | `css/style.css` (colors are at the top) |
+| Font files (Chewy, Nunito; self-hosted) | `fonts/` |
 | Instagram link, Google Form link, location | `_config.yml` |
 
 You can edit any of these straight on github.com (open the file → pencil icon → *Commit changes*).
@@ -97,6 +98,12 @@ Tapping any photo or design opens it bigger in a viewer, and videos work the sam
 `extras/inquiry-confirmation-email.gs` is a small Google Apps Script that emails everyone who submits the
 inquiry form ("We got your inquiry! 💌"). It runs inside the Google Form, not the website. Setup steps are at the
 top of the file. Google allows about 100 of these emails per day on a personal account.
+
+## Security
+
+Each page sets a Content-Security-Policy (in `_layouts/default.html`): scripts, styles, fonts and media
+may only come from this site, and forms may only post to our Google Form. If you ever add an outside
+service (an embed, analytics, a payment link widget), its domain needs to be added there.
 
 ## Previewing locally (optional)
 
