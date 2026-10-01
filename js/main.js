@@ -341,7 +341,7 @@ var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-moti
   }, { rootMargin: "0px 0px -6% 0px" });
   Array.prototype.forEach.call(els, function (el) {
     var siblings = el.parentElement ? Array.prototype.indexOf.call(el.parentElement.children, el) : 0;
-    el.style.transitionDelay = Math.min(siblings, 5) * 70 + "ms";
+    el.style.setProperty("--reveal-delay", Math.min(siblings, 5) * 70 + "ms");
     el.classList.add("reveal");
     io.observe(el);
   });
