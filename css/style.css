@@ -330,8 +330,7 @@ section { padding: 88px 0; }
 
 @media (max-width: 880px) {
   .hero .container { grid-template-columns: 1fr; }
-  .hero-art { order: -1; }
-  .hero-art svg { width: 240px; }
+  .hero-art .polaroid { max-width: 300px; }
   .hero-copy { padding: 28px 22px; }
 }
 
@@ -449,10 +448,10 @@ section { padding: 88px 0; }
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 18px;
 }
-@media (max-width: 800px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 800px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); gap: 10px; } }
 
 .tile {
   position: relative;
@@ -821,3 +820,139 @@ figure { margin: 0; }
 .faq-answer li { margin-bottom: 8px; }
 .faq-answer li::marker { color: var(--sage-deep); }
 .faq-answer strong { color: var(--ink); }
+
+/* ---------- Pricing: at a glance + tap to expand ---------- */
+
+.glance-card { text-align: center; max-width: 900px; margin: 0 auto; }
+.glance-title { margin-bottom: 18px; }
+.glance {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.glance-item {
+  background: var(--cream);
+  border: 2px solid var(--line);
+  border-radius: 18px;
+  padding: 14px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.glance-item:nth-child(1) { background: #eef6f9; }
+.glance-item:nth-child(2) { background: #fdf6e1; }
+.glance-item:nth-child(3) { background: #f1f5ea; }
+.glance-item:nth-child(4) { background: #fdf0f1; }
+.glance-label { font-weight: 800; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); }
+.glance-value { font-family: var(--font-display); font-size: 1.9rem; color: var(--terracotta); line-height: 1.1; }
+.glance-note { font-size: 0.9rem; color: var(--ink-soft); }
+
+details.more { margin: 6px 0 18px; text-align: left; }
+details.more summary {
+  cursor: pointer;
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  color: var(--terracotta-deep);
+  padding: 6px 0;
+}
+details.more summary::-webkit-details-marker { display: none; }
+details.more summary::after { content: "▾"; transition: transform 0.15s ease; }
+details.more[open] summary::after { transform: rotate(180deg); }
+details.more > *:not(summary) { margin-top: 10px; }
+.glance-card details.more { text-align: center; }
+.glance-card details.more p { text-align: center; color: var(--ink-soft); max-width: 640px; margin: 10px auto 0; }
+.small-note { font-size: 0.9rem; margin: 12px 0 0; }
+
+.mementos-card {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 36px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+.mementos-price .price { margin-bottom: 10px; }
+
+/* ---------- Sticky "Book us" bar on phones ---------- */
+
+.mobile-book { display: none; }
+@media (max-width: 940px) {
+  .mobile-book {
+    position: fixed;
+    left: 12px; right: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 10px 10px 20px;
+    background: rgba(255, 250, 241, 0.97);
+    border: 2px solid var(--line);
+    border-radius: 999px;
+    box-shadow: 0 8px 24px rgba(91, 63, 44, 0.18);
+    text-decoration: none;
+    color: var(--ink);
+    font-weight: 800;
+  }
+  .mobile-book .btn { padding: 10px 22px; box-shadow: 0 3px 0 var(--terracotta-deep); }
+  body.has-mobile-book { padding-bottom: 84px; }
+}
+
+/* ---------- Phone refinements: less scrolling ---------- */
+
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  section { padding: 48px 0; }
+  .section-head { margin-bottom: 26px; }
+  .page-banner { padding: 36px 0 32px; }
+  .banner-card { padding: 22px 20px; border-radius: 22px; }
+  .hero { padding: 28px 0 44px; }
+  .hero .container { gap: 24px; }
+  .grid { gap: 14px; }
+  .card { padding: 22px 20px; }
+  .stamp { padding: 24px 20px; }
+  .tape::before { display: none; }
+
+  /* Icon sits beside the card title instead of above it */
+  .card > .icon-bubble {
+    float: left;
+    width: 40px; height: 40px;
+    font-size: 1.2rem;
+    margin: 0 12px 4px 0;
+  }
+  .card > .icon-bubble + h3 { line-height: 40px; margin-bottom: 6px; }
+  .card > .icon-bubble ~ p { clear: both; margin-bottom: 0; }
+  .step-num { font-size: 2rem; float: left; margin: 0 12px 0 0; line-height: 1.2; }
+  .step-num + h3 { margin-bottom: 6px; }
+  .step-num ~ p { clear: both; margin-bottom: 0; }
+
+  /* Pricing */
+  .price-grid { grid-template-columns: repeat(2, 1fr); }
+  .price-card { padding: 18px 12px; }
+  .price-card h3 { font-size: 1.2rem; margin-bottom: 2px; }
+  .price-card .price { font-size: 2.1rem; margin: 2px 0 0; }
+  .price-card .badge { font-size: 0.65rem; padding: 3px 8px; }
+  .glance { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .glance-value { font-size: 1.6rem; }
+  .mementos-card { grid-template-columns: 1fr; gap: 18px; }
+  .addon-list li { padding: 10px 0; }
+
+  /* Reviews */
+  .quotes { gap: 36px; }
+  .quotes .quote-bubble { font-size: 1.05rem; padding: 24px 20px; }
+
+  /* Gallery and home design strip */
+  .tile figcaption { font-size: 0.8rem; left: 6px; bottom: 6px; padding: 1px 8px; }
+  .tile.photo.contain img { padding: 6px; }
+  .polaroid { padding: 10px 10px 12px; }
+
+  /* Compact footer: the menu already has these links */
+  .site-footer { padding: 32px 0 20px; }
+  .footer-grid { gap: 18px; margin-bottom: 18px; }
+  .footer-grid > div:nth-child(2) { display: none; }
+  .footer-brand { font-size: 1.6rem; }
+}

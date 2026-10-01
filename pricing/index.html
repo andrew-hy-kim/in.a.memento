@@ -15,12 +15,35 @@ description: "Vending machine rentals from $200 including delivery, setup and pi
 
 <section class="bg-cream">
   <div class="container">
-    <div class="section-head">
-      <span class="eyebrow">step 1</span>
-      <h2>Machine rental</h2>
-      <p>Includes delivery, setup &amp; pickup. We set up the machine, keep an eye on it, and take it away when you're done.</p>
+    <div class="card glance-card">
+      <h2 class="glance-title">At a glance</h2>
+      <div class="glance">
+        <div class="glance-item"><span class="glance-label">Rental</span><span class="glance-value">from $200</span><span class="glance-note">2 to 5 hours</span></div>
+        <div class="glance-item"><span class="glance-label">Mementos</span><span class="glance-value">$0.50–$2</span><span class="glance-note">per item</span></div>
+        <div class="glance-item"><span class="glance-label">Travel</span><span class="glance-value">Free</span><span class="glance-note">within 25 miles</span></div>
+        <div class="glance-item"><span class="glance-label">To book</span><span class="glance-value">25%</span><span class="glance-note">deposit</span></div>
+      </div>
+      <details class="more">
+        <summary>See an example quote</summary>
+        <p>A four hour reception in Seattle with 100 mementos from our library at $1 each:
+          <strong>$350 rental + $100 mementos = $450</strong>, with a $112.50 deposit to book.
+          Just an illustration. Your quote depends on your items, quantities and sizes.</p>
+      </details>
+      <a class="btn btn-primary" href="{{ '/contact/' | relative_url }}">Get your quote</a>
     </div>
-    <div class="grid grid-4">
+  </div>
+</section>
+
+<section class="bg-sky-stripes">
+  <div class="container">
+    <div class="section-head">
+      <div class="banner-card" style="display:inline-block;">
+        <span class="eyebrow">step 1</span>
+        <h2>Machine rental</h2>
+        <p>Includes delivery, setup &amp; pickup, and we keep an eye on the machine during your event.</p>
+      </div>
+    </div>
+    <div class="grid grid-4 price-grid">
       <div class="card price-card">
         <h3>2 hours</h3>
         <div class="price">$200</div>
@@ -42,29 +65,23 @@ description: "Vending machine rentals from $200 including delivery, setup and pi
   </div>
 </section>
 
-<section class="bg-sky-stripes">
+<section class="bg-cream">
   <div class="container">
     <div class="section-head">
-      <div class="banner-card" style="display:inline-block;">
-        <span class="eyebrow">step 2</span>
-        <h2>The mementos inside</h2>
-      </div>
+      <span class="eyebrow">step 2</span>
+      <h2>The mementos inside</h2>
     </div>
-    <div class="grid grid-2">
-      <div class="card tape">
+    <div class="card mementos-card">
+      <div class="mementos-price">
         <h3>Memento prices</h3>
         <div class="price">$0.50–$2 <span class="price-unit">/ item</span></div>
-        <p class="muted">Depends on:</p>
-        <ul class="checklist">
-          <li>The item: sticker, temporary tattoo and/or mini print</li>
-          <li>How many you need (in quantities of 25)</li>
-          <li>The size of the art, like 2×2" or 3×3"</li>
-        </ul>
+        <p class="muted">Depends on the item (sticker, temporary tattoo and/or mini print), how many you need
+          (in quantities of 25) and the size of the art, like 2×2" or 3×3".</p>
       </div>
-      <div class="card tape">
-        <h3>Item designs</h3>
+      <div>
+        <h3>Designs</h3>
         <ul class="addon-list">
-          <li><span>Choose from our library of designs <br><small class="muted">with free customization</small></span><strong>free</strong></li>
+          <li><span>Choose from our design library, with free customization</span><strong>free</strong></li>
           <li><span>Provide your own art</span><strong>free</strong></li>
           <li><span>Request a custom design</span><strong>$50 / design</strong></li>
         </ul>
@@ -73,7 +90,7 @@ description: "Vending machine rentals from $200 including delivery, setup and pi
   </div>
 </section>
 
-<section class="bg-cream">
+<section class="bg-butter-stripes">
   <div class="container split" style="align-items: start;">
     <div class="card">
       <span class="eyebrow">travel</span>
@@ -83,49 +100,30 @@ description: "Vending machine rentals from $200 including delivery, setup and pi
         <li><span>Beyond 25 miles</span><strong>$2.50 / mile</strong></li>
         <li><span>Over 100 miles</span><strong>custom quote*</strong></li>
       </ul>
-      <p class="muted" style="font-size:0.9rem; margin-top:12px;">* may require overnight accommodation coverage</p>
-      <h3 style="margin-top:24px;">How we measure</h3>
-      <ul class="checklist">
-        <li>We use the <strong>Google Maps driving distance</strong>, one way, from Capitol Hill, Seattle to your venue.</li>
-        <li>Only the miles <strong>beyond the first 25</strong> are charged.</li>
-      </ul>
-      <p class="muted" style="margin-bottom:6px;">For example:</p>
-      <ul class="addon-list">
-        <li><span>Venue 35 miles away</span><strong>$25</strong></li>
-        <li><span>Venue 45 miles away</span><strong>$50</strong></li>
-        <li><span>Venue 65 miles away</span><strong>$100</strong></li>
-      </ul>
-    </div>
-    <div>
-      <div class="stamp">
-        <span class="eyebrow">payment policy</span>
-        <h3>Booking your date</h3>
+      <p class="muted small-note">* may require overnight accommodation coverage</p>
+      <details class="more">
+        <summary>How travel is calculated</summary>
         <ul class="checklist">
-          <li>A minimum <strong>25% deposit</strong> is required at the time of booking to secure your date.</li>
-          <li>Deposits are non-refundable.</li>
-          <li>The remaining balance is due in full at least <strong>14 days</strong> before your event.</li>
-          <li>Please book at least <strong>2 months</strong> ahead. For expedited production within 3 weeks of your event, a $75 fee covers priority printing and shipping.</li>
+          <li>We use the <strong>Google Maps driving distance</strong>, one way, from Capitol Hill, Seattle to your venue.</li>
+          <li>Only the miles <strong>beyond the first 25</strong> are charged.</li>
         </ul>
-      </div>
-      <div class="card mt-lg">
-        <span class="eyebrow">corporate events</span>
-        <h3>Planning for a company?</h3>
-        <p>Please contact us through our booking inquiry for corporate pricing.</p>
-        <a class="btn btn-primary" href="{{ '/contact/' | relative_url }}">Send an inquiry</a>
-      </div>
+        <ul class="addon-list">
+          <li><span>Venue 35 miles away</span><strong>$25</strong></li>
+          <li><span>Venue 45 miles away</span><strong>$50</strong></li>
+          <li><span>Venue 65 miles away</span><strong>$100</strong></li>
+        </ul>
+      </details>
     </div>
-  </div>
-</section>
-
-<section class="cta-band bg-gingham">
-  <div class="container">
-    <div class="stamp">
-      <span class="eyebrow">example</span>
-      <h2>What might it cost?</h2>
-      <p class="muted">A four hour reception in Seattle with 100 mementos from our library at $1 each:<br>
-        <strong>$350 rental + $100 mementos = $450</strong>, with a $112.50 deposit to book.</p>
-      <p class="muted" style="font-size:0.9rem;">Just an illustration. Your quote depends on your items, quantities and sizes.</p>
-      <div class="btn-row"><a class="btn btn-primary" href="{{ '/contact/' | relative_url }}">Get your quote</a></div>
+    <div class="card">
+      <span class="eyebrow">payment policy</span>
+      <h2>Booking details</h2>
+      <ul class="checklist">
+        <li>A minimum <strong>25% deposit</strong> is required at the time of booking to secure your date. Deposits are non-refundable.</li>
+        <li>The remaining balance is due in full at least <strong>14 days</strong> before your event.</li>
+        <li>Please book at least <strong>2 months</strong> ahead. For expedited production within 3 weeks of your event, a $75 fee covers priority printing and shipping.</li>
+        <li>Planning a corporate event? Please <a href="{{ '/contact/' | relative_url }}">contact us</a> for corporate pricing.</li>
+      </ul>
+      <a class="btn btn-primary" href="{{ '/contact/' | relative_url }}">Book us</a>
     </div>
   </div>
 </section>
