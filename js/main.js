@@ -472,22 +472,52 @@ window.stickerBurst = function (target) {
   update();
 })();
 
-// Step clips: play silently while on screen, pause when off screen.
-// With "reduce motion", they stay paused on their poster; tapping plays/pauses.
+// Step clips: play one at a time, in order (1 → 4) when the section scrolls into view,
+// then rest on stills with a "Watch again" button. Hover (desktop) or tap plays a single step.
+// With "reduce motion", nothing plays on its own; tapping a step still plays it.
 (function () {
-  var vids = Array.prototype.slice.call(document.querySelectorAll(".step-clip video"));
-  if (!vids.length) return;
-  vids.forEach(function (v) {
-    v.muted = true;
-    v.addEventListener("click", function () { if (v.paused) v.play(); else v.pause(); });
+  var cards = Array.prototype.slice.call(document.querySelectorAll(".step-clip"));
+  if (!cards.length) return;
+  var vids = cards.map(function (c) { return c.querySelector("video"); });
+  var replay = document.querySelector(".clip-replay");
+  var seq = -1; // index playing in the sequence, -1 when not sequencing
+
+  function stopAll(except) {
+    vids.forEach(function (v, i) {
+      if (v === except) return;
+      v.pause();
+      cards[i].classList.remove("is-playing");
+    });
+  }
+  function play(i) {
+    var v = vids[i];
+    stopAll(v);
+    try { v.currentTime = 0; } catch (e) {}
+    cards[i].classList.add("is-playing");
+    var p = v.play(); if (p && p.catch) p.catch(function () {});
+  }
+  function runSequence() {
+    if (replay) replay.hidden = true;
+    seq = 0; play(0);
+  }
+  vids.forEach(function (v, i) {
+    v.muted = true; v.loop = false;
+    v.addEventListener("ended", function () {
+      cards[i].classList.remove("is-playing");
+      if (seq === i && i < vids.length - 1) { seq = i + 1; play(seq); }
+      else { seq = -1; if (replay) replay.hidden = false; }
+    });
+    cards[i].addEventListener("click", function () { seq = -1; if (v.paused) play(i); else { v.pause(); cards[i].classList.remove("is-playing"); } if (replay) replay.hidden = false; });
+    if (!reduceMotion) cards[i].addEventListener("mouseenter", function () { if (seq === -1) play(i); });
   });
-  if (reduceMotion || !("IntersectionObserver" in window)) return;
+  if (replay) replay.addEventListener("click", runSequence);
+  if (reduceMotion || !("IntersectionObserver" in window)) { if (replay) replay.hidden = false; return; }
+  var started = false;
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
-      var v = e.target;
-      if (e.isIntersecting) { v.preload = "auto"; var p = v.play(); if (p && p.catch) p.catch(function () {}); }
-      else v.pause();
+      if (e.isIntersecting && !started) { started = true; runSequence(); }
+      if (!e.isIntersecting) { seq = -1; stopAll(); if (started && replay) replay.hidden = false; }
     });
-  }, { threshold: 0.4 });
-  vids.forEach(function (v) { io.observe(v); });
+  }, { threshold: 0.5 });
+  io.observe(document.querySelector(".step-clips"));
 })();
