@@ -1416,3 +1416,15 @@ html { scroll-padding-top: 96px; }
   color: var(--butter);
 }
 .contact-aside .h3 { font-size: 1.5rem; }
+
+/* Event photos: every photo gets the same 4:5 frame (cropped to fit, like an Instagram grid),
+   so polaroids line up no matter the original photo's shape. Tapping still shows the full photo.
+   To adjust the crop for one photo, add style="object-position: center 30%" (etc.) to its <img>. */
+.event-photos { align-items: start; }
+.event-photos .polaroid { width: 100%; max-width: 420px; justify-self: center; }
+.event-photos .polaroid img {
+  aspect-ratio: 4 / 5;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
