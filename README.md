@@ -76,7 +76,6 @@ Tapping any photo or design opens it bigger in a viewer, and videos work the sam
   ```html
   <figure class="tile photo" data-video="{{ '/videos/my-clip.mp4' | relative_url }}">
     <img src="{{ '/images/gallery/my-clip-cover.webp' | relative_url }}" alt="Guests pulling prints at a wedding" loading="lazy">
-    <figcaption>▶ Rachel &amp; Brian's Wedding</figcaption>
   </figure>
   ```
 

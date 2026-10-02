@@ -1741,3 +1741,7 @@ main > section + section,
   .design-filters { gap: 8px; margin-bottom: 22px; }
   .filter-chip { font-size: 0.88rem; padding: 6px 12px; }
 }
+
+/* Gallery photos have no captions: keep the instant-photo look with a deeper bottom border */
+.scrapbook-wrap .polaroid.scrap { padding-bottom: 38px; }
+@media (max-width: 640px) { .scrapbook-wrap .polaroid.scrap { padding-bottom: 26px; } }
