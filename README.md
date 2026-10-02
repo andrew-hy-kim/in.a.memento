@@ -115,8 +115,8 @@ Every Monday morning a scheduled Claude task checks the **Art Library** folder i
 (shared with the Google account connected to Claude):
 
 - Any new drawing gets a white background, is centred like the other designs, and gets a name and a
-  description. You get a notification with screenshots, and **nothing goes live until you reply to approve it**
-  in that task's session.
+  description. It posts screenshots in the same Claude Code conversation the site was built in, and
+  **nothing goes live until you reply "approve" there**.
 - Personalised pieces (client names, dates, event titles) are never added on their own; it asks you first.
 - Files it has already handled are listed in `_data/gallery-sources.yml`. Delete a line there to have it look
   at that file again.
