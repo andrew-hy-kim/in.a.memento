@@ -22,6 +22,7 @@ description: "A vending machine full of custom stickers, temporary tattoos and m
         <a class="btn btn-primary" href="{{ '/contact/' | relative_url }}">Book us</a>
         <a class="btn btn-soft" href="{{ '/how-it-works/' | relative_url }}">How it works</a>
       </div>
+      <p class="hero-try"><a href="#try-it">or try the machine <span aria-hidden="true">↓</span></a></p>
     </div>
     <div class="hero-art">
       <figure class="polaroid">
@@ -29,6 +30,44 @@ description: "A vending machine full of custom stickers, temporary tattoos and m
              alt="The cream in a memento vending machine on a table outdoors at Andrew's 30th birthday, its display showing six doodle designs and '1 token = 1 surprise mini print', beside a crystal token bowl and an Instagram QR code">
       </figure>
     </div>
+  </div>
+</section>
+
+<section class="bg-blush try-section" id="try-it">
+  <div class="container">
+    <div class="section-head">
+      <h2>Give it a twist</h2>
+      <p>Every memento is a little surprise. Try our machine and see which one you get.</p>
+    </div>
+    {%- comment -%} "Pull a memento" mini machine: twist the knob to get a random design (js/main.js) {%- endcomment %}
+    {%- capture designs_json %}[{% for d in site.data.designs %}{"src":{{ '/images/designs/' | append: d.image | append: '.webp' | relative_url | jsonify }},"name":{{ d.name | jsonify }},"alt":{{ d.alt | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}]{% endcapture %}
+    <div class="pull-game" data-designs="{{ designs_json | strip | escape }}">
+      <div class="mini-machine">
+        <div class="mm-window">
+          {%- for d in site.data.designs limit: 6 %}
+          <img src="{{ '/images/designs/' | append: d.image | append: '.webp' | relative_url }}" alt="" loading="lazy">
+          {%- endfor %}
+        </div>
+        <div class="mm-label">1 token = 1 surprise memento</div>
+        <div class="mm-controls">
+          <button class="mm-knob" type="button" aria-label="Twist the knob to pull a surprise memento"><span></span></button>
+          <div class="mm-door" aria-hidden="true"></div>
+        </div>
+      </div>
+      <div class="mm-prize" aria-live="polite">
+        <p class="mm-hint"><span class="hand">Try it</span> Twist the knob to see what comes out.</p>
+      </div>
+    </div>
+    <h3 class="center sticker-row-title">A few of our designs</h3>
+    <div class="sticker-row">
+      <figure><img src="{{ '/images/designs/bookworm.webp' | relative_url }}" alt="A green bookworm with glasses reading a book"></figure>
+      <figure><img src="{{ '/images/designs/sleeping-cat.webp' | relative_url }}" alt="A sleepy orange cat stretching, with zzz"></figure>
+      <figure><img src="{{ '/images/designs/chef-duck.webp' | relative_url }}" alt="A white duck in a chef hat holding a spatula"></figure>
+      <figure><img src="{{ '/images/designs/fish-hat-cat.webp' | relative_url }}" alt="A white cat wearing an orange fish shaped hat"></figure>
+      <figure><img src="{{ '/images/designs/pumpkins.webp' | relative_url }}" alt="Four pumpkins and gourds in orange, green and cream"></figure>
+      <figure><img src="{{ '/images/designs/flower-vase.webp' | relative_url }}" alt="Red flowers in a clear glass vase"></figure>
+    </div>
+    <p class="center mt-lg"><a class="btn btn-soft" href="{{ '/gallery/' | relative_url }}">See the gallery</a></p>
   </div>
 </section>
 
@@ -52,41 +91,6 @@ description: "A vending machine full of custom stickers, temporary tattoos and m
   </div>
 </section>
 
-<section class="bg-blush">
-  <div class="container">
-    <div class="section-head">
-      <h2>Some of our designs</h2>
-    </div>
-    <div class="sticker-row">
-      <figure><img src="{{ '/images/designs/bookworm.webp' | relative_url }}" alt="A green bookworm with glasses reading a book"></figure>
-      <figure><img src="{{ '/images/designs/sleeping-cat.webp' | relative_url }}" alt="A sleepy orange cat stretching, with zzz"></figure>
-      <figure><img src="{{ '/images/designs/chef-duck.webp' | relative_url }}" alt="A white duck in a chef hat holding a spatula"></figure>
-      <figure><img src="{{ '/images/designs/fish-hat-cat.webp' | relative_url }}" alt="A white cat wearing an orange fish shaped hat"></figure>
-      <figure><img src="{{ '/images/designs/pumpkins.webp' | relative_url }}" alt="Four pumpkins and gourds in orange, green and cream"></figure>
-      <figure><img src="{{ '/images/designs/flower-vase.webp' | relative_url }}" alt="Red flowers in a clear glass vase"></figure>
-    </div>
-    {%- comment -%} "Pull a memento" mini machine: twist the knob to get a random design (js/main.js) {%- endcomment %}
-    {%- capture designs_json %}[{% for d in site.data.designs %}{"src":{{ '/images/designs/' | append: d.image | append: '.webp' | relative_url | jsonify }},"name":{{ d.name | jsonify }},"alt":{{ d.alt | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}]{% endcapture %}
-    <div class="pull-game" data-designs="{{ designs_json | strip | escape }}">
-      <div class="mini-machine">
-        <div class="mm-window">
-          {%- for d in site.data.designs limit: 6 %}
-          <img src="{{ '/images/designs/' | append: d.image | append: '.webp' | relative_url }}" alt="" loading="lazy">
-          {%- endfor %}
-        </div>
-        <div class="mm-label">1 token = 1 surprise memento</div>
-        <div class="mm-controls">
-          <button class="mm-knob" type="button" aria-label="Twist the knob to pull a surprise memento"><span></span></button>
-          <div class="mm-door" aria-hidden="true"></div>
-        </div>
-      </div>
-      <div class="mm-prize" aria-live="polite">
-        <p class="mm-hint"><span class="hand">Try it</span> Twist the knob to see what comes out.</p>
-      </div>
-    </div>
-    <p class="center mt-lg"><a class="btn btn-soft" href="{{ '/gallery/' | relative_url }}">See the gallery</a></p>
-  </div>
-</section>
 
 <section class="bg-gingham">
   <div class="container">

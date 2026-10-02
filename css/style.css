@@ -1799,3 +1799,29 @@ main > section + section,
 .scrap-video.is-previewing .scrap-preview { opacity: 1; }
 .scrap-video.is-previewing .play-badge { opacity: 0; }
 .scrap-video .play-badge { transition: opacity 0.25s ease; z-index: 1; }
+
+/* Home: "Give it a twist" right under the hero, with the machine as the star */
+.hero-try { margin: 14px 0 0; font-weight: 700; }
+.hero-try a { color: var(--terracotta-text); text-underline-offset: 3px; }
+.try-section .pull-game { max-width: 620px; margin-top: 8px; padding: 28px 34px; gap: 36px; }
+.try-section .pull-game .mini-machine { width: 240px; padding: 14px 14px 18px; }
+.try-section .pull-game .mm-knob { width: 64px; height: 64px; }
+.try-section .pull-game .mm-door { width: 64px; height: 40px; }
+.try-section .pull-game .mm-label { font-size: 0.74rem; }
+.try-section .mm-prize { min-height: 260px; }
+.try-section .mm-card { width: 180px; }
+.try-section .mm-hint { font-size: 1.15rem; max-width: 240px; }
+.try-section .mm-hint .hand { font-size: 2rem; }
+.sticker-row-title { margin: 56px 0 22px; }
+@media (max-width: 640px) {
+  .try-section .pull-game { padding: 16px; gap: 14px; }
+  .try-section .pull-game .mini-machine { width: 100%; max-width: 165px; padding: 10px 10px 13px; }
+  .try-section .pull-game .mm-knob { width: 50px; height: 50px; }
+  .try-section .pull-game .mm-door { width: 44px; height: 30px; }
+  .try-section .pull-game .mm-label { font-size: 0.6rem; }
+  .try-section .mm-prize { min-height: 200px; }
+  .try-section .mm-card { width: 130px; }
+  .try-section .mm-hint { font-size: 0.95rem; }
+  .try-section .mm-hint .hand { font-size: 1.6rem; }
+  .sticker-row-title { margin: 40px 0 16px; }
+}
