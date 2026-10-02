@@ -1790,3 +1790,12 @@ main > section + section,
 /* Footer links: no underline until hover/focus */
 .site-footer a { text-decoration: none; }
 .site-footer a:hover, .site-footer a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
+
+/* "At events" video previews: the muted clip sits exactly over the still */
+.scrap-video .scrap-preview {
+  position: absolute; object-fit: cover; border-radius: 6px;
+  pointer-events: none; opacity: 0; transition: opacity 0.25s ease; background: transparent;
+}
+.scrap-video.is-previewing .scrap-preview { opacity: 1; }
+.scrap-video.is-previewing .play-badge { opacity: 0; }
+.scrap-video .play-badge { transition: opacity 0.25s ease; z-index: 1; }

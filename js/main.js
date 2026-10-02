@@ -611,3 +611,76 @@ window.stickerBurst = function (target) {
   bar.hidden = false;
   apply(false);
 })();
+
+// "At events" videos play silently in place: on hover with a mouse, or on phones/tablets when the
+// clip is mostly on screen (one at a time). Tapping/clicking still opens the full viewer.
+// Skipped for reduced motion and data-saver users, who just see the still with its play badge.
+(function () {
+  var figs = Array.prototype.slice.call(document.querySelectorAll(".scrapbook .scrap-video[data-video]"));
+  if (!figs.length) return;
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var saveData = navigator.connection && navigator.connection.saveData;
+  if (reduce || saveData) return;
+  var hover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  function preview(fig) {
+    if (fig._preview) return fig._preview;
+    var img = fig.querySelector("img");
+    var v = document.createElement("video");
+    v.className = "scrap-preview";
+    v.muted = true; v.loop = true; v.playsInline = true; v.preload = "auto";
+    v.setAttribute("muted", ""); v.setAttribute("playsinline", ""); v.setAttribute("aria-hidden", "true"); v.tabIndex = -1;
+    var mp4 = fig.getAttribute("data-video");
+    var s1 = document.createElement("source"); s1.src = mp4; s1.type = "video/mp4"; v.appendChild(s1);
+    var s2 = document.createElement("source"); s2.src = mp4.replace(/\.mp4$/, ".webm"); s2.type = 'video/webm; codecs="vp9"'; v.appendChild(s2);
+    v.poster = img.currentSrc || img.src;
+    fig.appendChild(v);
+    fig._preview = v;
+    return v;
+  }
+  function place(fig) {
+    var img = fig.querySelector("img"), v = fig._preview;
+    v.style.left = img.offsetLeft + "px"; v.style.top = img.offsetTop + "px";
+    v.style.width = img.offsetWidth + "px"; v.style.height = img.offsetHeight + "px";
+  }
+  function viewerOpen() { return document.documentElement.classList.contains("lb-open"); }
+  function play(fig) {
+    if (viewerOpen()) return;
+    fig._wanted = true;
+    var v = preview(fig); place(fig);
+    var p = v.play();
+    var show = function () { if (fig._wanted && !viewerOpen()) fig.classList.add("is-previewing"); else v.pause(); };
+    if (p && p.then) p.then(show, function () {}); else show();
+  }
+  function stop(fig) {
+    fig._wanted = false;
+    fig.classList.remove("is-previewing");
+    if (fig._preview) fig._preview.pause();
+  }
+  function stopAll() { figs.forEach(stop); }
+
+  if (hover) {
+    figs.forEach(function (fig) {
+      fig.addEventListener("mouseenter", function () { play(fig); });
+      fig.addEventListener("mouseleave", function () { stop(fig); });
+    });
+  } else if ("IntersectionObserver" in window) {
+    var visible = new Map();
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { visible.set(e.target, e.intersectionRatio); });
+      // play the single most-visible clip that's at least half on screen
+      var best = null, bestR = 0.5;
+      visible.forEach(function (r, fig) { if (r >= bestR) { best = fig; bestR = r; } });
+      figs.forEach(function (fig) { if (fig !== best) stop(fig); });
+      if (best && !best.classList.contains("is-previewing") && !document.documentElement.classList.contains("lb-open")) play(best);
+    }, { threshold: [0, 0.6, 0.8, 1] });
+    figs.forEach(function (fig) { io.observe(fig); });
+  }
+
+  // pause previews while the full viewer is open or the tab is hidden
+  var box = document.getElementById("lightbox");
+  if (box) box.addEventListener("click", stopAll, true);
+  figs.forEach(function (fig) { fig.addEventListener("click", function () { stopAll(); setTimeout(stopAll, 0); }); });
+  document.addEventListener("visibilitychange", function () { if (document.hidden) stopAll(); });
+  window.addEventListener("resize", function () { figs.forEach(function (f) { if (f._preview) place(f); }); });
+})();
