@@ -1913,3 +1913,16 @@ main > section + section,
 }
 /* darker orange so the hint reads clearly (accessible contrast) */
 .twist-tag { color: var(--terracotta-text); }
+
+/* Gallery photos: a small magnifier in the corner says "tap to see it bigger" */
+.scrap .zoom-badge {
+  position: absolute; right: 22px; bottom: 50px;
+  width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center;
+  background: rgba(255, 250, 241, 0.92); color: var(--terracotta-text);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.22); pointer-events: none;
+  transition: transform 0.2s ease;
+}
+.scrap:hover .zoom-badge { transform: scale(1.12); }
+@media (max-width: 640px) { .scrap .zoom-badge { right: 14px; bottom: 36px; width: 30px; height: 30px; } }
+/* a little press feedback when a photo, video or design is tapped */
+.scrap:active, .gallery-grid .tile:active { transform: scale(0.98); }

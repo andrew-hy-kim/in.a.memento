@@ -195,20 +195,31 @@
   });
 })();
 
-// Phone "Book us" bar: hide it while another booking button (or the footer) is on screen
+// Phone "Book us" bar: hide it while another booking button (or the footer) is on screen,
+// and while scrolling down so it never sits on top of what someone is reading
 (function () {
   var bar = document.querySelector(".mobile-book");
   if (!bar || !("IntersectionObserver" in window)) return;
   var targets = Array.prototype.slice.call(document.querySelectorAll('main a.btn-primary[href$="/contact/"], .site-footer'));
   if (!targets.length) return;
   var visible = new Set();
+  var goingDown = false, lastY = window.scrollY;
+  function update() { bar.classList.toggle("is-hidden", visible.size > 0 || goingDown); }
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
       if (e.isIntersecting) visible.add(e.target); else visible.delete(e.target);
     });
-    bar.classList.toggle("is-hidden", visible.size > 0);
+    update();
   }, { threshold: 0.2 });
   targets.forEach(function (t) { io.observe(t); });
+  // tuck it away while reading down the page, bring it back when scrolling up
+  window.addEventListener("scroll", function () {
+    var y = window.scrollY, d = y - lastY;
+    if (Math.abs(d) < 8) return;
+    goingDown = d > 0 && y > 120;
+    lastY = y;
+    update();
+  }, { passive: true });
 })();
 
 // Photo viewer: tap a photo or design to see it bigger, swipe or use arrows to move between photos
