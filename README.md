@@ -121,6 +121,9 @@ Every Monday morning a scheduled Claude task checks the **Art Library** folder i
 - Files it has already handled are listed in `_data/gallery-sources.yml`. Delete a line there to have it look
   at that file again.
 - Event photos and videos aren't part of this; send those over as before.
+- The Gallery shows the first 12 designs in `_data/designs.yml`, with "Show all" and theme buttons (animals,
+  food, flowers & plants, places & things) for the rest. Each design has a `category`; move a design higher
+  in the list to feature it in the first 12.
 
 ## Keeping it running (checklist)
 

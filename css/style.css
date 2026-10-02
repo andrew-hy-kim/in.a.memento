@@ -1723,3 +1723,21 @@ main > section + section,
 /* Hero headline: keep "one token at a time." on one line where there's room */
 .hero h1 { font-size: clamp(2.4rem, 5vw, 3.55rem); }
 @media (min-width: 901px) { .hero h1 .accent { white-space: nowrap; } }
+
+/* Gallery design filters */
+.design-filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: -8px 0 30px; }
+.filter-chip {
+  font: inherit; font-weight: 700; font-size: 0.95rem; color: var(--ink);
+  background: var(--paper); border: 2px solid var(--line); border-radius: 999px;
+  padding: 8px 16px; min-height: 44px; cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+}
+.filter-chip:hover { border-color: var(--butter-deep); transform: translateY(-1px); }
+.filter-chip:focus-visible { outline: 3px solid var(--sky-deep); outline-offset: 2px; }
+.filter-chip[aria-pressed="true"] { background: var(--butter); border-color: var(--butter-deep); }
+.filter-count { font-weight: 600; font-size: 0.8rem; color: var(--ink-soft); margin-left: 2px; }
+.design-more-wrap { margin: 34px 0 0; }
+@media (max-width: 640px) {
+  .design-filters { gap: 8px; margin-bottom: 22px; }
+  .filter-chip { font-size: 0.88rem; padding: 6px 12px; }
+}

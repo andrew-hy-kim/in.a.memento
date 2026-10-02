@@ -92,10 +92,22 @@ description: "Photos and videos of our vending machine at weddings and parties, 
       <h2>Designs</h2>
       <p>Most designs are printed at about 2×2" or 3×3".</p>
     </div>
-    <div class="gallery-grid">
-      {%- for d in site.data.designs %}
-      <figure class="tile photo contain"><img src="{{ '/images/designs/' | append: d.image | append: '.webp' | relative_url }}" loading="lazy" alt="{{ d.alt }}"><figcaption>{{ d.name }}</figcaption></figure>
+    {%- comment -%} Filter buttons + "Show all" are switched on by js/main.js; without JS every design simply shows. {%- endcomment %}
+    {%- assign design_cats = "animals|animals,food|food,plants|flowers & plants,places|places & things" | split: "," %}
+    <div class="design-filters" role="group" aria-label="Show designs by theme" hidden>
+      <button type="button" class="filter-chip" data-filter="all" aria-pressed="true">all <span class="filter-count">{{ site.data.designs | size }}</span></button>
+      {%- for c in design_cats %}
+      {%- assign parts = c | split: "|" %}
+      {%- assign n = site.data.designs | where: "category", parts[0] | size %}
+      <button type="button" class="filter-chip" data-filter="{{ parts[0] }}" aria-pressed="false">{{ parts[1] }} <span class="filter-count">{{ n }}</span></button>
       {%- endfor %}
     </div>
+    <p class="sr-only" id="design-status" aria-live="polite"></p>
+    <div class="gallery-grid" id="design-grid" data-limit="12">
+      {%- for d in site.data.designs %}
+      <figure class="tile photo contain" data-category="{{ d.category }}"><img src="{{ '/images/designs/' | append: d.image | append: '.webp' | relative_url }}" loading="lazy" alt="{{ d.alt }}"><figcaption>{{ d.name }}</figcaption></figure>
+      {%- endfor %}
+    </div>
+    <p class="center design-more-wrap"><button type="button" class="btn btn-soft design-more" aria-controls="design-grid" hidden></button></p>
   </div>
 </section>

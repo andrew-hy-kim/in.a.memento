@@ -1,81 +1,109 @@
 # Design library: used by the Gallery page and the "pull a memento" machine on the home page.
-# image = file name in images/designs/ (without .webp)
+# image    = file name in images/designs/ (without .webp)
+# category = animals, food, plants or places (the filter buttons on the Gallery page)
+# The Gallery shows the first 12 until someone taps "Show all", so keep a good mix at the top.
 
 - image: bookworm
-  name: "bookworm"
-  alt: "A green bookworm with glasses reading a book"
-- image: cat-reading
-  name: "way of cats"
-  alt: "A grey and white cat reading a book called Way of Cats"
-- image: chef-duck
-  name: "chef duck"
-  alt: "A white duck in a chef hat holding a spatula"
-- image: sleeping-cat
-  name: "sleepy cat"
-  alt: "A sleepy orange cat stretching, with zzz"
-- image: fish-hat-cat
-  name: "fish hat cat"
-  alt: "A white cat wearing an orange fish shaped hat"
-- image: pumpkins
-  name: "pumpkins"
-  alt: "Four pumpkins and gourds in orange, green and cream"
+  name: bookworm
+  alt: A green bookworm with glasses reading a book
+  category: animals
 - image: flower-vase
-  name: "flower vase"
-  alt: "Red flowers in a clear glass vase"
-- image: flower-cup
-  name: "flower cup"
-  alt: "Pink flowers in a striped yellow cup"
-- image: corn
-  name: "corn"
-  alt: "An ear of yellow corn in its green husk"
-- image: tomatoes
-  name: "tomatoes"
-  alt: "A vine of red cherry tomatoes on a soft yellow background"
-- image: tomato-vine
-  name: "tomato vine"
-  alt: "A branch of red cherry tomatoes"
-- image: lemon
-  name: "lemon"
-  alt: "A yellow lemon with a little green sprout"
-- image: salmon
-  name: "salmon"
-  alt: "A rainbow trout with a pink stripe"
-- image: pine-branch
-  name: "pine branch"
-  alt: "A pine cone on a green pine branch"
+  name: flower vase
+  alt: Red flowers in a clear glass vase
+  category: plants
+- image: pumpkins
+  name: pumpkins
+  alt: Four pumpkins and gourds in orange, green and cream
+  category: food
+- image: cat-reading
+  name: way of cats
+  alt: A grey and white cat reading a book called Way of Cats
+  category: animals
 - image: mountain-village
-  name: "mountain village"
-  alt: "Green hills with pine trees and a little house below grey mountains"
-- image: tiny-free-library
-  name: "tiny free library"
-  alt: "A little free library box full of books"
-- image: tote-bag
-  name: "tote bag"
-  alt: "A canvas tote bag with navy handles"
-- image: clinking-glasses
-  name: "cheers"
-  alt: "Two blue wine glasses clinking, with a little red heart and yellow sparkles above"
+  name: mountain village
+  alt: Green hills with pine trees and a little house below grey mountains
+  category: places
+- image: lemon
+  name: lemon
+  alt: A yellow lemon with a little green sprout
+  category: food
+- image: chef-duck
+  name: chef duck
+  alt: A white duck in a chef hat holding a spatula
+  category: animals
 - image: rose-frame
-  name: "rose frame"
-  alt: "Pink roses on a green stem inside a scalloped blue oval frame"
-- image: red-roof-house
-  name: "little red roof"
-  alt: "A small white house with a red roof in a green field under a soft blue sky, with trees behind"
-- image: larches
-  name: "larches"
-  alt: "Two golden larch trees in autumn, labeled larches"
-- image: tuxedo-cat
-  name: "tuxedo cat"
-  alt: "A black and white tuxedo cat sitting upright with a little round name tag on its collar"
-- image: ornament-cat
-  name: "christmas tree cat"
-  alt: "An orange cat dressed as a Christmas tree, covered in lights and garland with a star on top"
-- image: sleepy-orange-cat
-  name: "nap time"
-  alt: "A round orange tabby cat napping on its back"
-- image: sleepy-tuxedo-cat
-  name: "belly up"
-  alt: "An orange and white cat napping belly up"
+  name: rose frame
+  alt: Pink roses on a green stem inside a scalloped blue oval frame
+  category: plants
+- image: tiny-free-library
+  name: tiny free library
+  alt: A little free library box full of books
+  category: places
 - image: watermelon
-  name: "watermelon"
-  alt: "A whole striped watermelon with a juicy red slice in front"
+  name: watermelon
+  alt: A whole striped watermelon with a juicy red slice in front
+  category: food
+- image: sleeping-cat
+  name: sleepy cat
+  alt: A sleepy orange cat stretching, with zzz
+  category: animals
+- image: clinking-glasses
+  name: cheers
+  alt: Two blue wine glasses clinking, with a little red heart and yellow sparkles above
+  category: places
+- image: fish-hat-cat
+  name: fish hat cat
+  alt: A white cat wearing an orange fish shaped hat
+  category: animals
+- image: flower-cup
+  name: flower cup
+  alt: Pink flowers in a striped yellow cup
+  category: plants
+- image: corn
+  name: corn
+  alt: An ear of yellow corn in its green husk
+  category: food
+- image: tomatoes
+  name: tomatoes
+  alt: A vine of red cherry tomatoes on a soft yellow background
+  category: food
+- image: tomato-vine
+  name: tomato vine
+  alt: A branch of red cherry tomatoes
+  category: food
+- image: salmon
+  name: salmon
+  alt: A rainbow trout with a pink stripe
+  category: animals
+- image: pine-branch
+  name: pine branch
+  alt: A pine cone on a green pine branch
+  category: plants
+- image: tote-bag
+  name: tote bag
+  alt: A canvas tote bag with navy handles
+  category: places
+- image: red-roof-house
+  name: little red roof
+  alt: A small white house with a red roof in a green field under a soft blue sky, with trees behind
+  category: places
+- image: larches
+  name: larches
+  alt: Two golden larch trees in autumn, labeled larches
+  category: plants
+- image: tuxedo-cat
+  name: tuxedo cat
+  alt: A black and white tuxedo cat sitting upright with a little round name tag on its collar
+  category: animals
+- image: ornament-cat
+  name: christmas tree cat
+  alt: An orange cat dressed as a Christmas tree, covered in lights and garland with a star on top
+  category: animals
+- image: sleepy-orange-cat
+  name: nap time
+  alt: A round orange tabby cat napping on its back
+  category: animals
+- image: sleepy-tuxedo-cat
+  name: belly up
+  alt: An orange and white cat napping belly up
+  category: animals

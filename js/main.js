@@ -268,7 +268,8 @@
 
   function open(el) {
     var section = el.closest("section") || document;
-    items = triggers.filter(function (t) { return section.contains(t); });
+    // only what's on screen (skips designs hidden by the Gallery filters)
+    items = triggers.filter(function (t) { return section.contains(t) && t.getClientRects().length; });
     show(items.indexOf(el));
     box.showModal();
     document.documentElement.classList.add("lb-open");
@@ -555,4 +556,58 @@ window.stickerBurst = function (target) {
     });
   }, { threshold: 0.5 });
   io.observe(document.querySelector(".step-clips"));
+})();
+
+// Gallery designs: theme filters and a "Show all" toggle, so a growing library stays a tidy grid.
+// Hidden tiles use the hidden attribute, so their lazy-loaded images aren't downloaded until shown.
+(function () {
+  var grid = document.getElementById("design-grid");
+  var bar = document.querySelector(".design-filters");
+  var more = document.querySelector(".design-more");
+  var status = document.getElementById("design-status");
+  if (!grid || !bar || !more) return;
+  var tiles = Array.prototype.slice.call(grid.children);
+  var limit = parseInt(grid.getAttribute("data-limit"), 10) || 12;
+  var chips = Array.prototype.slice.call(bar.querySelectorAll(".filter-chip"));
+  var filter = "all";
+  var expanded = false;
+
+  function apply(announce) {
+    var matching = tiles.filter(function (t) { return filter === "all" || t.getAttribute("data-category") === filter; });
+    var cap = filter === "all" && !expanded ? limit : matching.length;
+    tiles.forEach(function (t) { t.hidden = true; });
+    matching.forEach(function (t, i) { t.hidden = i >= cap; });
+    var canToggle = filter === "all" && matching.length > limit;
+    more.hidden = !canToggle;
+    more.textContent = expanded ? "Show fewer" : "Show all " + matching.length + " designs";
+    more.setAttribute("aria-expanded", expanded ? "true" : "false");
+    if (announce) {
+      var shown = Math.min(cap, matching.length);
+      status.textContent = "Showing " + shown + " of " + matching.length + (filter === "all" ? " designs" : " " + filter + " designs");
+    }
+  }
+
+  chips.forEach(function (chip) {
+    chip.addEventListener("click", function () {
+      filter = chip.getAttribute("data-filter");
+      expanded = false;
+      chips.forEach(function (c) { c.setAttribute("aria-pressed", c === chip ? "true" : "false"); });
+      apply(true);
+    });
+  });
+
+  more.addEventListener("click", function () {
+    var firstNew = tiles.filter(function (t) { return t.hidden; })[0];
+    expanded = !expanded;
+    apply(true);
+    if (expanded && firstNew) {
+      var img = firstNew.querySelector("img");
+      if (img) img.focus({ preventScroll: true });
+    } else if (!expanded) {
+      bar.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  });
+
+  bar.hidden = false;
+  apply(false);
 })();
