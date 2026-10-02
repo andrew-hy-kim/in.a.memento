@@ -42,6 +42,21 @@
     });
   });
 
+  // Optional single-choice questions: click the picked answer again to unselect it
+  var lastPicked = {};
+  form.querySelectorAll('input[type="radio"]').forEach(function (radio) {
+    if (radio.closest("fieldset").querySelector("input[required]")) return;
+    radio.addEventListener("click", function () {
+      if (lastPicked[radio.name] === radio) {
+        radio.checked = false;
+        lastPicked[radio.name] = null;
+        radio.dispatchEvent(new Event("change", { bubbles: true }));
+      } else {
+        lastPicked[radio.name] = radio;
+      }
+    });
+  });
+
   // Show or clear a field's error: outline + a written message, announced to screen readers
   function setFieldError(field, bad) {
     field.classList.toggle("invalid", bad);
