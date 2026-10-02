@@ -81,6 +81,10 @@ Tapping any photo or design opens it bigger in a viewer, and videos work the sam
   ```
 
   The image is the cover shown in the grid; tapping it plays the video in the viewer.
+
+  If you encode videos yourself (e.g. with ffmpeg), keep them in the standard format phones can play:
+  H.264 **Main** profile, `yuv420p`, for the MP4, and VP9 **profile 0**, `yuv420p`, for the WebM. Colour filters
+  can silently switch the output to 4:4:4, which iPhones can't play, so always pass `-pix_fmt yuv420p`.
 - **Longer videos:** upload to YouTube (unlisted is fine) and embed them, rather than storing big files here.
   GitHub Pages works best when the whole site stays under about 1 GB.
 
