@@ -1942,8 +1942,3 @@ main > section + section,
 .split-headed > .no-step > h2 { margin-top: calc(clamp(1.5rem, 3.2vw, 1.65rem) * 1.65 + 6px); }
 .split-headed .eyebrow { display: block; text-align: center; margin-bottom: 6px; }
 @media (max-width: 880px) { .split-headed > .no-step > h2 { margin-top: 0; } }
-/* Booking page: a short review beside the form */
-.aside-quote { margin: 0 0 24px; background: #fdf3d9; border: 3px solid var(--sage-deep); }
-.aside-quote blockquote { margin: 0 0 10px; font-size: 1.02rem; line-height: 1.55; }
-.aside-quote figcaption { font-weight: 700; color: var(--terracotta-text); font-size: 0.95rem; }
-.aside-quote figcaption span { font-weight: 600; color: var(--ink-soft); font-size: 0.85rem; margin-left: 4px; }
