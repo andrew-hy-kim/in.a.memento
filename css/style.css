@@ -1620,3 +1620,12 @@ p, li, figcaption, blockquote { text-wrap: pretty; }
 .inquiry-form .form-privacy { margin: -8px 0 0; font-size: 0.85rem; color: var(--ink-soft); }
 /* The scrapbook's corner stickers peek past the edge; don't let them cause sideways scrolling */
 .clip-x { overflow-x: clip; }
+
+/* Very narrow phones (e.g. a folded Galaxy Fold): keep the header and booking bar on one line */
+@media (max-width: 340px) {
+  .logo-word { font-size: 1.05rem; white-space: nowrap; }
+  .logo-badge { width: 36px; height: 36px; }
+  .nav-toggle { white-space: nowrap; padding-left: 10px; padding-right: 10px; }
+  .mobile-book { gap: 8px; padding-left: 12px; padding-right: 8px; white-space: nowrap; font-size: 0.9rem; }
+  .mobile-book .btn { padding: 9px 14px; }
+}
