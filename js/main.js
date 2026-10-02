@@ -248,9 +248,9 @@
     media.innerHTML = "";
     if (it.video) {
       var v = document.createElement("video");
-      // prefer the smaller WebM where supported, fall back to MP4
+      // prefer the smaller WebM (VP9) where supported, fall back to MP4 (H.264); the codecs hint stops browsers that only half-support WebM from picking it
       var webm = it.video.replace(/\.mp4$/, ".webm");
-      if (webm !== it.video) { var s1 = document.createElement("source"); s1.src = webm; s1.type = "video/webm"; v.appendChild(s1); }
+      if (webm !== it.video) { var s1 = document.createElement("source"); s1.src = webm; s1.type = 'video/webm; codecs="vp9"'; v.appendChild(s1); }
       var s2 = document.createElement("source"); s2.src = it.video; s2.type = "video/mp4"; v.appendChild(s2); v.controls = true; v.autoplay = true; v.playsInline = true; v.muted = true; v.loop = true;
       if (it.poster) v.poster = it.poster;
       media.appendChild(v);

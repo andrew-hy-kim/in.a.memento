@@ -873,10 +873,10 @@ details.more > *:not(summary) { margin-top: 10px; }
 
   /* Pricing */
   .price-grid { grid-template-columns: repeat(2, 1fr); }
-  .price-card { padding: 18px 12px; }
+  .price-card { padding: 18px 12px; justify-content: center; }
   .price-card h3 { font-size: 1.2rem; margin-bottom: 2px; }
   .price-card .price { font-size: 2.1rem; margin: 2px 0 0; }
-  .price-card .badge { font-size: 0.65rem; padding: 3px 8px; }
+  .price-card .badge { position: static; transform: none; white-space: normal; align-self: center; font-size: 0.75rem; letter-spacing: 0.03em; line-height: 1.25; padding: 3px 10px; margin: -4px 0 6px; }
   .glance { grid-template-columns: repeat(2, 1fr); gap: 10px; }
   .glance-value { font-size: 1.6rem; }
   .mementos-card { grid-template-columns: 1fr; gap: 18px; }
@@ -1618,3 +1618,5 @@ p, li, figcaption, blockquote { text-wrap: pretty; }
 .tile.photo.contain img { padding: 18px 18px 6px; border-radius: 22px; }
 .inquiry-form .form-note { margin: 0 0 -6px; font-size: 0.9rem; color: var(--ink-soft); }
 .inquiry-form .form-privacy { margin: -8px 0 0; font-size: 0.85rem; color: var(--ink-soft); }
+/* The scrapbook's corner stickers peek past the edge; don't let them cause sideways scrolling */
+.clip-x { overflow-x: clip; }
