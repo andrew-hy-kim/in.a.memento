@@ -1751,24 +1751,16 @@ main > section + section,
 /* Design stickers have no names under them: even white border all round */
 .tile.photo.contain img { padding: 18px; }
 
-/* Home favor section: the photo fills its column and matches the text card's height on wider screens */
-@media (min-width: 1100px) {
-  .split > .polaroid.photo-tall {
-    position: relative;
-    width: 100%; max-width: 470px;
-    align-self: stretch;
-    display: flex; flex-direction: column;
-    margin: 18px auto;
-  }
-  .split > .polaroid.photo-tall img { flex: 1; min-height: 0; height: 100%; max-height: none; object-fit: cover; object-position: 68% 60%; }
-  /* a strip of washi tape, like the Gallery photos */
+/* Home favor section: on wider screens the photo is as wide as its column (natural 3:4 shape, no cropping),
+   so it balances the text card, with a strip of washi tape like the Gallery photos */
+@media (min-width: 881px) {
+  .split:has(> .polaroid.photo-tall) { grid-template-columns: 1fr 1.08fr; gap: 48px; }
+  .split > .polaroid.photo-tall { position: relative; width: 100%; max-width: 560px; }
+  .split > .polaroid.photo-tall img { max-height: none; }
   .split > .polaroid.photo-tall::before {
     content: ""; position: absolute; top: -14px; left: 50%;
     width: 110px; height: 28px; transform: translateX(-50%) rotate(-4deg);
     border-radius: 3px; opacity: 0.88; z-index: 1;
     background: repeating-linear-gradient(90deg, rgba(185, 219, 230, 0.9) 0 10px, rgba(255, 253, 248, 0.9) 10px 20px);
   }
-}
-@media (min-width: 881px) and (max-width: 1099px) {
-  .split > .polaroid.photo-tall { max-width: 400px; width: 100%; }
 }
