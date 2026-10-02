@@ -34,7 +34,7 @@
         The machine's display can also show your names, date or a punny message.
 
     - q: "Are the artworks AI generated?"
-      a: "No! All designs are made either by us or a local Seattle artist, created specifically for your event."
+      a: "No! All designs are hand-drawn, either by us or a local Seattle artist, and created specifically for your event."
 
 - group: "Pricing & travel"
   id: pricing

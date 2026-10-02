@@ -347,10 +347,7 @@ var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-moti
       var pic = document.createElement("img");
       pic.src = d.src;
       pic.alt = d.alt;
-      var cap = document.createElement("figcaption");
-      cap.textContent = d.name;
       fig.appendChild(pic);
-      fig.appendChild(cap);
       var again = document.createElement("p");
       again.className = "mm-again";
       again.textContent = "Twist again for another!";
