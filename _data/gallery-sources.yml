@@ -1,0 +1,8 @@
+# Google Drive files the weekly gallery check has already looked at, so it never adds the same file twice.
+# Each entry: the Drive file id, its name, and what happened to it.
+#   status: added       -> on the site as images/gallery/<site_name>.webp (or videos/<site_name>.mp4)
+#   status: on-site     -> was already on the site before the weekly check started
+#   status: skipped     -> left out (reason says why), e.g. blurry or a near-duplicate
+#   status: declined    -> the owner said no when asked to approve it
+# Edit by hand if you like: delete an entry and the next check will look at that file again.
+[]

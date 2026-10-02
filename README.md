@@ -109,6 +109,18 @@ Each page sets a Content-Security-Policy (in `_layouts/default.html`): scripts, 
 may only come from this site, and forms may only post to our Google Form. If you ever add an outside
 service (an embed, analytics, a payment link widget), its domain needs to be added there.
 
+## Gallery photos from Google Drive (weekly)
+
+Every Monday morning a scheduled Claude task checks the Google Drive folder **"Website gallery"**:
+
+- Put each event in its own subfolder, named the way the caption should read, e.g. `Rachel & Brian's Wedding`.
+- Photos (iPhone HEIC is fine) and short videos (under ~20 seconds) both work.
+- Anything new gets converted, has its location data removed, gets the same warm colour edit as the rest
+  of the site, and gets a caption and description. You then get a notification with screenshots, and
+  **nothing goes live until you reply to approve it** in that task's session.
+- Files it has already handled are listed in `_data/gallery-sources.yml`.
+- Only put photos in that folder that you're happy to have on the public website, with guests' OK.
+
 ## Keeping it running (checklist)
 
 The inquiry form sends answers straight to Google Forms, and the browser can't see whether Google accepted
