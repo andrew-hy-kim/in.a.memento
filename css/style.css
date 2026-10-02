@@ -1585,7 +1585,8 @@ html { scroll-padding-top: 96px; }
 /* ---------- Design pass: calmer backgrounds, shorter banners, quieter small headings ---------- */
 
 /* Plain tints for sections; stripes stay on page banners, the hero and the reviews */
-.bg-sky { background: #eaf4f7; }
+:root { --sky-tint: #eaf4f7; }
+.bg-sky { background: var(--sky-tint); }
 .bg-butter { background: #fdf4d9; }
 
 /* Shorter page banners */
@@ -1697,4 +1698,25 @@ main > section + section,
   .step-card { display: grid; grid-template-columns: 44px 1fr; column-gap: 14px; align-items: start; }
   .step-card .doodle-icon { grid-row: 1 / span 2; margin: 2px 0 0; }
   .step-card > :not(.doodle-icon) { grid-column: 2; }
+}
+
+/* Price cards as paper tickets: a perforated tear line with two punched notches, slight tilt */
+.price-card { padding: 22px 18px 20px; border-radius: 12px; overflow: visible; }
+.price-card h3 { position: relative; padding-bottom: 12px; margin-bottom: 12px; border-bottom: 2px dashed rgba(91,63,44,.2); }
+.price-card h3::before, .price-card h3::after {
+  content: ""; position: absolute; bottom: -12px; width: 22px; height: 22px; border-radius: 50%;
+  background: var(--sky-tint); /* the section colour, so it reads as a punched hole */
+}
+.price-card h3::before { left: -29px; }
+.price-card h3::after { right: -29px; }
+.price-grid .price-card:nth-child(odd) { transform: rotate(-1.5deg); }
+.price-grid .price-card:nth-child(even) { transform: rotate(1.5deg); }
+.price-card.featured { background: #fff6d6; }
+.price-card.featured h3::before, .price-card.featured h3::after { box-shadow: inset 0 0 0 2px var(--butter-deep); clip-path: inset(0 0 0 0); }
+.price-card.featured h3::before { clip-path: inset(0 0 0 50%); }
+.price-card.featured h3::after { clip-path: inset(0 50% 0 0); }
+@media (max-width: 640px) {
+  .price-card { padding: 18px 12px 16px; }
+  .price-card h3 { padding-bottom: 8px; margin-bottom: 8px; }
+  .price-card h3::before { left: -23px; } .price-card h3::after { right: -23px; }
 }
