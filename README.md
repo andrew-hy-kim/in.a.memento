@@ -105,6 +105,37 @@ Each page sets a Content-Security-Policy (in `_layouts/default.html`): scripts, 
 may only come from this site, and forms may only post to our Google Form. If you ever add an outside
 service (an embed, analytics, a payment link widget), its domain needs to be added there.
 
+## Keeping it running (checklist)
+
+The inquiry form sends answers straight to Google Forms, and the browser can't see whether Google accepted
+them, so the site always shows "Thank you!". If the Google Form changes, inquiries could stop arriving
+without any error. These checks catch that and the other things the site depends on.
+
+**Once a month (5 minutes)**
+- [ ] Send a test inquiry from inamemento.com/contact/ and check it shows up in Google Forms responses
+      (and that the confirmation email arrives). Delete the test response afterwards.
+- [ ] Open the site on your phone and tap through each page.
+
+**Whenever you edit the Google Form**
+- [ ] Don't rename, reorder the answer choices of, or delete a question without updating `contact/index.html`
+      too: each `entry.…` number and each answer's text must match the form exactly.
+- [ ] If you make a question required in Google Forms, make it required on the site too, or Google will
+      reject inquiries that skip it. ("How did you hear about us?" is required in Google Forms; the site
+      fills in "Not answered" when it's skipped.)
+- [ ] Send a test inquiry right after.
+
+**Settings to keep on**
+- [ ] Google Forms → Responses → ⋮ → "Get email notifications for new responses" (we promise a reply
+      within 2 business days).
+- [ ] Cloudflare → inamemento.com → auto-renew on, and a card on file that won't expire before the renewal date.
+- [ ] Two-step login on GitHub, Cloudflare and Google.
+
+**Once a year**
+- [ ] Check prices, travel rules and the deposit policy still match on Pricing, the FAQ (`_data/faq.yml`)
+      and How it works.
+- [ ] Update the reply time everywhere if it changes ("within 2 business days" is on the booking page,
+      How it works, the FAQ and in the confirmation email script).
+
 ## Previewing locally (optional)
 
 ```sh

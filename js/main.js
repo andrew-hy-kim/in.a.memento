@@ -42,6 +42,17 @@
     });
   });
 
+  // Event date: from today up to 3 years ahead (local time)
+  var dateInput = form.querySelector('input[type="date"]');
+  if (dateInput) {
+    var iso = function (d) {
+      return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+    };
+    var today = new Date();
+    dateInput.min = iso(today);
+    dateInput.max = iso(new Date(today.getFullYear() + 3, today.getMonth(), today.getDate()));
+  }
+
   // Optional single-choice questions: click the picked answer again to unselect it
   var lastPicked = {};
   form.querySelectorAll('input[type="radio"]').forEach(function (radio) {
@@ -86,6 +97,9 @@
     var other = field.querySelector(".other-input:not([hidden])");
     var picked = field.querySelector("input[type=radio]:checked");
     if (other && picked && picked.value === "__other_option__" && !other.value) return "Please fill in your \"Other\" answer.";
+    var date = field.querySelector('input[type="date"]');
+    if (date && date.validity.rangeUnderflow) return "Please choose a date that hasn't passed yet.";
+    if (date && date.validity.rangeOverflow) return "Please choose a date within the next 3 years.";
     return field.getAttribute("data-error") || "Please fill in this field.";
   }
 
