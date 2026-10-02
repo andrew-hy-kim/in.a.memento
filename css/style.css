@@ -1745,3 +1745,6 @@ main > section + section,
 /* Gallery photos have no captions: keep the instant-photo look with a deeper bottom border */
 .scrapbook-wrap .polaroid.scrap { padding-bottom: 38px; }
 @media (max-width: 640px) { .scrapbook-wrap .polaroid.scrap { padding-bottom: 26px; } }
+/* Home photos have no captions either */
+.hero-art .polaroid, .split > .polaroid { padding-bottom: 38px; }
+@media (max-width: 640px) { .hero-art .polaroid, .split > .polaroid { padding-bottom: 26px; } }
