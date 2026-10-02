@@ -52,3 +52,30 @@
 - image: tote-bag
   name: "tote bag"
   alt: "A canvas tote bag with navy handles"
+- image: clinking-glasses
+  name: "cheers"
+  alt: "Two blue wine glasses clinking, with a little red heart and yellow sparkles above"
+- image: rose-frame
+  name: "rose frame"
+  alt: "Pink roses on a green stem inside a scalloped blue oval frame"
+- image: red-roof-house
+  name: "little red roof"
+  alt: "A small white house with a red roof in a green field under a soft blue sky, with trees behind"
+- image: larches
+  name: "larches"
+  alt: "Two golden larch trees in autumn, labeled larches"
+- image: tuxedo-cat
+  name: "tuxedo cat"
+  alt: "A black and white tuxedo cat sitting upright with a little round name tag on its collar"
+- image: ornament-cat
+  name: "christmas tree cat"
+  alt: "An orange cat dressed as a Christmas tree, covered in lights and garland with a star on top"
+- image: sleepy-orange-cat
+  name: "nap time"
+  alt: "A round orange tabby cat napping on its back"
+- image: sleepy-tuxedo-cat
+  name: "belly up"
+  alt: "An orange and white cat napping belly up"
+- image: watermelon
+  name: "watermelon"
+  alt: "A whole striped watermelon with a juicy red slice in front"

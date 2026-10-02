@@ -1,8 +1,115 @@
-# Google Drive files the weekly gallery check has already looked at, so it never adds the same file twice.
+# Google Drive files ("Art Library" folder) the weekly design check has already looked at, so it never adds the same file twice.
 # Each entry: the Drive file id, its name, and what happened to it.
 #   status: added       -> on the site as images/gallery/<site_name>.webp (or videos/<site_name>.mp4)
 #   status: on-site     -> was already on the site before the weekly check started
 #   status: skipped     -> left out (reason says why), e.g. blurry or a near-duplicate
 #   status: declined    -> the owner said no when asked to approve it
 # Edit by hand if you like: delete an entry and the next check will look at that file again.
-[]
+- id: 1YKlLJdbppzODsA6mwTNn74nE-e7Av5Se
+  name: Clinking glasses
+  status: added
+  site_name: clinking-glasses
+- id: 1Imy1yRMSMn5LcTKyfIBQvkrY2REZdriV
+  name: Flower frame
+  status: added
+  site_name: rose-frame
+- id: 1bt-WMCOFkEZpDgUgEqgMV4ZHV6tRCce3
+  name: Landscape 1
+  status: added
+  site_name: red-roof-house
+- id: 1F-42M5DxyCBWuX7fZhqFC3bSBRS5dUon
+  name: Larches
+  status: added
+  site_name: larches
+- id: 1OUDd3oIjA4LMOaM9OnEQ923E_XPa0U5f
+  name: Black tuxedo cat
+  status: added
+  site_name: tuxedo-cat
+- id: 1pDAGSXaCBPQzoMYNiu6vFsIkCDHQIbaP
+  name: Ornament cat
+  status: added
+  site_name: ornament-cat
+- id: 1OP-eZco0yu61WCW5-RnYffloTq2fKOMW
+  name: Sleeping orange cat
+  status: added
+  site_name: sleepy-orange-cat
+- id: 1zeGWFcpaxywjdmTVjZQ-_aPQWhvlzgiF
+  name: Sleeping orange tuxedo cat
+  status: added
+  site_name: sleepy-tuxedo-cat
+- id: 1uUhdOblmCICCQfx11N9Dqh279cFPB8-m
+  name: Watermelon
+  status: added
+  site_name: watermelon
+- id: 1crUeN-QvVN8zr7upKe78ATqnXkhFI6SI
+  name: Flowers in vase
+  status: on-site
+  site_name: flower-vase
+- id: 1_ict8YnqG7IHaTv79AJvx4VXxgW3-kPa
+  name: IMG_5266.PNG
+  status: on-site
+  site_name: corn
+- id: 1EoryUPA6rDb9ILxwlSkTflN_o_mNBS2R
+  name: IMG_5267.PNG
+  status: on-site
+  site_name: fish-hat-cat
+- id: 1D-uc6LI6ThA6vQhi46kDGZ3L1ThKzkMh
+  name: Flowers.JPG
+  status: on-site
+  site_name: flower-cup
+- id: 1iMx90hmCk7eAyVem79l-d42RBw0rYgvc
+  name: Landscape 2
+  status: on-site
+  site_name: mountain-village
+- id: 1LyB53fz6mUXK_z_4V2sy36b0QzB6RqBT
+  name: Tomatoes2.JPG
+  status: on-site
+  site_name: tomato-vine
+- id: 1RZNOq5gcccX_y3U2JP4mUKQOIRr-9Zyp
+  name: Lemon.JPG
+  status: on-site
+  site_name: lemon
+- id: 1oqQysHalUuM94-Vwm0b5HJ3OjWszG9al
+  name: Pinecone
+  status: on-site
+  site_name: pine-branch
+- id: 1jiXHLBoJR7W9ALnkB1SoZmtPOpi21kpi
+  name: Chef Duck.png
+  status: on-site
+  site_name: chef-duck
+- id: 1SOYHawKnx7X8Plx0gJQjxUtuabB2nntS
+  name: Tote bag.JPG
+  status: on-site
+  site_name: tote-bag
+- id: 1WeqwAXj_MUy00DtNEEdfwq-etGcjMKTW
+  name: Tiny free library.JPG
+  status: on-site
+  site_name: tiny-free-library
+- id: 1w8O7c2gc_YwhFQWqmProw-Ol2RoZejua
+  name: Salmon.JPG
+  status: on-site
+  site_name: salmon
+- id: 1Srm-9JEya3x2bc5BRs1j7zP7i6YWyTor
+  name: Pumpkins.JPG
+  status: on-site
+  site_name: pumpkins
+- id: 10RWd_CVAfpxFO3LP76LyskC3Z5IoKa2d
+  name: Sleeping Cat.png
+  status: on-site
+  site_name: sleeping-cat
+- id: 1_TbsbRUPzrow9SilItuHICEj0SBZ6N-F
+  name: Bookworm.png
+  status: on-site
+  site_name: bookworm
+- id: 1hxM7jD7af7kk01glQYt-g3ErJJyhjN60
+  name: Cat Reading.png
+  status: on-site
+  site_name: cat-reading
+- id: 1NFaW_JFyNkiLyiuDd-qsj2wHjpl-bM0c
+  name: Bow.png
+  status: skipped
+  reason: personalised name frame (Alex's baby shower); waiting for the owner to decide
+- id: 1tRq2aoIN9inJ01tZwpNPIgDEMmqplsAK
+  name: Frame bow.png
+  status: skipped
+  reason: personalised name frame (Rachel & Brian); waiting for the owner to decide
