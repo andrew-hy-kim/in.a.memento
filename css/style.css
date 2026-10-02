@@ -1828,3 +1828,29 @@ main > section + section,
 /* "Give it a twist" is just the game now, so it sits a little tighter */
 .try-section { padding-bottom: 64px; }
 @media (max-width: 640px) { .try-section { padding-bottom: 44px; } }
+
+/* "twist me!" hint pointing at the knob until the first twist */
+.mm-controls { position: relative; }
+.twist-tag {
+  position: absolute; left: -2px; top: calc(100% + 26px);
+  display: inline-flex; align-items: flex-start; gap: 2px;
+  font-family: var(--font-display); font-size: 1.15rem; line-height: 1; white-space: nowrap;
+  color: var(--terracotta); transform: rotate(-6deg); pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.twist-tag svg { flex-shrink: 0; margin-top: -8px; }
+.twisted .twist-tag { opacity: 0; }
+/* the knob glows gently a few times, then rests (stops after ~4.5s) */
+.pull-game:not(.twisted) .mm-knob { animation: knob-nudge 1.5s ease-in-out 0.6s 3; }
+@keyframes knob-nudge {
+  0%, 100% { box-shadow: 0 3px 0 #9b958c, 0 0 0 0 rgba(242, 207, 115, 0); transform: rotate(0); }
+  40% { box-shadow: 0 3px 0 #9b958c, 0 0 0 9px rgba(242, 207, 115, 0.75); transform: rotate(-14deg); }
+  70% { transform: rotate(8deg); }
+}
+@media (prefers-reduced-motion: reduce) { .pull-game:not(.twisted) .mm-knob { animation: none; } }
+.try-section .pull-game { padding-bottom: 66px; }
+@media (max-width: 640px) {
+  .twist-tag { font-size: 1rem; left: -2px; top: calc(100% + 20px); }
+  .twist-tag svg { width: 28px; height: 22px; }
+  .try-section .pull-game { padding-bottom: 54px; }
+}

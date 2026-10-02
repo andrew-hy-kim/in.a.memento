@@ -328,6 +328,7 @@ var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-moti
 
   knobs.forEach(function (knob) { knob.addEventListener("click", function () {
     var slot = game;
+    game.classList.add("twisted"); // hides the "twist me!" hint after the first try
     if (busy) return;
     busy = true;
     var i;
