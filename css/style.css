@@ -1629,3 +1629,72 @@ p, li, figcaption, blockquote { text-wrap: pretty; }
   .mobile-book { gap: 8px; padding-left: 12px; padding-right: 8px; white-space: nowrap; font-size: 0.9rem; }
   .mobile-book .btn { padding: 9px 14px; }
 }
+
+/* ---------- Paper touches ---------- */
+
+/* Scalloped edges: each section (and the footer) tucks over the one above with a soft scalloped top,
+   like the edge of a sticker sheet. The mask lets the section above show through the notches. */
+:root { --scallop-w: 36px; --scallop-h: 12px; }
+main > section + section,
+.site-footer {
+  position: relative;
+  margin-top: calc(-1 * var(--scallop-h));
+  -webkit-mask:
+    radial-gradient(calc(var(--scallop-w) / 2) at 50% calc(var(--scallop-w) / 2), #000 98%, #0000) 50% 0 / var(--scallop-w) var(--scallop-h) repeat-x,
+    linear-gradient(#000 0 0) 0 var(--scallop-h) / 100% 100% no-repeat;
+  mask:
+    radial-gradient(calc(var(--scallop-w) / 2) at 50% calc(var(--scallop-w) / 2), #000 98%, #0000) 50% 0 / var(--scallop-w) var(--scallop-h) repeat-x,
+    linear-gradient(#000 0 0) 0 var(--scallop-h) / 100% 100% no-repeat;
+}
+@media (max-width: 640px) { :root { --scallop-w: 26px; --scallop-h: 9px; } }
+
+/* Gallery designs: die-cut stickers instead of catalog cards */
+.gallery-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* an uneven last row sits in the middle */
+  gap: 26px 22px;
+}
+.gallery-grid .tile { flex: 0 0 calc(25% - 17px); }
+@media (max-width: 800px) {
+  .gallery-grid { gap: 16px 12px; }
+  .gallery-grid .tile { flex-basis: calc(33.333% - 8px); }
+}
+.tile.photo.contain {
+  overflow: visible;
+  border-radius: 16px;
+  box-shadow: 0 3px 0 rgba(91, 63, 44, 0.06), 0 10px 22px rgba(91, 63, 44, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.gallery-grid .tile:nth-child(5n+1) { transform: rotate(-2.5deg); }
+.gallery-grid .tile:nth-child(5n+2) { transform: rotate(1.5deg); }
+.gallery-grid .tile:nth-child(5n+3) { transform: rotate(-1deg); }
+.gallery-grid .tile:nth-child(5n+4) { transform: rotate(2.5deg); }
+.gallery-grid .tile:nth-child(5n+5) { transform: rotate(-1.5deg); }
+@media (hover: hover) {
+  .gallery-grid .tile:hover { transform: rotate(0) scale(1.04); box-shadow: 0 4px 0 rgba(91, 63, 44, 0.06), 0 16px 30px rgba(91, 63, 44, 0.16); z-index: 1; }
+}
+/* a strip of washi tape on every third sticker, colours rotating */
+.gallery-grid .tile:nth-child(3n+1)::before {
+  content: "";
+  position: absolute;
+  top: -10px; left: 50%;
+  width: 64px; height: 20px;
+  transform: translateX(-50%) rotate(-5deg);
+  border-radius: 3px;
+  opacity: 0.85;
+  background: repeating-linear-gradient(90deg, rgba(185, 219, 230, 0.9) 0 8px, rgba(255, 253, 248, 0.9) 8px 16px);
+  z-index: 1;
+}
+.gallery-grid .tile:nth-child(6n+4)::before { background: repeating-linear-gradient(90deg, rgba(242, 207, 115, 0.85) 0 8px, rgba(255, 253, 248, 0.9) 8px 16px); transform: translateX(-40%) rotate(4deg); }
+.gallery-grid .tile:nth-child(9n+7)::before { background: repeating-linear-gradient(45deg, rgba(248, 221, 224, 0.95) 0 6px, rgba(255, 253, 248, 0.9) 6px 12px); }
+@media (max-width: 640px) { .gallery-grid .tile:nth-child(3n+1)::before { width: 44px; height: 14px; top: -7px; } }
+
+/* How it works steps: a doodle on each card, like the Home feature list */
+.step-card .doodle-icon { display: block; margin-bottom: 14px; transform: rotate(-4deg); }
+.step-card:nth-child(even) .doodle-icon { transform: rotate(4deg); }
+@media (max-width: 640px) {
+  .step-card { display: grid; grid-template-columns: 44px 1fr; column-gap: 14px; align-items: start; }
+  .step-card .doodle-icon { grid-row: 1 / span 2; margin: 2px 0 0; }
+  .step-card > :not(.doodle-icon) { grid-column: 2; }
+}
