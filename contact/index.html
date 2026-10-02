@@ -25,7 +25,7 @@ description: "Send us your date and venue and we'll email you about availability
         <p class="form-note">All questions are required unless marked optional.</p>
         <div class="field" data-error="Please enter your name(s).">
           <label for="f-name">Your name(s)</label>
-          <p class="hint">For weddings, please include you and your partner's names.</p>
+          <p class="hint">For weddings, please include your and your partner's names.</p>
           <input id="f-name" name="entry.1954382244" type="text" autocomplete="name" required>
         </div>
 
@@ -45,7 +45,7 @@ description: "Send us your date and venue and we'll email you about availability
           <div class="chips">
             {%- assign types = "Wedding,Birthday Party,Bridal Shower,Baby Shower,Corporate,Social" | split: "," %}
             {%- for t in types %}
-            <label class="chip"><input type="radio" name="entry.2104050013" value="{{ t }}" required><span>{{ t }}</span></label>
+            <label class="chip"><input type="radio" name="entry.2104050013" value="{{ t }}" required><span>{{ t | downcase | capitalize }}</span></label>
             {%- endfor %}
             <label class="chip"><input type="radio" name="entry.2104050013" value="__other_option__" data-other="f-type-other"><span>Other</span></label>
           </div>
@@ -78,7 +78,8 @@ description: "Send us your date and venue and we'll email you about availability
           <div class="chips">
             {%- assign sources = "Instagram,Family/Friend Recommendation,Google Search,Facebook" | split: "," %}
             {%- for t in sources %}
-            <label class="chip"><input type="radio" name="entry.808391416" value="{{ t }}"><span>{{ t }}</span></label>
+            {%- assign label = t | replace: "Family/Friend Recommendation", "Friend or family" | replace: "Google Search", "Google search" %}
+            <label class="chip"><input type="radio" name="entry.808391416" value="{{ t }}"><span>{{ label }}</span></label>
             {%- endfor %}
             <label class="chip"><input type="radio" name="entry.808391416" value="__other_option__" data-other="f-heard-other"><span>Other</span></label>
           </div>
@@ -94,7 +95,7 @@ description: "Send us your date and venue and we'll email you about availability
             </div>
             <div class="field">
               <label for="f-times">Start and end times for your ceremony, cocktail hour and reception</label>
-              <p class="hint">If you know them yet.</p>
+              <p class="hint">If you know them.</p>
               <input id="f-times" name="entry.1293030965" type="text">
             </div>
             <div class="field">
