@@ -1764,3 +1764,29 @@ main > section + section,
     background: repeating-linear-gradient(90deg, rgba(185, 219, 230, 0.9) 0 10px, rgba(255, 253, 248, 0.9) 10px 20px);
   }
 }
+
+/* ---------- Consistency pass ---------- */
+
+/* Pricing: section headings sit above their cards everywhere */
+.split-headed > div > h2 { text-align: center; margin-bottom: 18px; }
+.split-headed > div { display: flex; flex-direction: column; height: 100%; }
+.split-headed > div > .card { flex: 1; }
+.glance-card { margin-top: 0; }
+
+/* How it works: bigger step doodles so the cards read like stickers */
+.step-card .doodle-icon { width: 68px; height: 85px; padding: 4px; border-radius: 14px; }
+@media (max-width: 640px) {
+  .step-card { grid-template-columns: 56px 1fr; }
+  .step-card .doodle-icon { width: 56px; height: 70px; }
+}
+
+/* Reviews: matching bubbles on a solid paper background (gingham stays around them) */
+@media (min-width: 801px) {
+  .quotes { align-items: stretch; }
+  .quotes .quote-bubble { display: flex; flex-direction: column; justify-content: space-between; }
+  .quote-bubble.quote-alt { margin-top: 0; }
+}
+
+/* Footer links: no underline until hover/focus */
+.site-footer a { text-decoration: none; }
+.site-footer a:hover, .site-footer a:focus-visible { text-decoration: underline; text-underline-offset: 3px; }
