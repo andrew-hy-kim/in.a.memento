@@ -1856,3 +1856,60 @@ main > section + section,
 }
 .design-custom { margin: 30px 0 0; color: var(--ink-soft); }
 .design-custom + .design-more-wrap { margin-top: 18px; }
+
+/* ---------- Home game, bigger and centred ---------- */
+.try-section .pull-game { max-width: 760px; padding: 36px 44px 72px; gap: 48px; grid-template-columns: auto 1fr; }
+.try-section .pull-game .mini-machine { width: 300px; padding: 16px 16px 22px; }
+.try-section .pull-game .mm-window { gap: 8px; padding: 10px; }
+.try-section .pull-game .mm-label { font-size: 0.85rem; margin: 10px 0 14px; }
+.try-section .pull-game .mm-knob { width: 76px; height: 76px; }
+.try-section .pull-game .mm-door { width: 78px; height: 48px; }
+.try-section .mm-prize { min-height: 300px; }
+.try-section .mm-card { width: 210px; }
+/* dotted "your memento appears here" spot before the first twist */
+.mm-slot {
+  width: 210px; aspect-ratio: 4 / 5; display: grid; place-items: center; padding: 18px;
+  border: 3px dashed var(--line); border-radius: 18px; background: rgba(255, 253, 248, 0.6);
+}
+.try-section .mm-hint { max-width: none; font-size: 1.05rem; }
+.try-section .mm-hint .hand { font-family: var(--font-display); font-size: 2.2rem; line-height: 1.1; margin-bottom: 6px; color: var(--terracotta); }
+.twist-tag { font-size: 1.3rem; }
+.try-more { margin: 26px 0 0; font-weight: 700; }
+.try-more a { color: var(--terracotta-text); text-underline-offset: 3px; }
+
+/* hero: "or try the machine" sits with the buttons as a small pill */
+.hero-try { margin: 12px 0 0; }
+.hero-try a {
+  display: inline-block; font-size: 0.92rem; font-weight: 700; text-decoration: none;
+  color: var(--ink); background: var(--butter); border-radius: 999px; padding: 6px 14px;
+  transition: transform 0.15s ease;
+}
+.hero-try a:hover { transform: translateY(1px); text-decoration: underline; }
+
+@media (max-width: 640px) {
+  .try-section .pull-game { padding: 18px 16px 58px; gap: 14px; }
+  .try-section .pull-game .mini-machine { max-width: 170px; padding: 10px 10px 13px; }
+  .try-section .pull-game .mm-window { gap: 5px; padding: 6px; }
+  .try-section .pull-game .mm-label { font-size: 0.6rem; margin: 6px 0 8px; }
+  .try-section .pull-game .mm-knob { width: 50px; height: 50px; }
+  .try-section .pull-game .mm-door { width: 44px; height: 30px; }
+  .try-section .mm-prize { min-height: 200px; }
+  .try-section .mm-card, .mm-slot { width: 100%; max-width: 140px; }
+  .mm-slot { padding: 10px; border-width: 2px; }
+  .try-section .mm-hint { font-size: 0.85rem; }
+  .try-section .mm-hint .hand { font-size: 1.6rem; }
+  .twist-tag { font-size: 1rem; }
+}
+@media (max-width: 340px) {
+  .try-section .pull-game { padding: 14px 10px 54px; gap: 10px; }
+  .try-section .pull-game { grid-template-columns: 1fr 1fr; }
+  .try-section .pull-game .mini-machine { max-width: 125px; }
+  .try-section .pull-game .mm-knob { width: 40px; height: 40px; }
+  .try-section .pull-game .mm-door { width: 34px; height: 24px; }
+  .try-section .pull-game .mm-label { font-size: 0.5rem; }
+  .mm-slot { padding: 6px; }
+  .try-section .mm-hint { font-size: 0.75rem; line-height: 1.35; }
+  .try-section .mm-hint .hand { font-size: 1.15rem; }
+}
+/* darker orange so the hint reads clearly (accessible contrast) */
+.twist-tag { color: var(--terracotta-text); }

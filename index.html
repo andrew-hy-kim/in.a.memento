@@ -56,9 +56,10 @@ description: "A vending machine full of custom stickers, temporary tattoos and m
         </div>
       </div>
       <div class="mm-prize" aria-live="polite">
-        <p class="mm-hint"><span class="hand">Try it</span> Twist the knob to see what comes out.</p>
+        <div class="mm-slot"><p class="mm-hint"><span class="hand">Try it!</span> Twist the knob to see what comes out.</p></div>
       </div>
     </div>
+    <p class="center try-more"><a href="{{ '/gallery/#designs' | relative_url }}">See all {{ site.data.designs | size }} designs <span aria-hidden="true">→</span></a></p>
   </div>
 </section>
 
@@ -81,24 +82,6 @@ description: "A vending machine full of custom stickers, temporary tattoos and m
     </figure>
   </div>
 </section>
-
-<section class="bg-blush">
-  <div class="container">
-    <div class="section-head">
-      <h2>A few of our designs</h2>
-    </div>
-    <div class="sticker-row">
-      <figure><img src="{{ '/images/designs/bookworm.webp' | relative_url }}" alt="A green bookworm with glasses reading a book"></figure>
-      <figure><img src="{{ '/images/designs/sleeping-cat.webp' | relative_url }}" alt="A sleepy orange cat stretching, with zzz"></figure>
-      <figure><img src="{{ '/images/designs/chef-duck.webp' | relative_url }}" alt="A white duck in a chef hat holding a spatula"></figure>
-      <figure><img src="{{ '/images/designs/fish-hat-cat.webp' | relative_url }}" alt="A white cat wearing an orange fish shaped hat"></figure>
-      <figure><img src="{{ '/images/designs/pumpkins.webp' | relative_url }}" alt="Four pumpkins and gourds in orange, green and cream"></figure>
-      <figure><img src="{{ '/images/designs/flower-vase.webp' | relative_url }}" alt="Red flowers in a clear glass vase"></figure>
-    </div>
-    <p class="center mt-lg"><a class="btn btn-soft" href="{{ '/gallery/' | relative_url }}">See the gallery</a></p>
-  </div>
-</section>
-
 
 <section class="bg-gingham">
   <div class="container">
