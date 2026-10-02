@@ -1833,12 +1833,12 @@ main > section + section,
 .mm-controls { position: relative; }
 .twist-tag {
   position: absolute; left: -2px; top: calc(100% + 26px);
-  display: inline-flex; align-items: flex-start; gap: 2px;
+  display: inline-flex; align-items: flex-end; gap: 0;
   font-family: var(--font-display); font-size: 1.15rem; line-height: 1; white-space: nowrap;
   color: var(--terracotta); transform: rotate(-6deg); pointer-events: none;
   transition: opacity 0.3s ease;
 }
-.twist-tag svg { flex-shrink: 0; margin-top: -8px; }
+.twist-tag svg { flex-shrink: 0; margin: -30px -4px 0 6px; }
 .twisted .twist-tag { opacity: 0; }
 /* the knob glows gently a few times, then rests (stops after ~4.5s) */
 .pull-game:not(.twisted) .mm-knob { animation: knob-nudge 1.5s ease-in-out 0.6s 3; }
@@ -1851,6 +1851,6 @@ main > section + section,
 .try-section .pull-game { padding-bottom: 66px; }
 @media (max-width: 640px) {
   .twist-tag { font-size: 1rem; left: -2px; top: calc(100% + 20px); }
-  .twist-tag svg { width: 28px; height: 22px; }
+  .twist-tag svg { width: 46px; height: 43px; margin: -24px -3px 0 2px; }
   .try-section .pull-game { padding-bottom: 54px; }
 }
