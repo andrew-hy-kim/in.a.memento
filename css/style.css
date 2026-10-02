@@ -1107,7 +1107,7 @@ button, .btn, .chip, summary, .nav-links a, .faq-nav a { touch-action: manipulat
   grid-template-columns: auto 1fr;
   gap: 28px;
   align-items: center;
-  max-width: 620px;
+  max-width: 500px;
   margin: 40px auto 0;
   padding: 22px 26px;
   background: rgba(255, 253, 248, 0.9);
@@ -1180,8 +1180,8 @@ button, .btn, .chip, summary, .nav-links a, .faq-nav a { touch-action: manipulat
   justify-content: center;
   text-align: center;
 }
-.mm-hint { margin: 0; max-width: 260px; color: var(--ink-soft); }
-.mm-hint .hand { display: block; font-size: 1.4rem; color: var(--terracotta-text); }
+.mm-hint { margin: 0; max-width: 220px; font-size: 1.05rem; color: var(--ink-soft); }
+.mm-hint .hand { display: block; font-size: 1.7rem; color: var(--terracotta-text); }
 .mm-card {
   width: 150px;
   margin: 0;
