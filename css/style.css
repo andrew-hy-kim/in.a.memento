@@ -1748,3 +1748,5 @@ main > section + section,
 /* Home photos have no captions either */
 .hero-art .polaroid, .split > .polaroid { padding-bottom: 38px; }
 @media (max-width: 640px) { .hero-art .polaroid, .split > .polaroid { padding-bottom: 26px; } }
+/* Design stickers have no names under them: even white border all round */
+.tile.photo.contain img { padding: 18px; }

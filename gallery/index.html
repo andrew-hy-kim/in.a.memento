@@ -96,7 +96,7 @@ description: "Photos and videos of our vending machine at weddings and parties, 
     <p class="sr-only" id="design-status" aria-live="polite"></p>
     <div class="gallery-grid" id="design-grid" data-limit="12">
       {%- for d in site.data.designs %}
-      <figure class="tile photo contain" data-category="{{ d.category }}"><img src="{{ '/images/designs/' | append: d.image | append: '.webp' | relative_url }}" loading="lazy" alt="{{ d.alt }}"><figcaption>{{ d.name }}</figcaption></figure>
+      <figure class="tile photo contain" data-category="{{ d.category }}"><img src="{{ '/images/designs/' | append: d.image | append: '.webp' | relative_url }}" loading="lazy" alt="{{ d.alt }}"></figure>
       {%- endfor %}
     </div>
     <p class="center design-more-wrap"><button type="button" class="btn btn-soft design-more" aria-controls="design-grid" hidden></button></p>

@@ -1,5 +1,7 @@
 # Design library: used by the Gallery page and the "pull a memento" machine on the home page.
 # image    = file name in images/designs/ (without .webp)
+# name     = short label; not shown on the site, but used to keep track of designs (and in the weekly Drive check)
+# alt      = description for screen readers and Google
 # category = animals, food, plants or places (the filter buttons on the Gallery page)
 # The Gallery shows the first 12 until someone taps "Show all", so keep a good mix at the top.
 
