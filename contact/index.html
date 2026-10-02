@@ -22,25 +22,26 @@ description: "Send us your date and venue and we'll email you about availability
         added, removed or renamed in Google Forms, update it here too (option text must match exactly).
       {%- endcomment %}
       <form class="inquiry-form" id="inquiry-form" action="{{ site.inquiry_form | replace: 'viewform', 'formResponse' }}" method="POST" novalidate>
+        <p class="form-note">All questions are required unless marked optional.</p>
         <div class="field" data-error="Please enter your name(s).">
-          <label for="f-name">Your name(s) <span class="req">required</span></label>
+          <label for="f-name">Your name(s)</label>
           <p class="hint">For weddings, please include you and your partner's names.</p>
           <input id="f-name" name="entry.1954382244" type="text" autocomplete="name" required>
         </div>
 
         <div class="field-row">
           <div class="field" data-error="Please enter your email address.">
-            <label for="f-email">Email <span class="req">required</span></label>
+            <label for="f-email">Email</label>
             <input id="f-email" name="entry.1840836820" type="email" autocomplete="email" required>
           </div>
           <div class="field">
-            <label for="f-phone">Phone number</label>
+            <label for="f-phone">Phone number <span class="opt">optional</span></label>
             <input id="f-phone" name="entry.335508237" type="tel" autocomplete="tel">
           </div>
         </div>
 
         <fieldset class="field" data-error="Please choose an event type.">
-          <legend>Event type <span class="req">required</span></legend>
+          <legend>Event type</legend>
           <div class="chips">
             {%- assign types = "Wedding,Birthday Party,Bridal Shower,Baby Shower,Corporate,Social" | split: "," %}
             {%- for t in types %}
@@ -52,7 +53,7 @@ description: "Send us your date and venue and we'll email you about availability
         </fieldset>
 
         <fieldset class="field">
-          <legend>Which of our services are you interested in?</legend>
+          <legend>Which of our services are you interested in? <span class="opt">optional</span></legend>
           <div class="chips">
             <label class="chip"><input type="checkbox" name="entry.1461379346" value="Stickers"><span>Stickers</span></label>
             <label class="chip"><input type="checkbox" name="entry.1461379346" value="Temporary Tattoos"><span>Temporary tattoos</span></label>
@@ -62,18 +63,18 @@ description: "Send us your date and venue and we'll email you about availability
 
         <div class="field-row">
           <div class="field" data-error="Please choose your event date.">
-            <label for="f-date">Date of event <span class="req">required</span></label>
+            <label for="f-date">Date of event</label>
             <p class="hint" id="f-date-hint">Not set yet? Please put your best guess.</p>
             <input id="f-date" name="entry.969458904" type="date" aria-describedby="f-date-hint" required>
           </div>
           <div class="field" data-error="Please enter your venue or its address.">
-            <label for="f-venue">Venue or address <span class="req">required</span></label>
+            <label for="f-venue">Venue or address</label>
             <input id="f-venue" name="entry.414336527" type="text" autocomplete="street-address" required>
           </div>
         </div>
 
         <fieldset class="field">
-          <legend>How did you hear about us?</legend>
+          <legend>How did you hear about us? <span class="opt">optional</span></legend>
           <div class="chips">
             {%- assign sources = "Instagram,Family/Friend Recommendation,Google Search,Facebook" | split: "," %}
             {%- for t in sources %}
@@ -121,12 +122,12 @@ description: "Send us your date and venue and we'll email you about availability
     </div>
     <aside class="contact-aside">
       <div class="card tape">
-        <h2 class="h3">Trouble with the form?</h2>
-        <p>You can also fill it out <a href="{{ site.inquiry_form }}" target="_blank" rel="noopener">on Google Forms<span class="sr-only"> (opens in new tab)</span></a>.</p>
-      </div>
-      <div class="card">
         <h2 class="h3">Message us on Instagram</h2>
         <p><a href="{{ site.instagram }}" target="_blank" rel="noopener">@in.a.memento<span class="sr-only"> (opens in new tab)</span></a></p>
+      </div>
+      <div class="card">
+        <h2 class="h3">Trouble with the form?</h2>
+        <p>You can also fill it out <a href="{{ site.inquiry_form }}" target="_blank" rel="noopener">on Google Forms<span class="sr-only"> (opens in new tab)</span></a>.</p>
       </div>
     </aside>
   </div>

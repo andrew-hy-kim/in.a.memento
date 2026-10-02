@@ -1654,3 +1654,39 @@ html { scroll-padding-top: 96px; }
 .feature-list .doodle-icon:nth-child(1) { transform: rotate(-4deg); }
 .feature-list li:nth-child(even) .doodle-icon { transform: rotate(4deg); }
 .faq-group h2 .doodle-icon { transform: rotate(-4deg); }
+
+/* ---------- Design pass: calmer backgrounds, shorter banners, quieter small headings ---------- */
+
+/* Plain tints for sections; stripes stay on page banners, the hero and the reviews */
+.bg-sky { background: #eaf4f7; }
+.bg-butter { background: #fdf4d9; }
+
+/* Shorter page banners */
+.page-banner { padding: 44px 0 40px; }
+.banner-card { padding: 24px 40px; }
+.page-banner h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); }
+
+/* A little less space between sections on bigger screens */
+@media (min-width: 901px) { section { padding: 72px 0; } }
+
+/* Chewy for big headings only; small headings in bold Nunito */
+h3, .contact-aside .h3, .footer-grid .footer-heading {
+  font-family: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+h3 { font-size: 1.2rem; }
+.contact-aside .h3 { font-size: 1.15rem; }
+.footer-grid .footer-heading { font-size: 1rem; }
+.price-card h3 { font-size: 1.1rem; }
+
+/* No lonely last words */
+h1, h2, h3 { text-wrap: balance; }
+p, li, figcaption, blockquote { text-wrap: pretty; }
+
+/* Form: mark the optional questions instead of the required ones */
+.inquiry-form .opt { font-weight: 600; font-size: 0.85rem; color: var(--ink-soft); margin-left: 4px; }
+
+/* Design tiles: even breathing room around every drawing */
+.tile.photo.contain img { padding: 18px 18px 6px; border-radius: 22px; }
+.inquiry-form .form-note { margin: 0 0 -6px; font-size: 0.9rem; color: var(--ink-soft); }
