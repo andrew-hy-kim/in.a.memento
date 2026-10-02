@@ -1825,3 +1825,6 @@ main > section + section,
   .try-section .mm-hint .hand { font-size: 1.6rem; }
   .sticker-row-title { margin: 40px 0 16px; }
 }
+/* "Give it a twist" is just the game now, so it sits a little tighter */
+.try-section { padding-bottom: 64px; }
+@media (max-width: 640px) { .try-section { padding-bottom: 44px; } }
