@@ -441,6 +441,8 @@ window.stickerBurst = function (target) {
   document.addEventListener("focusin", function (e) {
     var el = e.target;
     if (!el || !el.getBoundingClientRect || header.contains(el) || el.closest(".lightbox, .mobile-book")) return;
+    // only for keyboard focus; a mouse click or tap on an in-page link shouldn't pull the page back up
+    try { if (!el.matches(":focus-visible")) return; } catch (err) {}
     var r = el.getBoundingClientRect();
     var top = header.getBoundingClientRect().bottom + 12;
     var bar = document.querySelector(".mobile-book");
@@ -580,7 +582,7 @@ window.stickerBurst = function (target) {
     matching.forEach(function (t, i) { t.hidden = i >= cap; });
     var canToggle = filter === "all" && matching.length > limit;
     more.hidden = !canToggle;
-    more.textContent = expanded ? "Show fewer" : "Show all " + matching.length + " designs";
+    more.textContent = expanded ? "Show fewer" : "Show all designs";
     more.setAttribute("aria-expanded", expanded ? "true" : "false");
     if (announce) {
       var shown = Math.min(cap, matching.length);

@@ -755,7 +755,7 @@ figure { margin: 0; }
 }
 .faq-nav a:hover { background: var(--butter); transform: translateY(-2px); color: var(--ink); }
 
-.faq-group { scroll-margin-top: 96px; }
+.faq-group { scroll-margin-top: 0; }
 .faq-group + .faq-group { margin-top: 44px; }
 .faq-group h2 {
   display: flex;
