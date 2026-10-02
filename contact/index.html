@@ -69,7 +69,8 @@ description: "Send us your date and venue and we'll email you about availability
           </div>
           <div class="field" data-error="Please enter your venue or its address.">
             <label for="f-venue">Venue or address</label>
-            <input id="f-venue" name="entry.414336527" type="text" autocomplete="street-address" required>
+            <p class="hint" id="f-venue-hint">No venue yet? A city or area is fine.</p>
+            <input id="f-venue" name="entry.414336527" type="text" autocomplete="street-address" aria-describedby="f-venue-hint" required>
           </div>
         </div>
 

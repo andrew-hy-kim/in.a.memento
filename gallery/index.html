@@ -99,6 +99,7 @@ description: "Photos and videos of our vending machine at weddings and parties, 
       <figure class="tile photo contain" data-category="{{ d.category }}"><img src="{{ '/images/designs/' | append: d.image | append: '.webp' | relative_url }}" loading="lazy" alt="{{ d.alt }}"></figure>
       {%- endfor %}
     </div>
+    <p class="center design-custom">Don't see what you want? <a href="{{ '/contact/' | relative_url }}">We can draw something new for your event.</a></p>
     <p class="center design-more-wrap"><button type="button" class="btn btn-soft design-more" aria-controls="design-grid" hidden></button></p>
   </div>
 </section>

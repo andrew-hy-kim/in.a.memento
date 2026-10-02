@@ -1854,3 +1854,5 @@ main > section + section,
   .twist-tag svg { width: 46px; height: 43px; margin: -24px -3px 0 2px; }
   .try-section .pull-game { padding-bottom: 54px; }
 }
+.design-custom { margin: 30px 0 0; color: var(--ink-soft); }
+.design-custom + .design-more-wrap { margin-top: 18px; }
