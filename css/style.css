@@ -1946,14 +1946,28 @@ main > section + section,
 /* sections that in-page links jump to get focus for keyboard users; no outline box around the whole section */
 section[tabindex="-1"]:focus, .faq-group[tabindex="-1"]:focus { outline: none; }
 
-/* Phones: "or try the machine" sits right under the headline, well clear of the bottom edge,
-   where iPhone browsers use the first tap to bring their toolbar back */
+/* Phones: a more compact hero, so "Book us", "How it works" and "or try the machine" all sit well
+   above the bottom edge on first load. iPhone browsers use a first tap at the very bottom edge to
+   bring their toolbar back, which made the link need two taps. */
 @media (max-width: 640px) {
-  .hero-copy { display: flex; flex-direction: column; }
-  .hero-copy > .eyebrow { order: 0; align-self: flex-start; }
-  .hero-copy > h1 { order: 1; }
-  .hero-copy > .hero-try { order: 2; margin: -6px 0 14px; }
-  .hero-copy > .hero-lead { order: 3; }
-  .hero-copy > .pill-row { order: 4; }
-  .hero-copy > .btn-row { order: 5; }
+  .hero { padding-top: 16px; }
+  .hero-copy { padding: 22px 20px 20px; }
+  .hero .eyebrow { margin-bottom: 2px; }
+  .hero h1 { margin-bottom: 0.3em; }
+  .hero-lead { font-size: 1.02rem; line-height: 1.55; margin-bottom: 0.8em; }
+  .hero .pill-row { gap: 6px; margin-bottom: 14px; }
+  .hero .pill { font-size: 0.8rem; padding: 3px 10px; }
+  .hero .btn-row { gap: 10px; }
+  .hero .btn-row .btn { padding: 12px 22px; }
+  .hero-try { margin-top: 10px; }
 }
+@media (max-width: 380px) {
+  .hero-copy { padding: 18px 16px 16px; }
+  .hero h1 { font-size: 2.15rem; }
+  .hero .eyebrow { font-size: 1.3rem; }
+  .hero-lead { font-size: 0.97rem; line-height: 1.5; }
+  .hero .pill { font-size: 0.76rem; padding: 2px 9px; }
+  .hero .btn-row .btn { padding: 11px 18px; }
+}
+/* very short phone screens (iPhone SE): skip the event tags so the buttons and link stay clear of the bottom edge */
+@media (max-width: 380px) and (max-height: 600px) { .hero .pill-row { display: none; } }
