@@ -1884,7 +1884,7 @@ main > section + section,
   color: var(--ink); background: var(--butter); border-radius: 999px; padding: 6px 14px;
   transition: transform 0.15s ease;
 }
-.hero-try a:hover { transform: translateY(1px); text-decoration: underline; }
+@media (hover: hover) and (pointer: fine) { .hero-try a:hover { text-decoration: underline; } }
 
 @media (max-width: 640px) {
   .try-section .pull-game { padding: 18px 16px 58px; gap: 14px; }
@@ -1933,7 +1933,7 @@ main > section + section,
   background: transparent; border: 2px dashed var(--butter-deep); color: var(--terracotta-text);
   padding: 5px 14px;
 }
-.hero-try a:hover { background: var(--butter); text-decoration: none; }
+@media (hover: hover) and (pointer: fine) { .hero-try a:hover { background: var(--butter); text-decoration: none; } }
 /* Home: the favor photo repeats the hero photo on phones, so skip it there */
 @media (max-width: 880px) { .hide-phone { display: none !important; } }
 /* Pricing: cards keep their natural height; headings line up across the two columns */
@@ -1942,3 +1942,6 @@ main > section + section,
 .split-headed > .no-step > h2 { margin-top: calc(clamp(1.5rem, 3.2vw, 1.65rem) * 1.65 + 6px); }
 .split-headed .eyebrow { display: block; text-align: center; margin-bottom: 6px; }
 @media (max-width: 880px) { .split-headed > .no-step > h2 { margin-top: 0; } }
+
+/* sections that in-page links jump to get focus for keyboard users; no outline box around the whole section */
+section[tabindex="-1"]:focus, .faq-group[tabindex="-1"]:focus { outline: none; }

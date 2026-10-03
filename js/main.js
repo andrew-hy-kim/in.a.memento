@@ -449,10 +449,17 @@ window.stickerBurst = function (target) {
 (function () {
   var header = document.querySelector(".site-header");
   if (!header) return;
+  // remember mouse clicks and taps: focus that follows them is never nudged
+  var lastPointer = 0;
+  ["pointerdown", "mousedown", "touchstart"].forEach(function (t) {
+    document.addEventListener(t, function () { lastPointer = Date.now(); }, { capture: true, passive: true });
+  });
   document.addEventListener("focusin", function (e) {
     var el = e.target;
     if (!el || !el.getBoundingClientRect || header.contains(el) || el.closest(".lightbox, .mobile-book")) return;
     // only for keyboard focus; a mouse click or tap on an in-page link shouldn't pull the page back up
+    if (Date.now() - lastPointer < 1000) return;
+    if (el.getAttribute("tabindex") === "-1") return; // sections that in-page links jump to
     try { if (!el.matches(":focus-visible")) return; } catch (err) {}
     var r = el.getBoundingClientRect();
     var top = header.getBoundingClientRect().bottom + 12;
@@ -531,6 +538,7 @@ window.stickerBurst = function (target) {
   var canHover = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   if (!canHover && replay) replay.textContent = "▶ Watch all steps";
   var seq = -1; // index playing in the sequence, -1 when not sequencing
+  var userChose = false; // once someone picks a clip, the automatic 1 → 4 run doesn't take over
 
   function stopAll(except) {
     vids.forEach(function (v, i) {
@@ -557,15 +565,21 @@ window.stickerBurst = function (target) {
       if (seq === i && i < vids.length - 1) { seq = i + 1; play(seq); }
       else { seq = -1; if (replay) replay.hidden = false; }
     });
-    cards[i].addEventListener("click", function () { seq = -1; if (v.paused) play(i); else { v.pause(); cards[i].classList.remove("is-playing"); } if (replay) replay.hidden = false; });
-    if (!reduceMotion && canHover) cards[i].addEventListener("mouseenter", function () { if (seq === -1) play(i); });
+    var hoverStart = 0;
+    cards[i].addEventListener("click", function () {
+      seq = -1; userChose = true;
+      // a click just after hovering started the clip means "play this", not "stop"
+      if (v.paused || Date.now() - hoverStart < 1500) play(i); else { v.pause(); cards[i].classList.remove("is-playing"); }
+      if (replay) replay.hidden = false;
+    });
+    if (!reduceMotion && canHover) cards[i].addEventListener("mouseenter", function () { if (seq === -1) { userChose = true; hoverStart = Date.now(); play(i); } });
   });
   if (replay) replay.addEventListener("click", runSequence);
   if (reduceMotion || !canHover || !("IntersectionObserver" in window)) { if (replay) replay.hidden = false; return; }
   var started = false;
   var io = new IntersectionObserver(function (entries) {
     entries.forEach(function (e) {
-      if (e.isIntersecting && !started) { started = true; runSequence(); }
+      if (e.isIntersecting && !started) { started = true; if (!userChose) runSequence(); else if (replay) replay.hidden = false; }
       if (!e.isIntersecting) { seq = -1; stopAll(); if (started && replay) replay.hidden = false; }
     });
   }, { threshold: 0.5 });
@@ -697,4 +711,50 @@ window.stickerBurst = function (target) {
   figs.forEach(function (fig) { fig.addEventListener("click", function () { stopAll(); setTimeout(stopAll, 0); }); });
   document.addEventListener("visibilitychange", function () { if (document.hidden) stopAll(); });
   window.addEventListener("resize", function () { figs.forEach(function (f) { if (f._preview) place(f); }); });
+})();
+
+// In-page links (e.g. "or try the machine", FAQ topics): jump straight to the section on the first
+// click or tap, below the sticky header, and move keyboard focus there too.
+(function () {
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="#"]');
+    if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    if (a.pathname !== location.pathname || a.host !== location.host || !a.hash || a.hash === "#") return;
+    var target = document.getElementById(decodeURIComponent(a.hash.slice(1)));
+    if (!target) return;
+    e.preventDefault();
+    // remember where we were, so the back button returns there
+    // (add the history entry before scrolling, so the browser saves the old spot with the old entry)
+    if (history.pushState) { history.replaceState({ y: window.scrollY }, ""); history.pushState({ hash: a.hash }, "", a.hash); }
+    else location.hash = a.hash;
+    target.scrollIntoView({ block: "start", behavior: "auto" });
+    if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
+    target.focus({ preventScroll: true });
+    settle(target);
+  });
+
+  // If fonts or images are still loading, the page can grow after the jump and push the section down.
+  // Re-align once things finish loading, unless the visitor has started scrolling themselves.
+  function settle(target) {
+    var moved = false;
+    var stop = function () { moved = true; };
+    ["wheel", "touchmove", "keydown"].forEach(function (t) { window.addEventListener(t, stop, { once: true, passive: true }); });
+    var realign = function () { if (!moved) target.scrollIntoView({ block: "start", behavior: "auto" }); };
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(realign);
+    if (document.readyState !== "complete") window.addEventListener("load", realign, { once: true });
+    setTimeout(realign, 350);
+    setTimeout(function () { realign(); ["wheel", "touchmove", "keydown"].forEach(function (t) { window.removeEventListener(t, stop); }); }, 1200);
+  }
+  // opening a link like /gallery/#designs from elsewhere gets the same care
+  if (location.hash) {
+    var initial = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (initial) settle(initial);
+  }
+  // back/forward between in-page jumps: return to the saved spot, or to the section
+  window.addEventListener("popstate", function (e) {
+    var st = e.state;
+    if (st && typeof st.y === "number") { window.scrollTo(0, st.y); return; }
+    var t = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (t) t.scrollIntoView({ block: "start", behavior: "auto" }); else if (!location.hash) window.scrollTo(0, 0);
+  });
 })();
