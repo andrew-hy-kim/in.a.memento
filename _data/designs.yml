@@ -109,3 +109,23 @@
   name: belly up
   alt: An orange and white cat napping belly up
   category: animals
+- image: wildflower-bouquet
+  name: wildflower bouquet
+  alt: A loose bouquet of colourful wildflowers tied with a black ribbon bow
+  category: plants
+- image: florence
+  name: florence
+  alt: The rooftops of Florence with the red dome of the cathedral and a bell tower, above green trees
+  category: places
+- image: manor-house
+  name: manor house
+  alt: A cream stone manor house with tall windows and a blue front door, framed by green shrubs
+  category: places
+- image: cypress-hills
+  name: cypress hills
+  alt: A row of tall cypress trees on a golden field under a soft blue sky
+  category: places
+- image: garden-conservatory
+  name: garden conservatory
+  alt: A red brick conservatory with arched glass windows, surrounded by leafy plants and potted flowers
+  category: places
