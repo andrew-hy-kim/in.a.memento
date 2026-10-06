@@ -145,14 +145,14 @@ without any error. These checks catch that and the other things the site depends
 
 **Settings to keep on**
 - [ ] Google Forms → Responses → ⋮ → "Get email notifications for new responses" (we promise a reply
-      within 2 business days).
+      within 2 to 3 business days).
 - [ ] Cloudflare → inamemento.com → auto-renew on, and a card on file that won't expire before the renewal date.
 - [ ] Two-step login on GitHub, Cloudflare and Google.
 
 **Once a year**
 - [ ] Check prices, travel rules and the deposit policy still match on Pricing, the FAQ (`_data/faq.yml`)
       and How it works.
-- [ ] Update the reply time everywhere if it changes ("within 2 business days" is on the booking page,
+- [ ] Update the reply time everywhere if it changes ("within 2 to 3 business days" is on the booking page,
       How it works, the FAQ and in the confirmation email script).
 
 ## Previewing locally (optional)

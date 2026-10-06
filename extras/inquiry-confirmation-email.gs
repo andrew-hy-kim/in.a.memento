@@ -42,7 +42,7 @@ function sendConfirmation(e) {
     '<div style="font-family:Arial,sans-serif;font-size:15px;line-height:1.6;color:#5b3f2c;max-width:520px">' +
     '<p>' + greeting + '</p>' +
     '<p>Thank you for reaching out to ' + BUSINESS_NAME + '! We received your inquiry' + dateLine +
-    ' and will email you about availability within 2 business days.</p>' +
+    ' and will email you about availability within 2 to 3 business days.</p>' +
     '<p>In the meantime, you can peek at our <a href="' + WEBSITE + '/gallery/">design gallery</a>, ' +
     'read our <a href="' + WEBSITE + '/faq/">FAQ</a>, or say hi on <a href="' + INSTAGRAM + '">Instagram</a>.</p>' +
     '<p>We hope to connect with you soon!<br>' + BUSINESS_NAME + '</p>' +

@@ -1971,3 +1971,9 @@ section[tabindex="-1"]:focus, .faq-group[tabindex="-1"]:focus { outline: none; }
 }
 /* very short phone screens (iPhone SE): skip the event tags so the buttons and link stay clear of the bottom edge */
 @media (max-width: 380px) and (max-height: 600px) { .hero .pill-row { display: none; } }
+
+/* FAQ topics on phones: each button its natural width on one line, rows centred (no uneven 2x2 grid) */
+@media (max-width: 640px) {
+  .faq-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+  .faq-nav a { white-space: nowrap; padding: 8px 14px; }
+}
