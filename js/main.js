@@ -538,7 +538,7 @@ window.stickerBurst = function (target) {
   var canHover = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   if (!canHover && replay) replay.textContent = "▶ Watch all steps";
   var seq = -1; // index playing in the sequence, -1 when not sequencing
-  var userChose = false; // once someone picks a clip, the automatic 1 → 4 run doesn't take over
+  var userChose = false; // once someone clicks a clip, the automatic 1 → 4 run doesn't take over
 
   function stopAll(except) {
     vids.forEach(function (v, i) {
@@ -572,7 +572,7 @@ window.stickerBurst = function (target) {
       if (v.paused || Date.now() - hoverStart < 1500) play(i); else { v.pause(); cards[i].classList.remove("is-playing"); }
       if (replay) replay.hidden = false;
     });
-    if (!reduceMotion && canHover) cards[i].addEventListener("mouseenter", function () { if (seq === -1) { userChose = true; hoverStart = Date.now(); play(i); } });
+    if (!reduceMotion && canHover) cards[i].addEventListener("mouseenter", function () { if (seq === -1) { hoverStart = Date.now(); play(i); } });
   });
   if (replay) replay.addEventListener("click", runSequence);
   if (reduceMotion || !canHover || !("IntersectionObserver" in window)) { if (replay) replay.hidden = false; return; }
