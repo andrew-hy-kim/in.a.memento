@@ -275,14 +275,10 @@ section { padding: 88px 0; }
 }
 
 .grid { display: grid; gap: 28px; }
-.grid-2 { grid-template-columns: repeat(2, 1fr); }
-.grid-3 { grid-template-columns: repeat(3, 1fr); }
 .grid-4 { grid-template-columns: repeat(4, 1fr); }
-@media (max-width: 900px) {
-  .grid-3, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 900px) { .grid-4 { grid-template-columns: repeat(2, 1fr); }
 }
-@media (max-width: 640px) {
-  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+@media (max-width: 640px) { .grid-4 { grid-template-columns: 1fr; }
   section { padding: 64px 0; }
 }
 
@@ -567,7 +563,6 @@ section { padding: 88px 0; }
 /* ---------- Utilities ---------- */
 
 .center { text-align: center; }
-.mt-lg { margin-top: 48px; }
 .muted { color: var(--ink-soft); }
 .hand { font-family: var(--font-hand); font-size: 1.2em; }
 
@@ -775,7 +770,6 @@ figure { margin: 0; }
 /* ---------- Pricing: at a glance + tap to expand ---------- */
 
 .glance-card { text-align: center; max-width: 900px; margin: 0 auto; }
-.glance-title { margin-bottom: 18px; }
 .glance {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1812,7 +1806,6 @@ main > section + section,
 .try-section .mm-card { width: 180px; }
 .try-section .mm-hint { font-size: 1.15rem; max-width: 240px; }
 .try-section .mm-hint .hand { font-size: 2rem; }
-.sticker-row-title { margin: 56px 0 22px; }
 @media (max-width: 640px) {
   .try-section .pull-game { padding: 16px; gap: 14px; }
   .try-section .pull-game .mini-machine { width: 100%; max-width: 165px; padding: 10px 10px 13px; }
@@ -1823,7 +1816,6 @@ main > section + section,
   .try-section .mm-card { width: 130px; }
   .try-section .mm-hint { font-size: 0.95rem; }
   .try-section .mm-hint .hand { font-size: 1.6rem; }
-  .sticker-row-title { margin: 40px 0 16px; }
 }
 /* "Give it a twist" is just the game now, so it sits a little tighter */
 .try-section { padding-bottom: 64px; }
