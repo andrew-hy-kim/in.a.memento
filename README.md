@@ -102,6 +102,11 @@ Tapping any photo or design opens it bigger in a viewer, and videos work the sam
 inquiry form ("We got your inquiry! 💌"). It runs inside the Google Form, not the website. Setup steps are at the
 top of the file. Google allows about 100 of these emails per day on a personal account.
 
+`extras/inquiry-owner-notification.gs` is its partner: every new inquiry also emails **in.a.memento.wa@gmail.com**
+("New inquiry: name · event type · date") with each question and answer laid out in a table. Replying to that
+email writes straight back to the customer. Add it as a second script file next to the confirmation one (steps at
+the top of the file) so both keep working.
+
 ## Security
 
 Each page sets a Content-Security-Policy (in `_layouts/default.html`): scripts, styles, fonts and media
