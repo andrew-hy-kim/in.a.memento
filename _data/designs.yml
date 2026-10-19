@@ -129,3 +129,27 @@
   name: garden conservatory
   alt: A red brick conservatory with arched glass windows, surrounded by leafy plants and potted flowers
   category: places
+- image: cocktail-hour
+  name: cocktail hour
+  alt: Four colorful cocktails in blue-outlined glasses, garnished with lemon slices and rosemary sprigs
+  category: food
+- image: coffee-break
+  name: coffee break
+  alt: A stovetop moka pot, a bag of coffee beans and a takeaway coffee cup drawn in black ink
+  category: food
+- image: baby-tennis
+  name: baby tennis
+  alt: A smiling baby in a yellow onesie holding a purple tennis racket, with two tennis balls nearby
+  category: places
+- image: baby-basketball
+  name: baby basketball
+  alt: A laughing baby in a yellow onesie with a pink bow tie holding an orange basketball
+  category: places
+- image: baby-at-the-laptop
+  name: baby at the laptop
+  alt: A happy baby typing on a laptop at a low wooden table next to a notebook and pencil
+  category: places
+- image: baby-dragon-ride
+  name: baby dragon ride
+  alt: A cheering baby with arms up, riding a pink plush dragon with little white wings
+  category: places
