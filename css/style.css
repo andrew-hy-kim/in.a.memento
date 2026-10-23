@@ -809,8 +809,6 @@ details.more summary::-webkit-details-marker { display: none; }
 details.more summary::after { content: "▾"; transition: transform 0.15s ease; }
 details.more[open] summary::after { transform: rotate(180deg); }
 details.more > *:not(summary) { margin-top: 10px; }
-.glance-card details.more { text-align: center; }
-.glance-card details.more p { text-align: center; color: var(--ink-soft); max-width: 640px; margin: 10px auto 0; }
 .small-note { font-size: 0.9rem; margin: 12px 0 0; }
 
 .mementos-card {
