@@ -5,6 +5,7 @@
 #   status: skipped     -> left out (reason says why), e.g. blurry or a near-duplicate
 #   status: declined    -> the owner said no when asked to approve it
 # Edit by hand if you like: delete an entry and the next check will look at that file again.
+# This file is public on GitHub: never write client names, dates or event details here ("personalised, ask owner" is enough).
 - id: 1YKlLJdbppzODsA6mwTNn74nE-e7Av5Se
   name: Clinking glasses
   status: added
@@ -108,11 +109,11 @@
 - id: 1NFaW_JFyNkiLyiuDd-qsj2wHjpl-bM0c
   name: Bow.png
   status: skipped
-  reason: personalised name frame (Alex's baby shower); waiting for the owner to decide
+  reason: personalised name frame; waiting for the owner to decide
 - id: 1tRq2aoIN9inJ01tZwpNPIgDEMmqplsAK
   name: Frame bow.png
   status: skipped
-  reason: personalised name frame (Rachel & Brian); waiting for the owner to decide
+  reason: personalised name frame; waiting for the owner to decide
 - id: 1LWEIk9G5iAq_a-Smx4XOMmxKYEK1xxxN
   name: Flower bouquet
   status: added
@@ -136,7 +137,7 @@
 - id: 1y7R47OiW35zGLjawtAV2OZrSq2ZZkpeX
   name: Frame 2
   status: skipped
-  reason: personalised (R & B monogram, 2024); ask owner
+  reason: personalised monogram; ask owner
 - id: 1C2-Va5mdYEGbb0nn2PH-UGI63e6eUL1X
   name: IMG_5319.PNG
   status: added
@@ -162,6 +163,6 @@
   status: added
   site_name: baby-dragon-ride
 - id: 1WUG_FIZ7ycabImbjmItxJKHLBLteZGYc
-  name: elysa baby shower cover.png
+  name: (personalised file; the id is what matters)
   status: skipped
-  reason: personalised machine cover (Elysa & Jonathan's baby shower); ask owner
+  reason: personalised machine cover; ask owner
