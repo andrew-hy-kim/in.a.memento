@@ -1734,9 +1734,9 @@ main > section + section,
   .filter-chip { font-size: 0.88rem; padding: 6px 12px; }
 }
 
-/* Gallery photos have no captions: keep the instant-photo look with a deeper bottom border */
-.scrapbook-wrap .polaroid.scrap { padding-bottom: 38px; }
-@media (max-width: 640px) { .scrapbook-wrap .polaroid.scrap { padding-bottom: 26px; } }
+/* Gallery photos: even white border all round, like the sides */
+.scrapbook-wrap .polaroid.scrap { padding-bottom: 12px; }
+@media (max-width: 640px) { .scrapbook-wrap .polaroid.scrap { padding-bottom: 7px; } }
 /* Home photos have no captions either */
 .hero-art .polaroid, .split > .polaroid { padding-bottom: 38px; }
 @media (max-width: 640px) { .hero-art .polaroid, .split > .polaroid { padding-bottom: 26px; } }
