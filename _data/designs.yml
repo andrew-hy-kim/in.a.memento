@@ -153,3 +153,15 @@
   name: baby dragon ride
   alt: A cheering baby with arms up, riding a pink plush dragon with little white wings
   category: places
+- image: kettle-and-coffee
+  name: kettle and coffee
+  alt: A gooseneck kettle and a cup of black coffee on a saucer, drawn in black ink
+  category: food
+- image: welcome-to-washington
+  name: welcome to washington
+  alt: A green road sign shaped around the state of Washington reading 'Welcome to Washington, The Evergreen State'
+  category: places
+- image: public-market-sign
+  name: public market sign
+  alt: The red 'Public Market Center' sign and clock at Pike Place Market in Seattle
+  category: places

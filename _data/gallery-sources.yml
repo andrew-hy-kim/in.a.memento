@@ -166,3 +166,27 @@
   name: (personalised file; the id is what matters)
   status: skipped
   reason: personalised machine cover; ask owner
+- id: 1z7uNfZ5spLd6PYdA9L2IWXJIZdLDzMEa
+  name: Decor - coffee1
+  status: added
+  site_name: kettle-and-coffee
+- id: 1IrdNZ7UZDyGJYH_1aMR2lmlo-h94y9ZL
+  name: IMG_5340.PNG
+  status: added
+  site_name: welcome-to-washington
+- id: 1H7kaiu1Lcm82oH7ju66MmqJ_dVaMYOCT
+  name: IMG_5346.PNG
+  status: added
+  site_name: public-market-sign
+- id: 18iTHpFkkvpWB2n4MziFQphYn1Qu22Kt-
+  name: Seattle - Elliott Bay
+  status: skipped
+  reason: shows a local shop's sign; add once the shop says it's OK
+- id: 1INHYyBLwmxuLmnh4ymM2uhY3TwimoqQa
+  name: IMG_5342.PNG
+  status: skipped
+  reason: shows a local shop's neon sign (Twice Sold Tales); add once the shop says it's OK
+- id: 10k1XuSXCsRncwTkdm6v_RoejeKkabElp
+  name: Seattle - Orca card
+  status: skipped
+  reason: copies the transit agency's card logo closely; redraw without the logo or ask first
