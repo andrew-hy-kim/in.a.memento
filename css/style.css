@@ -1967,3 +1967,18 @@ section[tabindex="-1"]:focus, .faq-group[tabindex="-1"]:focus { outline: none; }
   .faq-nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
   .faq-nav a { white-space: nowrap; padding: 8px 14px; }
 }
+
+/* Home photos: a thin white sticker edge with rounded corners instead of a polaroid frame */
+.hero-art .polaroid, .split > .polaroid { background: none; padding: 0; border-radius: 0; box-shadow: none; }
+.hero-art .polaroid img, .split > .polaroid img {
+  border-radius: 28px;
+  filter: drop-shadow(4px 0 0 #fff) drop-shadow(-4px 0 0 #fff) drop-shadow(0 4px 0 #fff) drop-shadow(0 -4px 0 #fff) drop-shadow(0 14px 22px rgba(91, 63, 44, 0.18));
+}
+.split > .polaroid.photo-tall::before { content: none; }
+@media (max-width: 640px) {
+  .hero-art .polaroid, .split > .polaroid { padding: 0; }
+  .hero-art .polaroid img, .split > .polaroid img {
+    border-radius: 22px;
+    filter: drop-shadow(3px 0 0 #fff) drop-shadow(-3px 0 0 #fff) drop-shadow(0 3px 0 #fff) drop-shadow(0 -3px 0 #fff) drop-shadow(0 10px 16px rgba(91, 63, 44, 0.18));
+  }
+}
