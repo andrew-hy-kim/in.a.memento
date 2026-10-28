@@ -1,0 +1,20 @@
+# Shelves on the Designs page, in this order. Each design in designs.yml names one of these ids as its collection.
+# To add a collection: add an entry here, then set designs to it. A collection with no designs is simply hidden.
+- id: seattle
+  name: Seattle & the PNW
+  blurb: Local landmarks and evergreen favourites.
+- id: critters
+  name: Cats & critters
+  blurb: Napping cats, reading cats, and a duck who cooks.
+- id: coffee-cocktails
+  name: Coffee & cocktails
+  blurb: For the morning after and the night of.
+- id: garden-market
+  name: Garden & market
+  blurb: Flowers, fruit and a farmers' market haul.
+- id: little-ones
+  name: Little ones
+  blurb: Made for baby showers and first birthdays.
+- id: travel
+  name: Places & travel
+  blurb: Little postcards from somewhere lovely.

@@ -236,7 +236,7 @@
   var index = 0;
 
   var triggers = Array.prototype.slice.call(document.querySelectorAll(
-    "main .polaroid:not([data-video]) img, main .tile img, main .sticker-row img, main [data-video]"));
+    "main .polaroid:not([data-video]) img, main .tile img, main .design-tile img, main .sticker-row img, main [data-video]"));
   if (!triggers.length) return;
 
   function describe(el) {
@@ -279,7 +279,7 @@
 
   function open(el) {
     var section = el.closest("section") || document;
-    // only what's on screen (skips designs hidden by the Gallery filters)
+    // only what's on screen
     items = triggers.filter(function (t) { return section.contains(t) && t.getClientRects().length; });
     show(items.indexOf(el));
     box.showModal();
@@ -526,6 +526,56 @@ window.stickerBurst = function (target) {
   update();
 })();
 
+// Designs page shelves: arrows scroll sideways, "See all" opens a shelf into a grid,
+// and "New" drops anything added more than 30 days ago (the site may not have been republished since)
+(function () {
+  var shelves = Array.prototype.slice.call(document.querySelectorAll(".shelf"));
+  if (!shelves.length) return;
+  var newShelf = document.getElementById("new");
+  if (newShelf) {
+    var cutoff = Date.now() - 30 * 24 * 60 * 60 * 1000;
+    newShelf.querySelectorAll("[data-added]").forEach(function (fig) {
+      if (Date.parse(fig.getAttribute("data-added")) < cutoff) fig.closest("li").remove();
+    });
+    if (!newShelf.querySelector(".design-tile")) {
+      newShelf.remove();
+      var jump = document.querySelector('[data-jump="new"]');
+      if (jump) jump.remove();
+      shelves = shelves.filter(function (s) { return s !== newShelf; });
+    } else {
+      var n = document.querySelector('[data-jump="new"] .n');
+      if (n) n.textContent = newShelf.querySelectorAll(".design-tile").length;
+    }
+  }
+  shelves.forEach(function (shelf) {
+    var row = shelf.querySelector(".shelf-row");
+    var prev = shelf.querySelector(".shelf-prev");
+    var next = shelf.querySelector(".shelf-next");
+    var toggle = shelf.querySelector(".shelf-toggle");
+    function update() {
+      var overflows = row.scrollWidth > row.clientWidth + 4;
+      if (!shelf.classList.contains("is-open")) toggle.hidden = !overflows;
+      row.tabIndex = overflows && !shelf.classList.contains("is-open") ? 0 : -1;
+      prev.disabled = row.scrollLeft <= 2;
+      next.disabled = row.scrollLeft >= row.scrollWidth - row.clientWidth - 2;
+    }
+    function go(dir) { row.scrollBy({ left: dir * row.clientWidth * 0.8, behavior: reduceMotion ? "auto" : "smooth" }); }
+    prev.addEventListener("click", function () { go(-1); });
+    next.addEventListener("click", function () { go(1); });
+    toggle.addEventListener("click", function () {
+      var open = shelf.classList.toggle("is-open");
+      toggle.textContent = open ? "Show less" : "See all";
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      if (!open) { row.scrollLeft = 0; shelf.scrollIntoView({ block: "start", behavior: reduceMotion ? "auto" : "smooth" }); }
+      update();
+    });
+    row.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    window.addEventListener("load", update);
+    update();
+  });
+})();
+
 // Step clips: play one at a time, in order (1 → 4) when the section scrolls into view,
 // then rest on stills with a "Watch again" button. Hover (desktop) or tap plays a single step.
 // With "reduce motion", nothing plays on its own; tapping a step still plays it.
@@ -584,60 +634,6 @@ window.stickerBurst = function (target) {
     });
   }, { threshold: 0.5 });
   io.observe(document.querySelector(".step-clips"));
-})();
-
-// Gallery designs: theme filters and a "Show all" toggle, so a growing library stays a tidy grid.
-// Hidden tiles use the hidden attribute, so their lazy-loaded images aren't downloaded until shown.
-(function () {
-  var grid = document.getElementById("design-grid");
-  var bar = document.querySelector(".design-filters");
-  var more = document.querySelector(".design-more");
-  var status = document.getElementById("design-status");
-  if (!grid || !bar || !more) return;
-  var tiles = Array.prototype.slice.call(grid.children);
-  var limit = parseInt(grid.getAttribute("data-limit"), 10) || 12;
-  var chips = Array.prototype.slice.call(bar.querySelectorAll(".filter-chip"));
-  var filter = "all";
-  var expanded = false;
-
-  function apply(announce) {
-    var matching = tiles.filter(function (t) { return filter === "all" || t.getAttribute("data-category") === filter; });
-    var cap = filter === "all" && !expanded ? limit : matching.length;
-    tiles.forEach(function (t) { t.hidden = true; });
-    matching.forEach(function (t, i) { t.hidden = i >= cap; });
-    var canToggle = filter === "all" && matching.length > limit;
-    more.hidden = !canToggle;
-    more.textContent = expanded ? "Show fewer" : "Show all designs";
-    more.setAttribute("aria-expanded", expanded ? "true" : "false");
-    if (announce) {
-      var shown = Math.min(cap, matching.length);
-      status.textContent = "Showing " + shown + " of " + matching.length + (filter === "all" ? " designs" : " " + filter + " designs");
-    }
-  }
-
-  chips.forEach(function (chip) {
-    chip.addEventListener("click", function () {
-      filter = chip.getAttribute("data-filter");
-      expanded = false;
-      chips.forEach(function (c) { c.setAttribute("aria-pressed", c === chip ? "true" : "false"); });
-      apply(true);
-    });
-  });
-
-  more.addEventListener("click", function () {
-    var firstNew = tiles.filter(function (t) { return t.hidden; })[0];
-    expanded = !expanded;
-    apply(true);
-    if (expanded && firstNew) {
-      var img = firstNew.querySelector("img");
-      if (img) img.focus({ preventScroll: true });
-    } else if (!expanded) {
-      bar.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  });
-
-  bar.hidden = false;
-  apply(false);
 })();
 
 // "At events" videos play silently in place: on hover with a mouse, or on phones/tablets when the

@@ -1,167 +1,208 @@
-# Design library: used by the Gallery page and the "pull a memento" machine on the home page.
-# image    = file name in images/designs/ (without .webp)
-# name     = short label; not shown on the site, but used to keep track of designs (and in the weekly Drive check)
-# alt      = description for screen readers and Google
-# category = animals, food, plants or places (the filter buttons on the Gallery page)
-# The Gallery shows the first 12 until someone taps "Show all", so keep a good mix at the top.
+# Design library: used by the Designs page, the Gallery teaser and the "pull a memento" machine on the home page.
+# image      = file name in images/designs/ (without .webp)
+# name       = short label; not shown on the site, but used to keep track of designs (and in the weekly Drive check)
+# alt        = description for screen readers and Google
+# collection = which shelf it sits on, on the Designs page (see _data/collections.yml for the list)
+# added      = the date it went on the site (YYYY-MM-DD); the newest 8 from the last 30 days also show under "New"
+# Within a collection, designs show in the order they appear here.
 
 - image: bookworm
   name: bookworm
   alt: A green bookworm with glasses reading a book
-  category: animals
+  collection: critters
+  added: 2026-09-30
 - image: flower-vase
   name: flower vase
   alt: Red flowers in a clear glass vase
-  category: plants
+  collection: garden-market
+  added: 2026-09-30
 - image: pumpkins
   name: pumpkins
   alt: Four pumpkins and gourds in orange, green and cream
-  category: food
+  collection: garden-market
+  added: 2026-09-30
 - image: cat-reading
   name: way of cats
   alt: A grey and white cat reading a book called Way of Cats
-  category: animals
+  collection: critters
+  added: 2026-09-30
 - image: mountain-village
   name: mountain village
   alt: Green hills with pine trees and a little house below grey mountains
-  category: places
+  collection: travel
+  added: 2026-09-30
 - image: lemon
   name: lemon
   alt: A yellow lemon with a little green sprout
-  category: food
+  collection: garden-market
+  added: 2026-09-30
 - image: chef-duck
   name: chef duck
   alt: A white duck in a chef hat holding a spatula
-  category: animals
+  collection: critters
+  added: 2026-09-30
 - image: rose-frame
   name: rose frame
   alt: Pink roses on a green stem inside a scalloped blue oval frame
-  category: plants
+  collection: garden-market
+  added: 2026-10-02
 - image: tiny-free-library
   name: tiny free library
   alt: A little free library box full of books
-  category: places
+  collection: seattle
+  added: 2026-09-30
 - image: watermelon
   name: watermelon
   alt: A whole striped watermelon with a juicy red slice in front
-  category: food
+  collection: garden-market
+  added: 2026-10-02
 - image: sleeping-cat
   name: sleepy cat
   alt: A sleepy orange cat stretching, with zzz
-  category: animals
+  collection: critters
+  added: 2026-09-30
 - image: clinking-glasses
   name: cheers
   alt: Two blue wine glasses clinking, with a little red heart and yellow sparkles above
-  category: places
+  collection: coffee-cocktails
+  added: 2026-10-02
 - image: fish-hat-cat
   name: fish hat cat
   alt: A white cat wearing an orange fish shaped hat
-  category: animals
+  collection: critters
+  added: 2026-09-30
 - image: flower-cup
   name: flower cup
   alt: Pink flowers in a striped yellow cup
-  category: plants
+  collection: garden-market
+  added: 2026-09-30
 - image: corn
   name: corn
   alt: An ear of yellow corn in its green husk
-  category: food
+  collection: garden-market
+  added: 2026-09-30
 - image: tomatoes
   name: tomatoes
   alt: A vine of red cherry tomatoes on a soft yellow background
-  category: food
+  collection: garden-market
+  added: 2026-09-30
 - image: tomato-vine
   name: tomato vine
   alt: A branch of red cherry tomatoes
-  category: food
+  collection: garden-market
+  added: 2026-09-30
 - image: salmon
   name: salmon
   alt: A rainbow trout with a pink stripe
-  category: animals
+  collection: seattle
+  added: 2026-09-30
 - image: pine-branch
   name: pine branch
   alt: A pine cone on a green pine branch
-  category: plants
+  collection: seattle
+  added: 2026-09-30
 - image: tote-bag
   name: tote bag
   alt: A canvas tote bag with navy handles
-  category: places
+  collection: garden-market
+  added: 2026-09-30
 - image: red-roof-house
   name: little red roof
   alt: A small white house with a red roof in a green field under a soft blue sky, with trees behind
-  category: places
+  collection: travel
+  added: 2026-10-02
 - image: larches
   name: larches
   alt: Two golden larch trees in autumn, labeled larches
-  category: plants
+  collection: seattle
+  added: 2026-10-02
 - image: tuxedo-cat
   name: tuxedo cat
   alt: A black and white tuxedo cat sitting upright with a little round name tag on its collar
-  category: animals
+  collection: critters
+  added: 2026-10-02
 - image: ornament-cat
   name: christmas tree cat
   alt: An orange cat dressed as a Christmas tree, covered in lights and garland with a star on top
-  category: animals
+  collection: critters
+  added: 2026-10-02
 - image: sleepy-orange-cat
   name: nap time
   alt: A round orange tabby cat napping on its back
-  category: animals
+  collection: critters
+  added: 2026-10-02
 - image: sleepy-tuxedo-cat
   name: belly up
   alt: An orange and white cat napping belly up
-  category: animals
+  collection: critters
+  added: 2026-10-02
 - image: wildflower-bouquet
   name: wildflower bouquet
   alt: A loose bouquet of colourful wildflowers tied with a black ribbon bow
-  category: plants
+  collection: garden-market
+  added: 2026-10-05
 - image: florence
   name: florence
   alt: The rooftops of Florence with the red dome of the cathedral and a bell tower, above green trees
-  category: places
+  collection: travel
+  added: 2026-10-05
 - image: manor-house
   name: manor house
   alt: A cream stone manor house with tall windows and a blue front door, framed by green shrubs
-  category: places
+  collection: travel
+  added: 2026-10-05
 - image: cypress-hills
   name: cypress hills
   alt: A row of tall cypress trees on a golden field under a soft blue sky
-  category: places
+  collection: travel
+  added: 2026-10-05
 - image: garden-conservatory
   name: garden conservatory
   alt: A red brick conservatory with arched glass windows, surrounded by leafy plants and potted flowers
-  category: places
+  collection: travel
+  added: 2026-10-05
 - image: cocktail-hour
   name: cocktail hour
   alt: Four colorful cocktails in blue-outlined glasses, garnished with lemon slices and rosemary sprigs
-  category: food
+  collection: coffee-cocktails
+  added: 2026-10-19
 - image: coffee-break
   name: coffee break
   alt: A stovetop moka pot, a bag of coffee beans and a takeaway coffee cup drawn in black ink
-  category: food
+  collection: coffee-cocktails
+  added: 2026-10-19
 - image: baby-tennis
   name: baby tennis
   alt: A smiling baby in a yellow onesie holding a purple tennis racket, with two tennis balls nearby
-  category: places
+  collection: little-ones
+  added: 2026-10-19
 - image: baby-basketball
   name: baby basketball
   alt: A laughing baby in a yellow onesie with a pink bow tie holding an orange basketball
-  category: places
+  collection: little-ones
+  added: 2026-10-19
 - image: baby-at-the-laptop
   name: baby at the laptop
   alt: A happy baby typing on a laptop at a low wooden table next to a notebook and pencil
-  category: places
+  collection: little-ones
+  added: 2026-10-19
 - image: baby-dragon-ride
   name: baby dragon ride
   alt: A cheering baby with arms up, riding a pink plush dragon with little white wings
-  category: places
+  collection: little-ones
+  added: 2026-10-19
 - image: kettle-and-coffee
   name: kettle and coffee
   alt: A gooseneck kettle and a cup of black coffee on a saucer, drawn in black ink
-  category: food
+  collection: coffee-cocktails
+  added: 2026-10-27
 - image: welcome-to-washington
   name: welcome to washington
   alt: A green road sign shaped around the state of Washington reading 'Welcome to Washington, The Evergreen State'
-  category: places
+  collection: seattle
+  added: 2026-10-27
 - image: public-market-sign
   name: public market sign
   alt: The red 'Public Market Center' sign and clock at Pike Place Market in Seattle
-  category: places
+  collection: seattle
+  added: 2026-10-27

@@ -42,14 +42,16 @@ The domain renews yearly in Cloudflare; keep auto-renew on so the site doesn't g
 | Home page | `index.html` |
 | How It Works | `how-it-works/index.html` |
 | Pricing | `pricing/index.html` |
-| Gallery | `gallery/index.html` |
+| Gallery (event photos, videos + a peek at the newest designs) | `gallery/index.html` |
+| Designs (the full design library, one shelf per collection) | `designs/index.html` |
 | FAQ questions & answers | `_data/faq.yml` (the page and Google's FAQ markup both read from it) |
 | Book Us / inquiry form | `contact/index.html` (sends answers to our Google Form; if you add, remove or rename a question or answer choice in Google Forms, update it here too) |
 | Menu (top of every page) | `_includes/header.html` |
 | Footer (bottom of every page) | `_includes/footer.html` |
 | Event photos | `images/gallery/` |
 | Sticker / tattoo / print designs | `images/designs/` |
-| Design names & descriptions (Gallery + home page machine) | `_data/designs.yml` |
+| Design names, descriptions, collection & date added | `_data/designs.yml` |
+| Design collections (shelf names, order, blurbs) | `_data/collections.yml` |
 | Colors, fonts, layout | `css/style.css` (colors are at the top) |
 | Font files (Chewy, Nunito; self-hosted) | `fonts/` |
 | Instagram link, Google Form link, location | `_config.yml` |
@@ -58,7 +60,7 @@ You can edit any of these straight on github.com (open the file → pencil icon 
 
 ### Adding photos
 
-Put event photos in `images/gallery/` and designs in `images/designs/`, then add a tile to `gallery/index.html` like:
+Put event photos in `images/gallery/`, then add a tile to `gallery/index.html` like:
 
 ```html
 <div class="tile"><img src="{{ '/images/gallery/my-photo.jpg' | relative_url }}" alt="What's in the photo" loading="lazy"></div>
@@ -125,9 +127,20 @@ Every Monday morning a scheduled Claude task checks the **Art Library** folder i
 - Files it has already handled are listed in `_data/gallery-sources.yml`. Delete a line there to have it look
   at that file again.
 - Event photos and videos aren't part of this; send those over as before.
-- The Gallery shows the first 12 designs in `_data/designs.yml`, with "Show all" and theme buttons (animals,
-  food, flowers & plants, places & things) for the rest. Each design has a `category`; move a design higher
-  in the list to feature it in the first 12.
+- Each new design gets a `collection` (which shelf it sits on, from `_data/collections.yml`) and an `added`
+  date. The check suggests a collection when it asks for your approval.
+
+### The Designs page
+
+- Every design shows on the **Designs** page (`/designs/`), on a swipeable shelf for its collection:
+  Seattle & the PNW, Cats & critters, Coffee & cocktails, Garden & market, Little ones, Places & travel.
+  "See all" opens a shelf into a grid, and tapping a design shows it bigger.
+- **New this month** at the top shows the 8 most recent designs added in the last 30 days, with a "new" tag.
+  It updates itself; when nothing is newer than 30 days, it simply disappears.
+- To **add or rename a collection**, edit `_data/collections.yml` (the order there is the order on the page),
+  then set designs to it in `_data/designs.yml`. Within a shelf, the newest designs come first.
+- The Gallery shows the 6 newest designs with a "See all designs" button, and the home page machine pulls
+  from every design.
 
 ## Keeping it running (checklist)
 

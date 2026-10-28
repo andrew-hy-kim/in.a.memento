@@ -1,0 +1,98 @@
+---
+layout: default
+title: "Designs: Hand-Drawn Stickers, Tattoos and Mini Prints"
+description: "Browse our library of hand-drawn designs for stickers, temporary tattoos and mini prints: Seattle landmarks, cats, coffee, flowers and more. Or ask for a custom design."
+---
+{%- comment -%}
+  Designs page: one swipeable shelf per collection (_data/collections.yml), filled from _data/designs.yml.
+  "New" shows the 8 most recent designs added in the last 30 days (by their `added` date). The site works this
+  out when it's published, and js/main.js also hides anything that has gone past 30 days since then.
+{%- endcomment %}
+{%- assign designs = site.data.designs | sort: "added" | reverse -%}
+{%- assign cutoff = site.time | date: "%s" | minus: 2592000 -%}
+{%- assign new_count = 0 -%}
+{%- capture new_tiles -%}
+  {%- for d in designs -%}
+    {%- assign t = d.added | date: "%s" | plus: 0 -%}
+    {%- if t >= cutoff and new_count < 8 -%}
+      {%- assign new_count = new_count | plus: 1 %}
+        <li><figure class="design-tile" data-added="{{ d.added | date: '%Y-%m-%d' }}"><span class="new-badge" aria-hidden="true">new</span><img src="{{ '/images/designs/' | append: d.image | append: '.webp' | relative_url }}" width="720" height="900" loading="lazy" alt="{{ d.alt }}"></figure></li>
+    {%- endif -%}
+  {%- endfor -%}
+{%- endcapture -%}
+
+<section class="page-banner bg-gingham">
+  <div class="container">
+    <div class="banner-card">
+      <h1>Designs</h1>
+      <p>{{ site.data.designs | size }} hand-drawn designs and counting. Pick your favourites for the machine, mix and match, or we'll draw something new for your event.</p>
+    </div>
+  </div>
+</section>
+
+<nav class="shelf-jump" aria-label="Design collections">
+  <ul>
+    {%- if new_count > 0 %}
+    <li data-jump="new"><a href="#new">New<span class="n">{{ new_count }}</span></a></li>
+    {%- endif %}
+    {%- for c in site.data.collections %}
+    {%- assign n = site.data.designs | where: "collection", c.id | size %}
+    {%- if n > 0 %}
+    <li><a href="#{{ c.id }}">{{ c.name | escape }}<span class="n">{{ n }}</span></a></li>
+    {%- endif %}
+    {%- endfor %}
+  </ul>
+</nav>
+
+<section class="bg-cream shelves-section">
+  <div class="container">
+    {%- if new_count > 0 %}
+    <section class="shelf shelf-new" id="new" aria-labelledby="new-title">
+      <div class="shelf-head">
+        <h2 id="new-title">New this month</h2>
+        <button class="shelf-toggle" type="button" aria-expanded="false" aria-controls="new-row" hidden>See all</button>
+      </div>
+      <p class="shelf-blurb">Fresh from the sketchbook.</p>
+      <div class="shelf-wrap">
+        <button class="scrap-nav shelf-prev" type="button" aria-label="Scroll new designs left">‹</button>
+        <ul class="shelf-row" id="new-row">{{ new_tiles }}
+        </ul>
+        <button class="scrap-nav shelf-next" type="button" aria-label="Scroll new designs right">›</button>
+      </div>
+    </section>
+    {%- endif %}
+
+    {%- for c in site.data.collections %}
+    {%- assign items = designs | where: "collection", c.id %}
+    {%- if items.size > 0 %}
+    <section class="shelf" id="{{ c.id }}" aria-labelledby="{{ c.id }}-title">
+      <div class="shelf-head">
+        <h2 id="{{ c.id }}-title">{{ c.name | escape }}</h2>
+        <span class="shelf-count">{{ items.size }}</span>
+        <button class="shelf-toggle" type="button" aria-expanded="false" aria-controls="{{ c.id }}-row" hidden>See all</button>
+      </div>
+      <p class="shelf-blurb">{{ c.blurb }}</p>
+      <div class="shelf-wrap">
+        <button class="scrap-nav shelf-prev" type="button" aria-label="Scroll {{ c.name | escape }} left">‹</button>
+        <ul class="shelf-row" id="{{ c.id }}-row">
+          {%- for d in items %}
+          <li><figure class="design-tile"><img src="{{ '/images/designs/' | append: d.image | append: '.webp' | relative_url }}" width="720" height="900" loading="lazy" alt="{{ d.alt }}"></figure></li>
+          {%- endfor %}
+        </ul>
+        <button class="scrap-nav shelf-next" type="button" aria-label="Scroll {{ c.name | escape }} right">›</button>
+      </div>
+    </section>
+    {%- endif %}
+    {%- endfor %}
+
+    <div class="stamp designs-custom">
+      <span class="eyebrow">something just for you</span>
+      <h2>Don't see it here?</h2>
+      <p class="muted">We draw custom designs all the time: your pet, your venue, your favourite snack, your company mascot. Most designs are printed at about 2×2" or 3×3".</p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="{{ '/contact/' | relative_url }}">Ask for a custom design</a>
+        <a class="btn btn-soft" href="{{ '/gallery/' | relative_url }}">See them at events</a>
+      </div>
+    </div>
+  </div>
+</section>
