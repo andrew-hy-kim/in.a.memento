@@ -1712,8 +1712,9 @@ main > section + section,
   .price-card h3 { padding-bottom: 8px; margin-bottom: 8px; }
   .price-card h3::before { left: -23px; } .price-card h3::after { right: -23px; }
 }
-/* Hero headline size */
+/* Hero headline: keep "one token at a time." on one line where there's room */
 .hero h1 { font-size: clamp(2.4rem, 5vw, 3.55rem); }
+@media (min-width: 901px) { .hero h1 .accent { white-space: nowrap; } }
 
 
 /* Gallery photos: even white border all round, like the sides */
@@ -2021,10 +2022,6 @@ section[tabindex="-1"]:focus, .faq-group[tabindex="-1"]:focus { outline: none; }
 /* Back-to-back cream sections read as one page, so they don't need a full gap between them */
 main > section.bg-cream + section.bg-cream { padding-top: 16px; }
 
-/* Home: the favor section is two short paragraphs instead of an icon list */
-.favor-copy p { font-size: 1.1rem; color: var(--ink-soft); }
-.favor-copy .btn { margin-top: 8px; }
-
 /* Home: each review sits under a photo from that kind of event */
 .quote-card { max-width: none; margin: 0; padding: 12px 12px 22px; border-radius: 28px; transform: rotate(-1.2deg); }
 .quote-card:nth-child(even) { transform: rotate(1.2deg); margin-top: 28px; }
@@ -2037,15 +2034,3 @@ main > section.bg-cream + section.bg-cream { padding-top: 16px; }
 /* Page endings: a heading, a line and a button, without the dashed box */
 .cta-band h2 { margin-bottom: 0.3em; }
 .cta-band p { max-width: 560px; margin-left: auto; margin-right: auto; }
-
-/* How it works: the four steps as a plain numbered list */
-.plain-steps { list-style: none; counter-reset: step; max-width: 720px; margin: 0 auto; padding: 0; }
-.plain-steps li { counter-increment: step; position: relative; padding-left: 52px; margin-bottom: 18px; font-size: 1.1rem; color: var(--ink-soft); }
-.plain-steps li::before { content: counter(step); position: absolute; left: 0; top: -6px; font-family: var(--font-display); font-size: 2rem; color: var(--terracotta); }
-.plain-steps strong { color: var(--ink); }
-
-/* Pricing: rental prices as a simple menu list */
-.menu-card { max-width: 560px; margin: 0 auto; }
-.menu-card .addon-list li { font-size: 1.1rem; }
-.hand-note { font-family: var(--font-display); font-style: normal; font-size: 1.05rem; color: var(--terracotta-text); margin-left: 10px; white-space: nowrap; }
-.hand-note::before { content: "← "; }

@@ -8,8 +8,8 @@ description: "A vending machine full of custom stickers, temporary tattoos and m
   <div class="container">
     <div class="hero-copy">
       <span class="eyebrow">seattle vending machine rentals</span>
-      <h1>Party favors <span class="accent">your guests will actually keep.</span></h1>
-      <p class="hero-lead">We bring a vending machine to weddings and events across the Seattle area, filled with stickers, temporary
+      <h1>Little mementos, <span class="accent">one token at a time.</span></h1>
+      <p class="hero-lead">We bring a vending machine to events across the Seattle area, filled with stickers, temporary
         tattoos or mini prints (or a mix) designed just for your event. Guests insert a token, twist, and pull out a surprise to take home.</p>
       <ul class="pill-row">
         <li class="pill">weddings</li>
@@ -33,11 +33,11 @@ description: "A vending machine full of custom stickers, temporary tattoos and m
   </div>
 </section>
 
-<section class="bg-cream try-section" id="try-it">
+<section class="bg-blush try-section" id="try-it">
   <div class="container">
     <div class="section-head">
       <h2>Give it a twist</h2>
-      <p>Twist the knob and see what you get.</p>
+      <p>Every memento is a little surprise. Try our machine and see which one you get.</p>
     </div>
     {%- comment -%} "Pull a memento" mini machine: twist the knob to get a random design (js/main.js) {%- endcomment %}
     {%- capture designs_json %}[{% for d in site.data.designs %}{"src":{{ '/images/designs/' | append: d.image | append: '.webp' | relative_url | jsonify }},"name":{{ d.name | jsonify }},"alt":{{ d.alt | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}]{% endcapture %}
@@ -63,12 +63,17 @@ description: "A vending machine full of custom stickers, temporary tattoos and m
   </div>
 </section>
 
-<section class="bg-cream">
+<section class="bg-butter">
   <div class="container split">
-    <div class="favor-copy">
+    <div class="card">
       <h2>A favor that's part of the fun</h2>
-      <p>We draw the designs: from our library, from your own art, or something new for your event. On the day, we bring the machine, set it up, keep an eye on it and pack it up when you're done. We provide the tokens, and there's no travel fee within 25 miles of Capitol Hill.</p>
-      <p>Put it by the guestbook at a wedding, next to the cake at a birthday or by the register at a pop-up. People line up to try it, and it gets guests talking to each other.</p>
+      <p>Guests grab a token, twist the knob and take home a little surprise.</p>
+      <ul class="feature-list">
+        <li><img class="doodle-icon" src="{{ '/images/designs/bookworm.webp' | relative_url }}" alt="" aria-hidden="true" width="44" height="55"><div><strong>Drawn by us</strong><span>Stickers, temporary tattoos or mini prints (or a mix) from our design library, your own art, or something new we draw for your event.</span></div></li>
+        <li><img class="doodle-icon" src="{{ '/images/designs/tote-bag.webp' | relative_url }}" alt="" aria-hidden="true" width="44" height="55"><div><strong>We handle setup</strong><span>We bring the machine, set it up and look after it during your event, then pack it up when you're done. No travel fee within 25 miles of Capitol Hill.</span></div></li>
+        <li><img class="doodle-icon" src="{{ '/images/designs/fish-hat-cat.webp' | relative_url }}" alt="" aria-hidden="true" width="44" height="55"><div><strong>Everyone joins in</strong><span>People line up to try it, and it gets guests talking to each other. We provide the tokens.</span></div></li>
+        <li><img class="doodle-icon" src="{{ '/images/designs/flower-vase.webp' | relative_url }}" alt="" aria-hidden="true" width="44" height="55"><div><strong>Fits any event</strong><span>Tuck it by the guestbook at a wedding, next to the cake at a birthday or by the register at a pop up, and watch the crowd gather.</span></div></li>
+      </ul>
       <a class="btn btn-primary" href="{{ '/pricing/' | relative_url }}">See pricing</a>
     </div>
     <figure class="polaroid tilt-left photo-tall hide-phone">
@@ -78,7 +83,7 @@ description: "A vending machine full of custom stickers, temporary tattoos and m
   </div>
 </section>
 
-<section class="bg-cream">
+<section class="bg-gingham">
   <div class="container">
     <div class="section-head">
       <h2>What people said</h2>
@@ -95,8 +100,8 @@ description: "A vending machine full of custom stickers, temporary tattoos and m
         </figcaption>
       </figure>
       <figure class="polaroid quote-card">
-        <img src="{{ '/images/gallery/bday-video-2.webp' | relative_url }}" width="540" height="960" loading="lazy"
-             alt="A guest at a birthday party opening the mini print he just got from the machine">
+        <img src="{{ '/images/gallery/andrews-30th.webp' | relative_url }}" width="825" height="1100" loading="lazy"
+             alt="The vending machine on a table outdoors at a 30th birthday party, its display showing six doodle designs">
         <figcaption>
           <blockquote>“in a memento designed mini prints around my hobbies for my birthday: reading, running, cooking, and naps. It was a fun way to share a bit of myself with friends, and everyone was curious to see which one they'd get!”</blockquote>
           <cite>Andrew K. <span class="cite-event">birthday party</span></cite>
