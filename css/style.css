@@ -303,18 +303,10 @@ section { padding: 88px 0; }
 .hero-art { display: flex; justify-content: center; }
 .hero-art svg { width: min(360px, 100%); height: auto; filter: drop-shadow(0 18px 24px rgba(91, 63, 44, 0.15)); }
 
-.pill-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 26px; padding: 0; list-style: none; }
-.pill {
-  background: var(--sky);
-  border-radius: 999px;
-  padding: 4px 14px;
-  font-size: 0.92rem;
-  font-weight: 700;
-}
-.pill:nth-child(2) { background: var(--butter); }
-.pill:nth-child(3) { background: var(--sage); }
-.pill:nth-child(4) { background: var(--blush); }
-.pill:nth-child(5) { background: var(--peach); }
+/* Event types under the intro: one line of text, rust dots between, each item kept in one piece */
+.event-line { margin: -4px 0 24px; font-weight: 700; color: var(--ink-soft); line-height: 1.6; }
+.event-line > span { white-space: nowrap; }
+.event-line .dot { color: var(--terracotta); font-weight: 800; padding: 0 3px; }
 
 @media (max-width: 880px) {
   .hero .container { grid-template-columns: 1fr; }
@@ -902,9 +894,6 @@ details.more > *:not(summary) { margin-top: 10px; }
   .faq-nav a { padding: 8px 10px; font-size: 0.88rem; text-align: center; }
 }
 
-/* 5. Event pills fit on one line on desktop */
-.pill { padding: 4px 11px; font-size: 0.86rem; }
-.pill-row { gap: 6px; }
 
 /* 9. Gallery event photos side by side (and smaller) on phones */
 
@@ -1926,8 +1915,7 @@ section[tabindex="-1"]:focus, .faq-group[tabindex="-1"]:focus { outline: none; }
   .hero .eyebrow { margin-bottom: 2px; }
   .hero h1 { margin-bottom: 0.3em; }
   .hero-lead { font-size: 1.02rem; line-height: 1.55; margin-bottom: 0.8em; }
-  .hero .pill-row { gap: 6px; margin-bottom: 14px; }
-  .hero .pill { font-size: 0.8rem; padding: 3px 10px; }
+  .hero .event-line { font-size: 0.95rem; margin-bottom: 16px; }
   .hero .btn-row { gap: 10px; }
   .hero .btn-row .btn { padding: 12px 22px; }
   .hero-try { margin-top: 10px; }
@@ -1937,11 +1925,11 @@ section[tabindex="-1"]:focus, .faq-group[tabindex="-1"]:focus { outline: none; }
   .hero h1 { font-size: 2.15rem; }
   .hero .eyebrow { font-size: 1.3rem; }
   .hero-lead { font-size: 0.97rem; line-height: 1.5; }
-  .hero .pill { font-size: 0.76rem; padding: 2px 9px; }
+  .hero .event-line { font-size: 0.9rem; }
   .hero .btn-row .btn { padding: 11px 18px; }
 }
-/* very short phone screens (iPhone SE): skip the event tags so the buttons and link stay clear of the bottom edge */
-@media (max-width: 380px) and (max-height: 600px) { .hero .pill-row { display: none; } }
+/* very short phone screens (iPhone SE): skip the event line so the buttons and link stay clear of the bottom edge */
+@media (max-width: 380px) and (max-height: 600px) { .hero .event-line { display: none; } }
 
 /* FAQ topics on phones: each button its natural width on one line, rows centred (no uneven 2x2 grid) */
 @media (max-width: 640px) {

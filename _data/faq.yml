@@ -6,7 +6,7 @@
   icon: "chef-duck"   # a design from images/designs/
   items:
     - q: "What kinds of events do you do?"
-      a: "Weddings, birthdays, bridal and baby showers, work parties, and pop-ups at shops and cafés. Not sure your event fits? Just ask."
+      a: "Weddings, birthdays, bridal and baby showers, corporate events, and pop-ups at shops and cafés. Not sure your event fits? Just ask."
 
     - q: "What goes in the machine?"
       a: |
