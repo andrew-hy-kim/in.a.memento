@@ -2026,6 +2026,8 @@ main > section.bg-cream + section.bg-cream { padding-top: 16px; }
 .quote-card { max-width: none; margin: 0; padding: 12px 12px 22px; border-radius: 28px; transform: rotate(-1.2deg); }
 .quote-card:nth-child(even) { transform: rotate(1.2deg); margin-top: 28px; }
 .quote-card img { aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 25%; border-radius: 16px; }
+/* Which slice of each tall photo shows in the wide frame (0% = top, 100% = bottom) */
+.quote-card img.crop-tattoo-bar { object-position: 50% 70%; }
 .quote-card figcaption { text-align: left; padding: 0 10px; font-size: 1.05rem; color: var(--ink); }
 .quote-card blockquote { margin: 6px 0 0; line-height: 1.55; }
 .quote-card cite { display: block; margin-top: 10px; font-style: normal; font-weight: 700; color: var(--terracotta-text); }
