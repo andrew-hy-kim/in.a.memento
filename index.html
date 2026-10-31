@@ -8,7 +8,7 @@ description: "A vending machine full of custom stickers, temporary tattoos and m
   <div class="container">
     <div class="hero-copy">
       <span class="eyebrow">seattle vending machine rentals</span>
-      <h1>Little mementos, <span class="accent">one token at a time.</span></h1>
+      <h1>Party favors <span class="accent">your guests will actually keep.</span></h1>
       <p class="hero-lead">We bring a vending machine to weddings and events across the Seattle area, filled with stickers, temporary
         tattoos or mini prints (or a mix) designed just for your event. Guests insert a token, twist, and pull out a surprise to take home.</p>
       <ul class="pill-row">
@@ -37,7 +37,7 @@ description: "A vending machine full of custom stickers, temporary tattoos and m
   <div class="container">
     <div class="section-head">
       <h2>Give it a twist</h2>
-      <p>Every memento is a little surprise. Try our machine and see which one you get.</p>
+      <p>Twist the knob and see what you get.</p>
     </div>
     {%- comment -%} "Pull a memento" mini machine: twist the knob to get a random design (js/main.js) {%- endcomment %}
     {%- capture designs_json %}[{% for d in site.data.designs %}{"src":{{ '/images/designs/' | append: d.image | append: '.webp' | relative_url | jsonify }},"name":{{ d.name | jsonify }},"alt":{{ d.alt | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}]{% endcapture %}
@@ -67,12 +67,11 @@ description: "A vending machine full of custom stickers, temporary tattoos and m
   <div class="container split">
     <div class="card">
       <h2>A favor that's part of the fun</h2>
-      <p>Guests grab a token, twist the knob and take home a little surprise.</p>
       <ul class="feature-list">
         <li><img class="doodle-icon" src="{{ '/images/designs/bookworm.webp' | relative_url }}" alt="" aria-hidden="true" width="44" height="55"><div><strong>Drawn by us</strong><span>Stickers, temporary tattoos or mini prints (or a mix) from our design library, your own art, or something new we draw for your event.</span></div></li>
         <li><img class="doodle-icon" src="{{ '/images/designs/tote-bag.webp' | relative_url }}" alt="" aria-hidden="true" width="44" height="55"><div><strong>We handle setup</strong><span>We bring the machine, set it up and look after it during your event, then pack it up when you're done. No travel fee within 25 miles of Capitol Hill.</span></div></li>
         <li><img class="doodle-icon" src="{{ '/images/designs/fish-hat-cat.webp' | relative_url }}" alt="" aria-hidden="true" width="44" height="55"><div><strong>Everyone joins in</strong><span>People line up to try it, and it gets guests talking to each other. We provide the tokens.</span></div></li>
-        <li><img class="doodle-icon" src="{{ '/images/designs/flower-vase.webp' | relative_url }}" alt="" aria-hidden="true" width="44" height="55"><div><strong>Fits any event</strong><span>Tuck it by the guestbook at a wedding, next to the cake at a birthday or by the register at a pop up, and watch the crowd gather.</span></div></li>
+        <li><img class="doodle-icon" src="{{ '/images/designs/flower-vase.webp' | relative_url }}" alt="" aria-hidden="true" width="44" height="55"><div><strong>Fits any event</strong><span>Tuck it by the guestbook at a wedding, next to the cake at a birthday or by the register at a pop-up.</span></div></li>
       </ul>
       <a class="btn btn-primary" href="{{ '/pricing/' | relative_url }}">See pricing</a>
     </div>

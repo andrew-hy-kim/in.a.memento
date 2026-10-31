@@ -6,15 +6,15 @@
   icon: "chef-duck"   # a design from images/designs/
   items:
     - q: "What kinds of events do you do?"
-      a: "Weddings, birthday parties, bridal showers, baby showers, corporate events, social gatherings, pop ups and cafes. Hosting a pop up or running a cafe? Reach out, we'd love to bring the machine to you!"
+      a: "Weddings, birthdays, bridal and baby showers, work parties, and pop-ups at shops and cafés. Not sure your event fits? Just ask."
 
     - q: "What goes in the machine?"
       a: |
-        Stickers, temporary tattoos or mini prints (or a mix)! The machine has three slots, so each one can hold something different, and you can mix and match.
+        Stickers, temporary tattoos or mini prints (or a mix). The machine has three slots, so each one can hold something different.
 
-        - **Mini prints** are a beautiful, permanent keepsake.
-        - **Stickers** are a universal crowd pleaser.
-        - **Temporary tattoos** add an interactive vibe to any party!
+        - **Stickers** end up on laptops, water bottles and phone cases.
+        - **Temporary tattoos** can go on right at the party. We can set up a tattoo bar with water and sponges.
+        - **Mini prints** are small art prints to keep on a desk or the fridge.
 
     - q: "Are the temporary tattoos safe for skin?"
       a: "Yes, our temporary tattoos are safe for skin and come off with soap and water or a little baby oil."
@@ -25,16 +25,16 @@
   items:
     - q: "Can we customize the designs or use our own artwork?"
       a: |
-        Yes! You have three options:
+        Yes. You have three options:
 
         - **Choose from our design library.** Customizing these is free.
-        - **Provide your own art, for free.** We love using your custom wedding crests, monograms, venue line drawings, or photos of your pets. Simply upload your high resolution files during the booking process, and we’ll handle the sizing, printing, and packaging.
-        - **Request a custom design** for $50 each. We’d love to hear your vision and create artwork based on your wedding or event aesthetic. A color palette is a great way to keep your pieces cohesive.
+        - **Provide your own art, for free.** Send us your files after you book (a monogram, a drawing of your venue, a photo of your dog) and we'll size, print and pack them.
+        - **Request a custom design** for $50 each. Send us a theme, a photo or your colors and we'll draw it.
 
         The machine's display can also show your names, date or a punny message.
 
     - q: "Is the artwork AI generated?"
-      a: "No! All designs are hand-drawn, either by us or a local Seattle artist, and created specifically for your event."
+      a: "No. Every design is hand-drawn, either by us or a local Seattle artist."
 
 - group: "Pricing & travel"
   id: pricing
@@ -54,13 +54,13 @@
   icon: "tiny-free-library"   # a design from images/designs/
   items:
     - q: "How far in advance should we book?"
-      a: "As soon as possible! We need about 2 months to design and print everything. If your event is sooner, [reach out](/contact/) and we’ll see what we can do! For expedited production within 3 weeks, a $75 fee will be added to cover priority printing and expedited shipping."
+      a: "About 2 months ahead is ideal, since that's how long we need to design and print everything. If your event is sooner, [ask us](/contact/) and we'll see what we can do. For expedited production within 3 weeks, a $75 fee covers priority printing and expedited shipping."
 
     - q: "How do we book, and what happens next?"
       a: |
         Fill out our [inquiry form](/contact/) and we'll email you about availability within 2 to 3 business days. A 25% deposit secures your date.
 
-        After you book, we'll talk by phone, video call or email to go over all the details, including your vision for your mementos, the signage, timeline, and any questions you may have. We’ll then work together to make your designs perfect and ready for your event!
+        After you book, we'll talk by phone, video call or email about designs, signage and timing, and go back and forth on the designs until you're happy.
 
     - q: "What is your payment policy?"
       a: "A minimum 25% deposit is due at booking to secure your date, and deposits are non-refundable. The remaining balance is due in full at least 14 days before your event."

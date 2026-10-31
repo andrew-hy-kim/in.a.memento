@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Designs: Hand-Drawn Stickers, Tattoos and Mini Prints"
+title: "Designs"
 description: "Browse our library of hand-drawn designs for stickers, temporary tattoos and mini prints: Seattle landmarks, cats, coffee, flowers and more. Or ask for a custom design."
 ---
 {%- comment -%}
@@ -25,7 +25,7 @@ description: "Browse our library of hand-drawn designs for stickers, temporary t
   <div class="container">
     <div class="banner-card">
       <h1>Designs</h1>
-      <p>{{ site.data.designs | size }} hand-drawn designs and counting. Pick your favorites for the machine, mix and match, or we'll draw something new for your event.</p>
+      <p>{{ site.data.designs | size }} hand-drawn designs so far. Pick your favorites for the machine, mix and match, or we'll draw something new for your event.</p>
     </div>
   </div>
 </section>
@@ -52,7 +52,7 @@ description: "Browse our library of hand-drawn designs for stickers, temporary t
         <h2 id="new-title">New this month</h2>
         <button class="shelf-toggle" type="button" aria-expanded="false" aria-controls="new-row" hidden>See all</button>
       </div>
-      <p class="shelf-blurb">Fresh from the sketchbook.</p>
+      <p class="shelf-blurb">Added this month.</p>
       <div class="shelf-wrap">
         <button class="scrap-nav shelf-prev" type="button" aria-label="Scroll new designs left">‹</button>
         <ul class="shelf-row" id="new-row">{{ new_tiles }}
