@@ -306,6 +306,7 @@ section { padding: 88px 0; }
 /* Event types under the intro: one line of text, rust dots between, each item kept in one piece */
 .event-line { margin: -4px 0 24px; font-weight: 700; color: var(--ink-soft); line-height: 1.6; }
 .event-line > span { white-space: nowrap; }
+.event-line { text-wrap: wrap; } /* fill each line; the site-wide "pretty" wrapping evened the two lines out and left a gap */
 .event-line .dot { color: var(--terracotta); font-weight: 800; padding: 0 3px; }
 
 @media (max-width: 880px) {
