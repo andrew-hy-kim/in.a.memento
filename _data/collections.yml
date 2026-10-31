@@ -2,7 +2,7 @@
 # To add a collection: add an entry here, then set designs to it. A collection with no designs is simply hidden.
 - id: seattle
   name: Seattle & the PNW
-  blurb: Local landmarks and evergreen favourites.
+  blurb: Local landmarks and evergreen favorites.
 - id: critters
   name: Cats & critters
   blurb: Napping cats, reading cats, and a duck who cooks.

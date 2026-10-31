@@ -6,11 +6,11 @@
   icon: "chef-duck"   # a design from images/designs/
   items:
     - q: "What kinds of events do you do?"
-      a: "Weddings, birthday parties, bridal showers, baby showers, corporate events, social gatherings, pop ups and cafes. Hosting a pop up or running a cafe? Please reach out, we'd love to bring the machine to you!"
+      a: "Weddings, birthday parties, bridal showers, baby showers, corporate events, social gatherings, pop ups and cafes. Hosting a pop up or running a cafe? Reach out, we'd love to bring the machine to you!"
 
     - q: "What goes in the machine?"
       a: |
-        Stickers, temporary tattoos and/or mini prints! The machine has three slots, so each one can hold something different, and you can mix and match.
+        Stickers, temporary tattoos or mini prints (or a mix)! The machine has three slots, so each one can hold something different, and you can mix and match.
 
         - **Mini prints** are a beautiful, permanent keepsake.
         - **Stickers** are a universal crowd pleaser.
@@ -42,9 +42,9 @@
   items:
     - q: "How much does it cost?"
       a: |
-        Machine rental is $200 for 2 hours up to $425 for 5 hours, including delivery, setup and pickup. Mementos are $0.50–$2 per item depending on the type, quantity and size. Please see our [pricing page](/pricing/) for details.
+        Machine rental is $200 for 2 hours up to $425 for 5 hours, including delivery, setup and pickup. Mementos are $0.50–$2 per item depending on the type, quantity and size. See our [pricing page](/pricing/) for details.
 
-        Planning a corporate event? Please reach out through our [inquiry form](/contact/) for corporate pricing.
+        Planning a corporate event? Reach out through our [inquiry form](/contact/) for corporate pricing.
 
     - q: "Where are you located? Do you travel?"
       a: "We're based in Capitol Hill, Seattle. Travel is free within 25 miles. Beyond that, it's $2.50 per mile for each mile past the first 25, using the Google Maps driving distance (one way) from Capitol Hill to your venue. For example, a venue 45 miles away adds $50. For venues over 100 miles away we'll quote you directly, and overnight accommodation may need to be covered."
@@ -54,11 +54,11 @@
   icon: "tiny-free-library"   # a design from images/designs/
   items:
     - q: "How far in advance should we book?"
-      a: "As soon as possible! We need about 2 months to design and print everything. If your event is sooner, please [reach out](/contact/) and we’ll see what we can do! For expedited production within 3 weeks, a $75 fee will be added to cover priority printing and expedited shipping."
+      a: "As soon as possible! We need about 2 months to design and print everything. If your event is sooner, [reach out](/contact/) and we’ll see what we can do! For expedited production within 3 weeks, a $75 fee will be added to cover priority printing and expedited shipping."
 
     - q: "How do we book, and what happens next?"
       a: |
-        Please fill out our [inquiry form](/contact/) and we'll email you about availability within 2 to 3 business days. A 25% deposit secures your date.
+        Fill out our [inquiry form](/contact/) and we'll email you about availability within 2 to 3 business days. A 25% deposit secures your date.
 
         After you book, we'll talk by phone, video call or email to go over all the details, including your vision for your mementos, the signage, timeline, and any questions you may have. We’ll then work together to make your designs perfect and ready for your event!
 
