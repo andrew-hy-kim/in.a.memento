@@ -137,6 +137,7 @@ p { margin: 0 0 1em; }
 }
 .logo-badge {
   width: 52px; height: 52px;
+  border-radius: 50%;
   flex-shrink: 0;
 }
 .logo-word {
