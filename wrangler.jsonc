@@ -1,0 +1,10 @@
+// Cloudflare preview copy of the site (built from the staging branch).
+// The live site at inamemento.com is GitHub Pages and doesn't use this file.
+{
+  "name": "in-a-memento",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./_site",
+    "not_found_handling": "404-page"
+  }
+}

@@ -35,5 +35,7 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - vendor
+  - wrangler.jsonc
+  - node_modules
   - CLAUDE.md
   - extras
