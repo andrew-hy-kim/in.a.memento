@@ -19,7 +19,7 @@ Any change that lands on `main` goes live automatically a minute or so later.
 
 - All changes are made on the **`staging`** branch (the repo's default branch). Nothing on `staging` affects inamemento.com.
 - `main` is **locked**: nobody (not even admins) can push to it directly. To go live, open a pull request from `staging` into `main` on github.com and press **Merge**.
-- Preview `staging` before merging: on the Cloudflare Pages preview link, or locally with `jekyll serve`.
+- Preview `staging` before merging at **https://in-a-memento.kimhwayong0918.workers.dev** (Cloudflare Workers project `in-a-memento`; it rebuilds automatically about 5 minutes after each change to `staging`, and is hidden from search engines). Build settings live in Cloudflare and in `wrangler.jsonc` + `Gemfile`.
 - The Book us form on a preview copy still sends to the real Google Form, so don't submit test inquiries from previews (or start the message with "TEST").
 
 ### Custom domain: inamemento.com (registered with Cloudflare)
