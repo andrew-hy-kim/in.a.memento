@@ -13,7 +13,14 @@ so there is no server to run and nothing to install.
 3. Under **Build and deployment**, choose **Source: Deploy from a branch**, pick the `main` branch and the `/ (root)` folder, and click **Save**.
 4. After a minute or two the site is live at **https://inamemento.com** (once the DNS records below are in place).
 
-Any change pushed to `main` goes live automatically a minute or so later.
+Any change that lands on `main` goes live automatically a minute or so later.
+
+### Working safely: staging → live
+
+- All changes are made on the **`staging`** branch (the repo's default branch). Nothing on `staging` affects inamemento.com.
+- `main` is **locked**: nobody (not even admins) can push to it directly. To go live, open a pull request from `staging` into `main` on github.com and press **Merge**.
+- Preview `staging` before merging: on the Cloudflare Pages preview link, or locally with `jekyll serve`.
+- The Book us form on a preview copy still sends to the real Google Form, so don't submit test inquiries from previews (or start the message with "TEST").
 
 ### Custom domain: inamemento.com (registered with Cloudflare)
 

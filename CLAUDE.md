@@ -12,8 +12,10 @@ Website for in a memento (https://inamemento.com), our Seattle sticker, temporar
 - Content-Security-Policy is in `_layouts/default.html`; any new outside service needs its domain added there.
 
 ## Branches and going live
-- `main` is the live site: anything pushed to `main` is public at inamemento.com about a minute later.
-- Never push to `main` without asking me first. For bigger changes, work on a branch and show me before merging.
+- `main` is the live site: whatever is on `main` is public at inamemento.com about a minute later. It's locked: changes reach it only through a pull request from `staging`.
+- `staging` is the default branch where all work happens. Commit and push to `staging` freely; it never affects the live site.
+- Going live = open a pull request `staging` → `main` and merge it only after I say so.
+- Previewing `staging`: the Cloudflare Pages preview link (see README), or `jekyll serve` locally. Don't submit the Book us form on a preview; it sends to the real Google Form.
 
 ## Commands
 - Preview locally: `jekyll serve`, then open http://localhost:4000/ (needs `gem install jekyll` once).
